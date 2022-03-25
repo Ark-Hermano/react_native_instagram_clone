@@ -218,19 +218,10 @@ const storieStyles = StyleSheet.create({
 
 
 const styles = StyleSheet.create({
-  logoContainer:{
-    height:'50px',
-    width:'170px',
-    justifyContent: 'center'
+  background:{
+    backgroundColor:'#000',
   },
-  logo:{
-    width:'60%',
-    height: '30px'
-  },
-  headerIcon:{
-    width:'25px',
-    height: '25px'
-  },
+
   top: {
     height:60,
     backgroundColor:'#000',
@@ -239,79 +230,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: '15px',
     alignItems: 'center'
   }, 
-  background:{
-    backgroundColor:'#000',
-  },
-  listsIcon:{
-      height:20,
-      width:20,
-  },
-  newMessageIcon:{
-      height:20,
-      width:20,
-  },
-  activeUser:{
-      width: '65%',
-      color: '#fff',
-      fontFamily:'sans-serif',
-      fontWeight:'bold',
-  },
-  post: {
-    marginVertical: 15
-  },
-  postHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 15,
-    alignItems: 'center',
-    marginBottom: 15
-  },
-  postOptions: {},
-  userInfo: {},
-  author: {
-    fontSize: 14,
-    color: '#fff',
-    fontFamily:'sans-serif',
-    fontWeight: 'bold'
-  },
-  place: {
-    fontSize: 12,
-    color: '#666'
-  },
-  picture_url: {
-    width: '100%',
-    height: 400
-  },
-  footer: {
-    paddingHorizontal: 15
-  },
-  actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingVertical: 10,
 
+  logoContainer:{
+    height:'50px',
+    width:'170px',
+    justifyContent: 'center'
   },
-  action: {
-    marginRight: 8
+
+  logo:{
+    width:'60%',
+    height: '30px'
   },
-  actionImg: {
-    height: 25,
-    width: 25
+
+  headerIcon:{
+    width:'25px',
+    height: '25px'
   },
-  leftActions: {
-    flexDirection: 'row'
-  },
-  likes: {
-    fontWeight: 'bold',
-    fontSize: 12
-  },
-  hashtags: {
-    color: '#002D5E'
-  },
-  description: {
-    color: '#fff',
-    lineHeight: 18
-  }
+
 });
 
 export default Feed;

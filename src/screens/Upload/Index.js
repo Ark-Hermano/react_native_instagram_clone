@@ -5,8 +5,7 @@ import Photo from '../../../assets/a.png';
 import axios from 'axios';
 
 export default function MainScreen({route, navigation}) {
-    //const { photos } = route.params;
- 
+
     const photos = [
         'https://picsum.photos/720'
     ]
@@ -21,15 +20,7 @@ export default function MainScreen({route, navigation}) {
     };
 
     useEffect(() => {
-        // const {params} = this.props.route;
-        // if (params) {
-        //   const {photos} = params;
-        //   if (photos) this.setState({photos});
-        //   delete params.photos;
-        // }
     },[])
-
-
 
     async function handleUploadPhoto (){
         const formData = new FormData();
@@ -46,8 +37,7 @@ export default function MainScreen({route, navigation}) {
             formData.append('image', file) 
             formData.append('post_id', 1) 
 
-            axios
-                .post('http://localhost:8000/api/upload', formData)
+            axios.post('http://localhost:8000/api/upload', formData)
                 .then(function (response) {
                     // handle success
                     alert(JSON.stringify(response.data));
@@ -72,13 +62,8 @@ export default function MainScreen({route, navigation}) {
                 />
               </View>
 
-        
                 <Image  resizeMode="contain" style={styles.image} source={Photo} />           
-             
-
             </View>
-
-   
       </SafeAreaView>
     );
   }
