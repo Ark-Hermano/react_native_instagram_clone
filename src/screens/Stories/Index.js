@@ -10,11 +10,6 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
-import share from '../../../assets/invertedColors/camera.png'
-import highligth from '../../../assets/invertedColors/camera.png'
-import options from '../../../assets/invertedColors/options.png'
-import send from '../../../assets/invertedColors/send.png'
-
 const Storie = ({item, index, carousel, stories}) => {
 
     const [storieItem, setStorieItem] = useState(0)
@@ -84,18 +79,18 @@ const Storie = ({item, index, carousel, stories}) => {
                         </View>
 
                         <View style={styles.bottomActionSecond} >
-                            <Image style={styles.actionIcon}  source={share} />
-                            <Text style={styles.actionText} >Compartilhar</Text>
+                          <Feather  style={styles.actionIcon} name="camera" size={24} color="black" />  
+                          <Text style={styles.actionText} >Compartilhar</Text>
                         </View>
 
                         <View style={styles.bottomActionThird} >
-                            <Image style={styles.actionIcon}   source={highligth} />
-                            <Text style={styles.actionText}  >Destacar</Text>
+                          <Feather  style={styles.actionIcon} name="camera" size={24} color="black" /> 
+                          <Text style={styles.actionText}  >Destacar</Text>
                         </View>
 
                         <View style={styles.bottomActionLast} >
-                            <Image style={styles.actionIcon}  source={options} />
-                            <Text style={styles.actionText}  >Mais</Text>
+                          <Entypo name="dots-three-vertical" style={styles.actionIcon}  size={24} color="black" />
+                          <Text style={styles.actionText}  >Mais</Text>
                         </View>
                     </View>
                 </View> 
@@ -135,7 +130,8 @@ const Storie = ({item, index, carousel, stories}) => {
                             />
                    
 
-                        <Image style={styles.actionIcon}  source={send} />
+                          <Feather name="send" size={24} style={styles.actionIcon}  color="black" />
+                        
                     </View>
                 </View> 
             )}

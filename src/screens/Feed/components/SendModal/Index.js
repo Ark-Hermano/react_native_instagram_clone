@@ -6,9 +6,6 @@ import { Host, Portal } from 'react-native-portalize';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-import search from '../../../assets/invertedColors/search.png'
-import createGroup from '../../../assets/invertedColors/group.png'
-
 const Index = () => {
 
     const followers = [
@@ -70,7 +67,9 @@ const Index = () => {
                     </View>
 
                     <View style={modalSendStyles.searchContainer}  >
-                        <Image style={modalSendStyles.search} source={search} />
+
+                        <AntDesign tyle={modalSendStyles.search} name="search1" size={24} color="black" />
+
                         <input 
                             placeholder="Messagem..."
                             style={{
@@ -101,7 +100,7 @@ const Index = () => {
                     <TouchableOpacity style={modalSendStyles.createGroupContainer}>
 
                     <View >
-                        <Image style={modalSendStyles.createGroupIcon} source={createGroup} ></Image>
+                      <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="black" />
                     </View>
 
                     <View style={modalSendStyles.createGroupTextContainer} >

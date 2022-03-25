@@ -2,11 +2,9 @@ import React, {useContext} from 'react';
 import styled from 'styled-components/native'
 import { View, TouchableOpacity, Image } from 'react-native'
 
-import Home from '../../assets/invertedColors/home.png'
-import Search from '../../assets/invertedColors/search.png'
-import Reels from '../../assets/invertedColors/reels.png'
-import Shop from '../../assets/invertedColors/shop.png'
-import Account from '../../assets/invertedColors/account.png'
+
+import { Feather } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
 
 const TabArea = styled.View`
     height: 60px;
@@ -47,24 +45,19 @@ export default ({state, navigation}) => {
     return (
         <TabArea>
             <TabItem onPress={()=>goTo('Feed')}> 
-                <Icon source={Home} />
-                {/*<HomeIcon style={{opacity: state:index === 0 ? 1 : 0.5}} width="24" heigth="24" fill="#FFFFFF" />*/}
+                <Feather name="home" size={24} color="black" />
             </TabItem>
             <TabItem onPress={()=>goTo('Search')}>
-                <Icon source={Search} />
-                {/*<SearchIcon style={{opacity: state:index === 1 ? 1 : 0.5}} width="24" heigth="24" fill="#FFFFFF" />*/}
+                <AntDesign name="search1" size={24} color="black" />
             </TabItem>
             <TabItem onPress={()=>goTo('Reels')}>
-                <Icon source={Reels} />
-                {/*<TodayIcon width="32" heigth="32" fill="#4EADBE" />*/}
+                <Entypo name="folder-video" size={24} color="black" />
             </TabItem>
             <TabItem onPress={()=>goTo('Shop')}>
-                <Icon source={Shop} />
-                {/*<FavoriteIcon style={{opacity: state:index === 3 ? 1 : 0.5}} width="24" heigth="24" fill="#FFFFFF" />*/}
+                <Entypo name="shop" size={24} color="black" />
             </TabItem>
             <TabItem onPress={()=>goTo('Account')}>
-                <Icon source={Account} />
-               
+                <MaterialCommunityIcons name="account-circle-outline" size={24} color="black" />
             </TabItem>
         </TabArea>
     )

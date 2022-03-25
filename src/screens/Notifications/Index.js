@@ -7,9 +7,6 @@ import {
   Text,
 } from 'react-native';
 
-import backIcon from '../../../assets/invertedColors/backIcon.png'
-
-
 import './components/Notification/Index'
 
 function Comments({navigation}){
@@ -36,7 +33,8 @@ function Comments({navigation}){
     <ScrollView style={{backgroundColor: '#000'}}>
 
       <View style={stylesTop.top}>
-        <Image onClick={() => { navigation.goBack() }} style={stylesTop.backIcon} source={backIcon}/>
+        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+
         <View style={stylesTop.sectionName}>
             <Text style={{
               color: "#fff",

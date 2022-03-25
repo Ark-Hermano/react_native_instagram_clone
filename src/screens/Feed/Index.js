@@ -10,12 +10,9 @@ import {
 } from 'react-native';
 
 import Post from './components/Post/Index'
-import like from '../../../assets/invertedColors/emptyLike.png';
 
 import instaLogo from '../../../assets/invertedColors/instagramName.png'
-import createIcon from '../../../assets/invertedColors/create.png'
-import messenger from '../../../assets/invertedColors/messenger.png'
-import Ionicons from '@expo/vector-icons/Ionicons';
+
 
 function Feed({navigation}) {
 
@@ -180,10 +177,12 @@ function Feed({navigation}) {
           <View style={styles.logoContainer}>
             <Image style={styles.logo} source={instaLogo}/>
           </View>
-          
-          <Image onClick={() => { navigation.navigate('Create') }} style={styles.headerIcon} source={createIcon}/>
-          <Image onClick={() => { navigation.navigate('Notifications') }} style={styles.headerIcon} source={like}/>
-          <Image onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} source={messenger}/>
+
+          <AntDesign name="pluscircleo"  onClick={() => { navigation.navigate('Create') }} style={styles.headerIcon} size={24} color="black" />
+
+          <AntDesign name="hearto" onClick={() => { navigation.navigate('Notifications') }} style={styles.headerIcon}  size={24} color="black" />
+
+          <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="black" />
       </View>
 
       <ScrollView style={{ height: window.innerHeight - 120 }}>

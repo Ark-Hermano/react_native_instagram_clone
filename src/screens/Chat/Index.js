@@ -2,15 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet, Image,Text, Button, TouchableOpacity } from 'react-native';
 
 
-import cameraInverted from '../../../assets/invertedColors/camera.png'
-import adjust from '../../../assets/invertedColors/adjust.png'
-import backIcon from '../../../assets/invertedColors/backIcon.png'
-import search from '../../../assets/invertedColors/search.png'
-
-import lists from '../../../assets/invertedColors/list.png'
-import pencil from '../../../assets/invertedColors/pencil.png'
-
-
 import Conversation from './components/Conversation/Index'
 
 
@@ -67,17 +58,21 @@ function Feed({ navigation }) {
     return(
         <View>
             <View style={styles.top}>
-                <Image onClick={() => { navigation.goBack() }} style={styles.backIcon} source={backIcon}/>
+                <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+
                 <View style={styles.activeUser}>
                     <View  >hermano_sama</View>
                 </View>
-                <Image style={styles.listsIcon} source={lists}/>
-                <Image style={styles.newMessageIcon} source={pencil}/>
+                <FontAwesome name="list-ul" style={styles.listsIcon} size={24} color="black" />
+
+                <Foundation name="pencil" style={styles.newMessageIcon} size={24} color="black" />
             </View>
 
             <View style={styles.searchContainer}>
                 <View style={styles.searchBar}>
-                    <Image style={styles.searchIcon} source={search}/>
+
+                    <AntDesign name="search1" style={styles.searchIcon} size={24} color="black" />
+                   
                     <input style={
                         {
                             color:'#fff',
@@ -88,7 +83,9 @@ function Feed({ navigation }) {
                             width: '82%',
                         }
                     } placeholder="Pesquisar" />
-                    <Image style={styles.settingsIcon} source={adjust}/>
+
+                    <MaterialCommunityIcons style={styles.settingsIcon}  name="tune-vertical" size={24} color="black" />
+
                 </View>
             </View>
 

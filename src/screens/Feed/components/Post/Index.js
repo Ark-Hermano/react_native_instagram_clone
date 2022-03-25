@@ -1,14 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-
-import save from '../../../assets/invertedColors/save.png';
-import options from '../../../assets/invertedColors/options.png';
-import likedIcon from '../../../assets/invertedColors/like.png';
-import comment from '../../../assets/invertedColors/comment.png';
-import send from '../../../assets/invertedColors/send.png';
-
-
 import Likes from '../Likes/Index'
 
 const Index = () => {
@@ -35,16 +27,14 @@ const Index = () => {
         <View style={styles.post}>
             <View style={styles.postHeader}>
             <View style={styles.userInfo}>
-                <TouchableOpacity 
-                onPress={() => {navigation.navigate('User')}}
-                style={styles.author}>{post.author}</TouchableOpacity>
+                <TouchableOpacity onPress={() => {navigation.navigate('User')}} style={styles.author}>{post.author}</TouchableOpacity>
 
                 <Text style={styles.place}>{post.place}</Text>
             </View>
 
             <View style={styles.postOptions}>
                 <TouchableOpacity>
-                <Image source={options} />
+                    <Entypo name="dots-three-vertical" size={24} color="black" />
                 </TouchableOpacity>
             </View>
             </View>
@@ -62,21 +52,23 @@ const Index = () => {
 
                 {liked ? (
                     <TouchableOpacity onPress={() => {setLiked(false)}} style={styles.action}>
-                    <Image style={styles.actionImg} source={likedIcon} />
+                        <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
                     </TouchableOpacity>
                     
                 ):(
                     <TouchableOpacity onPress={() => {setLiked(true)}} style={styles.action}>
-                    <Image style={styles.actionImg} source={like} />
+                        <AntDesign name="hearto" style={styles.actionImg}  size={24} color="black" />
                     </TouchableOpacity>
                 )}
 
                 <TouchableOpacity style={styles.action}>
-                    <Image style={styles.actionImg} source={comment} />
+                    <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="black" />
+
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => {onOpen()}}>
-                    <Image style={styles.actionImg} source={send} />
+                    <Feather style={styles.actionImg} source name="send" size={24} color="black" />
+
                     <SendToFollowers />
                 </TouchableOpacity>
 
@@ -85,11 +77,11 @@ const Index = () => {
                 <View>
                 {saved ? (
                     <TouchableOpacity onPress={() => {setSaved(false)}}>
-                    <Image style={styles.actionImg} source={save} />
+                        <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
                     </TouchableOpacity>   
                 ):(
                     <TouchableOpacity onPress={() => {setSaved(true)}}>
-                    <Image style={styles.actionImg} source={save} />
+                        <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
                     </TouchableOpacity>
                 )}
                 </View>

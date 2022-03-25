@@ -11,11 +11,6 @@ import {
 
 } from 'react-native';
 
-import like from '../../../assets/invertedColors/emptyLike.png';
-import backIcon from '../../../assets/invertedColors/backIcon.png'
-import pencil from '../../../assets/invertedColors/pencil.png'
-import send from '../../../assets/invertedColors/send.png';
-
 function Comments({navigation}){
 
   const post = {
@@ -40,7 +35,8 @@ function Comments({navigation}){
     <ScrollView style={{backgroundColor: '#000'}}>
 
       <View style={stylesTop.top}>
-        <Image onClick={() => { navigation.goBack() }} style={stylesTop.backIcon} source={backIcon}/>
+        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+        
         <View style={stylesTop.sectionName}>
             <Text style={{
               color: "#fff",
@@ -48,8 +44,9 @@ function Comments({navigation}){
               fontWeight: 'bold',
             }}>Comentários</Text>
         </View>
+        
+        <Feather name="send" size={24} style={stylesTop.sendIcon}  color="black" />
 
-        <Image style={stylesTop.sendIcon} source={send}/>
       </View>
 
 

@@ -12,7 +12,7 @@ const Index = ({selectConversation}) => {
             <View style={listStyles.lastConversation}>8 novas mensages 1 h</View>
         </View>
         <View>
-            <Image style={listStyles.cameraIcon} source={cameraInverted}/>
+          <Feather name="camera" style={listStyles.cameraIcon}  size={24} color="black" />
         </View>
     </View>
   )

@@ -1,21 +1,19 @@
 import React from 'react';
 import { TouchableOpacity, Image, StyleSheet, View } from 'react-native';
 
-import backIcon from '../../assets/invertedColors/backIcon.png'
-import lists from '../../assets/invertedColors/list.png'
-import pencil from '../../assets/invertedColors/pencil.png'
-
+import { Foundation } from '@expo/vector-icons'; 
 
 function headerTab(navigation){
 
     return(
         <View style={styles.top}>
-            <Image onClick={() => {  navigation.goBack()}} style={styles.backIcon} source={backIcon}/>
+            <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
             <View style={styles.activeUser}>
                 <View  >hermano_sama</View>
             </View>
-            <Image style={styles.listsIcon} source={lists}/>
-            <Image style={styles.newMessageIcon} source={pencil}/>
+            <FontAwesome style={styles.listsIcon} name="list-ul" size={24} color="black" />
+
+            <Foundation style={styles.newMessageIcon} name="pencil" size={24} color="black" />
         </View>
     )
 }
