@@ -16,7 +16,6 @@ function Feed({ navigation }) {
 
     const [tabIndex, setTabIndex] = useState(0)
 
-
     useEffect(() => {
         navigation.setOptions({
             tabBarStyle: { display: 'none' },
