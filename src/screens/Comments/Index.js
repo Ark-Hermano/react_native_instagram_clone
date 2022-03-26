@@ -11,6 +11,9 @@ import {
 
 } from 'react-native';
 
+import { AntDesign } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons'; 
+
 function Comments({navigation}){
 
   const post = {
@@ -52,7 +55,7 @@ function Comments({navigation}){
 
       <View style={styles.postBodyContainer}>
         <View style={styles.profilePicContainer}>
-          <Image style={styles.profilePic} source={'https://picsum.photos/1080'}/>
+          <Image style={styles.profilePic} source={'https://picsum.photos/1080'} />
         </View>
 
         <View style={styles.postBody}>

@@ -1,20 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native'
 import React from 'react'
 
 const Index = () => {
   return (
     <View style={modalFollowerStyles.followerContainer} >
         <View style={modalFollowerStyles.followerPicContainer}>
-        <Image style={modalFollowerStyles.followerPic} source={'https://picsum.photos/720'}></Image>
+          <Image style={modalFollowerStyles.followerPic} source={'https://picsum.photos/720'} />
         </View>
 
         <View style={modalFollowerStyles.information}>
-        <Text style={modalFollowerStyles.followerName}>Hermano</Text>
-        <Text style={modalFollowerStyles.followerSurname}>majora</Text>
+          <Text style={modalFollowerStyles.followerName}>Hermano</Text>
+          <Text style={modalFollowerStyles.followerSurname}>majora</Text>
         </View>
 
         <TouchableOpacity style={modalFollowerStyles.sengButton}>
-        <Text style={modalFollowerStyles.sendText}>Enviar</Text>
+          <Text style={modalFollowerStyles.sendText}>Enviar</Text>
         </TouchableOpacity>
 
     </View>

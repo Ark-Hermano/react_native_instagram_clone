@@ -10,6 +10,9 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
+import { Entypo } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons'; 
+
 const Storie = ({item, index, carousel, stories}) => {
 
     const [storieItem, setStorieItem] = useState(0)
@@ -20,7 +23,7 @@ const Storie = ({item, index, carousel, stories}) => {
 
         return (
             <View style={[styles.postLikeContainer, {right: index * 7}]}>
-                <Image style={styles.postLikeProfile} source={likes.user.profilePic} />
+                <Image style={styles.postLikeProfile} source={likes?.user?.profilePic} />
             </View>
         )
 
@@ -47,7 +50,6 @@ const Storie = ({item, index, carousel, stories}) => {
                     <View  style={styles.userHeader}>
                         <View  style={styles.profilePicContainer}>
                             <Image style={styles.profilePic} source={'https://picsum.photos/720'} />
-                            <Image style={styles.moreIcon} />
                         </View>
                      
                        
@@ -56,7 +58,7 @@ const Storie = ({item, index, carousel, stories}) => {
                                 <Text  style={styles.userName} >hermano 17h</Text>
                             </View>
                             <View  style={styles.storieInformation} >
-                                <Image  style={styles.storieIndicator} />
+                                {/* <Image  style={styles.storieIndicator} /> */}
                                 <Text  style={styles.storieInformatioText}  >Assistur ao vídeo do Reels completo</Text>
                             </View>
                         </View>
@@ -107,8 +109,6 @@ const Storie = ({item, index, carousel, stories}) => {
                           </View>
                         </View>
                     </View>
-
-        
 
                     <Image style={styles.image}  source={item.stories[storieItem]?.media} />
 

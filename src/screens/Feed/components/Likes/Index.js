@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image} from 'react-native'
 import React from 'react'
 
-const Index = () => {
+const Index = ({index, likes}) => {
   return (
     <View style={[stylesPost.postLikeContainer, {right: index * 7}]}>
-        <Image style={stylesPost.postLikeProfile} source={likes.user.profilePic} />
+        <Image style={stylesPost.postLikeProfile} source={likes?.user?.profilePic} />
     </View>
   )
 }

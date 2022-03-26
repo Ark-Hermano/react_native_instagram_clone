@@ -26,7 +26,6 @@ function HomeStack() {
           tabBar={props=><CustomTabBar {...props} />}
           initialRouteName="Feed" 
         >
- 
               <Tab.Screen name="Feed" component={Feed}  options={{ headerShown: false  }} />
               <Tab.Screen name="User" component={User}  options={{ headerShown: false  }} />
               <Tab.Screen name="Me" component={Feed}  options={{ headerShown: false  }} />

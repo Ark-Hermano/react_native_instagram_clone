@@ -5,9 +5,12 @@ import {
   Image,
   StyleSheet,
   Text,
+  ScrollView
 } from 'react-native';
 
 import './components/Notification/Index'
+
+import { AntDesign } from '@expo/vector-icons'; 
 
 function Comments({navigation}){
 

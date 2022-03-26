@@ -29,9 +29,7 @@ function Reels(){
   ]
 
   const carousel = useRef(null)
-  const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
-
+ 
   useEffect(() =>{
 
     video.current?.presentFullscreenPlayer()

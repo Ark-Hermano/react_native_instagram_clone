@@ -1,9 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import example from '../../../assets/example.mp4'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import React, {useState} from 'react'
+ import example from '../../../../../assets/example.mp4' 
+
 import { Video, AVPlaybackStatus } from 'expo-av';
 
 const Index = () => {
+
+  const video = React.useRef(null);
+  const [status, setStatus] = React.useState({});
+
   return (
     <View style={styles.container}>
         <Video
@@ -29,7 +34,6 @@ const Index = () => {
                 }
                 onPressOut={() =>
                     video.current.playAsync()
-                    //status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
                 }
             >
             </TouchableOpacity>

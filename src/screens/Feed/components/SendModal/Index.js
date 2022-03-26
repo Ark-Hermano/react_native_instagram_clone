@@ -1,12 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, FlatList, Image} from 'react-native'
+import React, {useRef} from 'react'
+
+import Header from '../Header/Index'
 
 import { Modalize } from 'react-native-modalize';
 import { Host, Portal } from 'react-native-portalize';
 
-import { LinearGradient } from 'expo-linear-gradient';
+import { AntDesign } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';  
 
 const Index = () => {
+
+  const modalizeRef = useRef(null);
 
     const followers = [
         {},
@@ -49,7 +54,7 @@ const Index = () => {
                     <View style={modalSendStyles.sendWithTextContainer} >
 
                     <View>
-                        <Image style={modalSendStyles.sendPostPic}  source={'https://picsum.photos/720'} ></Image>
+                        <Image style={modalSendStyles.sendPostPic}  source={'https://picsum.photos/720'} />
                     </View>
 
                     <View style={modalSendStyles.inputContainer}>
@@ -88,7 +93,7 @@ const Index = () => {
                     <View style={modalSendStyles.sendStoryContainer}>
 
                     <View>
-                        <Image style={modalSendStyles.profilePic} source={'https://picsum.photos/720'} ></Image>
+                        <Image style={modalSendStyles.profilePic} source={'https://picsum.photos/720'} />
                     </View>
 
                     <TouchableOpacity  style={modalSendStyles.sendStoryTextContainer}  >

@@ -2,9 +2,10 @@ import React, {useContext} from 'react';
 import styled from 'styled-components/native'
 import { View, TouchableOpacity, Image } from 'react-native'
 
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
+import { Entypo } from '@expo/vector-icons'; 
 
 const TabArea = styled.View`
     height: 60px;
@@ -28,12 +29,6 @@ const TabItemCenter = styled.TouchableOpacity`
     border: 3px solid #4EADBE;
     margin-top: -20px;
 `;
-
-const Icon = styled.Image`
-    width: 24px;
-    height: 24px;
-
-`
 
 export default ({state, navigation}) => {
 

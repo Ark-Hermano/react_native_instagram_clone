@@ -10,9 +10,11 @@ import {
 } from 'react-native';
 
 import Post from './components/Post/Index'
+import StorieList from './components/StorieList/Index'
 
 import instaLogo from '../../../assets/invertedColors/instagramName.png'
-
+import { AntDesign } from '@expo/vector-icons'; 
+import { Fontisto } from '@expo/vector-icons'; 
 
 function Feed({navigation}) {
 
@@ -156,17 +158,17 @@ function Feed({navigation}) {
         visualized:true
       },]
 
-  function renderItem({ item: post }) {
+  function renderItem({ item: post, id,}) {
 
     return (
-      <Post />
+      <Post post={post} />
     );
   }
 
   function renderStories({item: storie, i}){
 
     return (
-      <StorieList />
+      <StorieList key={i} storie={storie} />
     )
   }
 
@@ -250,3 +252,4 @@ const styles = StyleSheet.create({
 });
 
 export default Feed;
+

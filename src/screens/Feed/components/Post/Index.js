@@ -1,15 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image} from 'react-native'
+import React, {useRef, useState} from 'react'
 
 import Likes from '../Likes/Index'
+import SendToFollowers from '../SendModal/Index'
 
-const Index = () => {
+import { Entypo } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
+import { Feather } from '@expo/vector-icons'; 
+
+const Index = ({post}) => {
 
 
     const modalizeRef = useRef(null);
 
     const [liked, setLiked] = useState(false)
     const [saved, setSaved] = useState(false)
+    const [text, setText] = useState('')
 
     function renderLikes({item: likes, index}) {
 
@@ -40,10 +47,10 @@ const Index = () => {
             </View>
 
             <View>
-            <Image
+              <Image
                 style={styles.picture_url}
                 source={{ uri: post.picture_url }}
-            />
+              />
             </View>
 
             <View style={styles.footer}>
@@ -180,3 +187,100 @@ const stylesPost = StyleSheet.create({
     }
     
   })
+
+  const styles = StyleSheet.create({
+    logoContainer:{
+      height:'50px',
+      width:'170px',
+      justifyContent: 'center'
+    },
+    logo:{
+      width:'60%',
+      height: '30px'
+    },
+    headerIcon:{
+      width:'25px',
+      height: '25px'
+    },
+    top: {
+      height:60,
+      backgroundColor:'#000',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: '15px',
+      alignItems: 'center'
+    }, 
+    background:{
+      backgroundColor:'#000',
+    },
+    listsIcon:{
+        height:20,
+        width:20,
+    },
+    newMessageIcon:{
+        height:20,
+        width:20,
+    },
+    activeUser:{
+        width: '65%',
+        color: '#fff',
+        fontFamily:'sans-serif',
+        fontWeight:'bold',
+    },
+    post: {
+      marginVertical: 15
+    },
+    postHeader: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: 15,
+      alignItems: 'center',
+      marginBottom: 15
+    },
+    postOptions: {},
+    userInfo: {},
+    author: {
+      fontSize: 14,
+      color: '#fff',
+      fontFamily:'sans-serif',
+      fontWeight: 'bold'
+    },
+    place: {
+      fontSize: 12,
+      color: '#666'
+    },
+    picture_url: {
+      width: '100%',
+      height: 400
+    },
+    footer: {
+      paddingHorizontal: 15
+    },
+    actions: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingVertical: 10,
+  
+    },
+    action: {
+      marginRight: 8
+    },
+    actionImg: {
+      height: 25,
+      width: 25
+    },
+    leftActions: {
+      flexDirection: 'row'
+    },
+    likes: {
+      fontWeight: 'bold',
+      fontSize: 12
+    },
+    hashtags: {
+      color: '#002D5E'
+    },
+    description: {
+      color: '#fff',
+      lineHeight: 18
+    }
+  });

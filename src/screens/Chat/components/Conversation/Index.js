@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+
+import { Feather } from '@expo/vector-icons'; 
 
 const Index = ({selectConversation}) => {
   return (
     <View style={listStyles.conversation}>
         <View style={listStyles.profilePicContainer} >
-            <Image style={listStyles.profilePic} source={'https://picsum.photos/1080'}/>
+            <Image style={listStyles.profilePic} source={'https://picsum.photos/1080'} />
         </View>
         <View onClick={() => {selectConversation()}} style={listStyles.information}>
             <View style={listStyles.title}>Hermano</View>

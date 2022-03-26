@@ -2,6 +2,8 @@ import React from 'react';
 import { TouchableOpacity, Image, StyleSheet, View } from 'react-native';
 
 import { Foundation } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
 
 function headerTab(navigation){
 

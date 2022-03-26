@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
+
+import { AntDesign } from '@expo/vector-icons'; 
 
 const Index = () => {
   return (
     <View style={styles.commentContainer}>
         <View style={styles.profilePicContainer}>
-        <Image 
+          <Image 
             style={styles.profilePic} 
             source={'https://picsum.photos/720'}  
-        />
+          />
         </View>
 
         <View style={styles.textContainer}>
@@ -22,7 +24,7 @@ const Index = () => {
             </Text>
         </View>
 
-        <Image style={styles.like} source={like} />
+          <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
         </View>
     </View>
   )

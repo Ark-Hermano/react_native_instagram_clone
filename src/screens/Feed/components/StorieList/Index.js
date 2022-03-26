@@ -1,9 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const Index = () => {
+import { LinearGradient } from 'expo-linear-gradient';
+
+
+const Index = ({storie, key}) => {
   return (
-    <View>
+    <View key={key} >
         {storie.closeFriend ? (
             <TouchableOpacity onPress={() => {navigation.navigate('Stories')}} style={storieStyles.storieContainer}>
 
@@ -12,15 +15,15 @@ const Index = () => {
                     ? storieStyles.visualized
                     : storieStyles.closeFriend
                 ]} >
-                <Image 
-                    style={storieStyles.profilePic} 
-                    source={'https://picsum.photos/720'}
-                >
-                </Image>
+                  <Image 
+                      style={storieStyles.profilePic} 
+                      source={'https://picsum.photos/720'}
+                  />
+               
                 </View>
 
                 <View style={storieStyles.textContainer} >
-                <Text style={storieStyles.text} >Storie {i}</Text>
+                  <Text style={storieStyles.text} >Storie {key}</Text>
                 </View>
             </TouchableOpacity>
         ) : (
@@ -37,12 +40,12 @@ const Index = () => {
                 <Image 
                     style={storieStyles.profilePic} 
                     source={'https://picsum.photos/720'}
-                >
-                </Image>
+                />
+              
                 </LinearGradient>
 
                 <View style={storieStyles.textContainer} >
-                <Text style={storieStyles.text} >Storie {i}</Text>
+                  <Text style={storieStyles.text} >Storie {key}</Text>
                 </View>
             </TouchableOpacity>
         )}

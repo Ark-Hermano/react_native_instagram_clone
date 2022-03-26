@@ -3,6 +3,9 @@ import {View, FlatList, StyleSheet, Image,Text, Button, TouchableOpacity } from 
 
 
 import Conversation from './components/Conversation/Index'
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
 
 
 function Feed({ navigation }) {
