@@ -4,31 +4,53 @@ import {Dimensions} from "react-native";
 
 let width = Dimensions.get('window').width;
 
-export const Scroll = styled.FlatList`
-      flexDirection: 'row',
-      marginVertical: '15px'
-    `
 
-export const Background = styled.SafeAreaView`
-      backgroundColor:'#000',
-    `
-  
-export const Top = styled.View`
-      height:60,
-      backgroundColor:'#000',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      paddingHorizontal: '15px',
-      alignItems: 'center'
-   ` 
-  
-export const LogoContainer = styled.View`
-      height:'50px',
-      width:'170px',
-      justifyContent: 'center'
-   `
-  
-export const Logo = styled.Image`
-      width:'60%',
-      height: '30px'
-   `
+      followerContainer = styled.View`
+        flexDirection: 'row';
+        alignItems: 'center';
+        justifyContent: 'space-between';
+        marginBottom: 10;
+      `
+
+      followerPicContainer = styled.View`
+    
+      `
+
+      followerPic = styled.Image`
+        height: '35px';
+        width: '35px';
+        borderRadius: '100%';
+      `
+
+      followerName = styled.Text`
+        color: '#fff';
+        fontSize: '12'
+      `
+
+      followerSurname = styled.Text`
+        color: '#ddd';
+        fontSize: '11';
+      `
+
+      information = styled.View`
+        width: 'fit-content';
+        paddingLeft: '10px';
+        marginRight: 'auto';
+      `
+
+      sengButton = styled.TouchableOpacity`
+        height: '25px';
+        width: 'fit-content';
+        paddingHorizontal: 35;
+        backgroundColor: '#0095f6';
+        borderRadius: '3px';
+        textAlign: 'center';
+        alignItems: 'center';
+        justifyContent: 'center';
+      `
+
+      sendText = styled.Text`
+        color: '#fff';
+        fontSize: '13px';
+        fontWeight: 'bold';
+      `
