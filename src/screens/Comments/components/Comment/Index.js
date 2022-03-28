@@ -14,15 +14,15 @@ const Index = () => {
         </View>
 
         <View style={styles.textContainer}>
-        <View style={styles.commentBody}>
-        
-            <Text style={styles.commentText}>
-            <Text style={styles.author}>
-                Hermano_sama
-            </Text>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            </Text>
-        </View>
+          <View style={styles.commentBody}>
+          
+              <Text style={styles.commentText}>
+                <Text style={styles.author}>
+                    Hermano_sama
+                </Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </Text>
+          </View>
 
           <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
         </View>
