@@ -10,7 +10,9 @@ const Index = ({selectConversation}) => {
             <Image style={listStyles.profilePic} source={'https://picsum.photos/1080'} />
         </View>
         <View onClick={() => {selectConversation()}} style={listStyles.information}>
-            <View style={listStyles.title}>Hermano</View>
+            <View style={listStyles.title}>
+              <Text>Hermano</Text>  
+            </View>
             <View style={listStyles.lastConversation}>8 novas mensages 1 h</View>
         </View>
         <View>
