@@ -90,16 +90,7 @@ const storieStyles = StyleSheet.create({
       width: '55px',
     
     },  
-    profileContainer:{
-      borderWidth: 1,
-      borderColor: '#ddd',
-      borderRadius: 100,
-    },    
-    profileContainerNotViewed:{
-      borderWidth: 1,
-      borderColor: '#ddd',
-      borderRadius: 100,
-    }, 
+  
     profilePic:{
       height: '100%',
       width: '100%',

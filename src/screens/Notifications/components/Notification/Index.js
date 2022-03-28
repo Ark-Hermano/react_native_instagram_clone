@@ -5,10 +5,10 @@ const Index = () => {
   return (
     <View style={styles.notificationContainer}>
         <View style={styles.profilePicContainer}>
-        <Image 
-            style={styles.profilePic} 
-            source={'https://picsum.photos/720'}  
-        />
+          <Image 
+              style={styles.profilePic} 
+              source={'https://picsum.photos/720'}  
+          />
         </View>
 
         <View style={styles.notificationBody}>

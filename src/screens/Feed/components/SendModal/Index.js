@@ -53,21 +53,21 @@ const Index = () => {
 
                     <View style={modalSendStyles.sendWithTextContainer} >
 
-                    <View>
-                        <Image style={modalSendStyles.sendPostPic}  source={'https://picsum.photos/720'} />
-                    </View>
+                      <View>
+                          <Image style={modalSendStyles.sendPostPic}  source={'https://picsum.photos/720'} />
+                      </View>
 
-                    <View style={modalSendStyles.inputContainer}>
-                        <input
-                        style={{
-                            color: '#fff',
-                            outline:'none',
-                            backgroundColor:'transparent',
-                            border:'none'
-                        }}
-                        placeholder="Escreva uma messagem..."
-                        />
-                    </View>
+                      <View style={modalSendStyles.inputContainer}>
+                          <input
+                          style={{
+                              color: '#fff',
+                              outline:'none',
+                              backgroundColor:'transparent',
+                              border:'none'
+                          }}
+                          placeholder="Escreva uma messagem..."
+                          />
+                      </View>
 
                     </View>
 
@@ -92,25 +92,25 @@ const Index = () => {
 
                     <View style={modalSendStyles.sendStoryContainer}>
 
-                    <View>
-                        <Image style={modalSendStyles.profilePic} source={'https://picsum.photos/720'} />
-                    </View>
+                      <View>
+                          <Image style={modalSendStyles.profilePic} source={'https://picsum.photos/720'} />
+                      </View>
 
-                    <TouchableOpacity  style={modalSendStyles.sendStoryTextContainer}  >
-                        <Text style={modalSendStyles.sendStoryText} >Adicionar publicação ao seu story</Text>
-                    </TouchableOpacity>
+                      <TouchableOpacity  style={modalSendStyles.sendStoryTextContainer}  >
+                          <Text style={modalSendStyles.sendStoryText} >Adicionar publicação ao seu story</Text>
+                      </TouchableOpacity>
 
                     </View>
 
                     <TouchableOpacity style={modalSendStyles.createGroupContainer}>
 
-                    <View >
-                      <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="black" />
-                    </View>
+                      <View >
+                        <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="black" />
+                      </View>
 
-                    <View style={modalSendStyles.createGroupTextContainer} >
-                        <Text style={modalSendStyles.createGroupText}>Criar grupo</Text>
-                    </View>
+                      <View style={modalSendStyles.createGroupTextContainer} >
+                          <Text style={modalSendStyles.createGroupText}>Criar grupo</Text>
+                      </View>
 
                     </TouchableOpacity>
 

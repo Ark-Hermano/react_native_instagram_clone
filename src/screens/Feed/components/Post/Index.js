@@ -54,89 +54,90 @@ const Index = ({post}) => {
             </View>
 
             <View style={styles.footer}>
-            <View style={styles.actions}>
-                <View style={styles.leftActions}>
+              <View style={styles.actions}>
+                  <View style={styles.leftActions}>
 
-                {liked ? (
-                    <TouchableOpacity onPress={() => {setLiked(false)}} style={styles.action}>
-                        <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
+                  {liked ? (
+                      <TouchableOpacity onPress={() => {setLiked(false)}} style={styles.action}>
+                          <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
+                      </TouchableOpacity>
+                      
+                  ):(
+                      <TouchableOpacity onPress={() => {setLiked(true)}} style={styles.action}>
+                          <AntDesign name="hearto" style={styles.actionImg}  size={24} color="black" />
+                      </TouchableOpacity>
+                  )}
+
+                    <TouchableOpacity style={styles.action}>
+                        <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="black" />
+
                     </TouchableOpacity>
-                    
-                ):(
-                    <TouchableOpacity onPress={() => {setLiked(true)}} style={styles.action}>
-                        <AntDesign name="hearto" style={styles.actionImg}  size={24} color="black" />
+
+                    <TouchableOpacity onPress={() => {onOpen()}}>
+                        <Feather style={styles.actionImg} source name="send" size={24} color="black" />
+
+                        <SendToFollowers />
                     </TouchableOpacity>
-                )}
 
-                <TouchableOpacity style={styles.action}>
-                    <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="black" />
+                  </View>
 
-                </TouchableOpacity>
+                  <View>
+                  {saved ? (
+                      <TouchableOpacity onPress={() => {setSaved(false)}}>
+                          <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
+                      </TouchableOpacity>   
+                  ):(
+                      <TouchableOpacity onPress={() => {setSaved(true)}}>
+                          <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
+                      </TouchableOpacity>
+                  )}
+                  </View>
+              </View>
 
-                <TouchableOpacity onPress={() => {onOpen()}}>
-                    <Feather style={styles.actionImg} source name="send" size={24} color="black" />
+              <View>
+                  <View style={stylesPost.likesContainer}>
+                      <FlatList
+                          style={[stylesPost.firstLikesContainer, {}]}
+                          horizontal
+                          data={post.likes}
+                          keyExtractor={item => item.id}
+                          renderItem={renderLikes}
+                      />
+                      <Text style={stylesPost.likes} >{post.likes.length + ' likes'} </Text>
+                  </View>
+              
+                  <Text style={styles.description}>{post.description}</Text>
 
-                    <SendToFollowers />
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={() => { navigation.navigate('Comments') }} >
+                      <Text style={stylesPost.comments}>Ver todos os {post.comments.length} comentários</Text>
+                  </TouchableOpacity>
 
-                </View>
+                  <View >
+                      <TouchableOpacity style={stylesPost.inputContainer} onPress={() => { navigation.navigate('Comments') }} >
+                          <Image style={stylesPost.profilePicComment} source={'https://picsum.photos/720'} />
+                          <input 
+                              
+                              placeholder="Messagem..."
+                              style={{
+                                  width: '65%',
+                                  background: 'none',
+                                  borderRadius: '0px',
+                                  border: '0px',
+                                  outline: 'none',
+                                  color: 'rgb(255, 255, 255)',
+                                  marginLeft: '0px',
+                              }}
+                              value={text} onChange={(e) => {
+                                  setText(e.target.value)
+                          
+                              }} 
+                          />
 
-                <View>
-                {saved ? (
-                    <TouchableOpacity onPress={() => {setSaved(false)}}>
-                        <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
-                    </TouchableOpacity>   
-                ):(
-                    <TouchableOpacity onPress={() => {setSaved(true)}}>
-                        <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
-                    </TouchableOpacity>
-                )}
-                </View>
-            </View>
+                          
+                      </TouchableOpacity>
+                  </View>
 
-            <View>
-                <View style={stylesPost.likesContainer}>
-                    <FlatList
-                        style={[stylesPost.firstLikesContainer, {}]}
-                        horizontal
-                        data={post.likes}
-                        keyExtractor={item => item.id}
-                        renderItem={renderLikes}
-                    />
-                    <Text style={stylesPost.likes} >{post.likes.length + ' likes'} </Text>
-                </View>
-            
-                <Text style={styles.description}>{post.description}</Text>
-                <TouchableOpacity onPress={() => { navigation.navigate('Comments') }} >
-                    <Text style={stylesPost.comments}>Ver todos os {post.comments.length} comentários</Text>
-                </TouchableOpacity>
-
-                <View >
-                    <TouchableOpacity style={stylesPost.inputContainer} onPress={() => { navigation.navigate('Comments') }} >
-                        <Image style={stylesPost.profilePicComment} source={'https://picsum.photos/720'} />
-                        <input 
-                            
-                            placeholder="Messagem..."
-                            style={{
-                                width: '65%',
-                                background: 'none',
-                                borderRadius: '0px',
-                                border: '0px',
-                                outline: 'none',
-                                color: 'rgb(255, 255, 255)',
-                                marginLeft: '0px',
-                            }}
-                            value={text} onChange={(e) => {
-                                setText(e.target.value)
-                        
-                            }} 
-                        />
-
-                        
-                    </TouchableOpacity>
-                </View>
-
-            </View>
+              </View>
             </View>
         </View>
     )

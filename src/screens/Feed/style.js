@@ -4,31 +4,37 @@ import {Dimensions} from "react-native";
 
 let width = Dimensions.get('window').width;
 
-export const Scroll = styled.FlatList`
-      flexDirection: 'row',
-      marginVertical: '15px'
-    `
 
-export const Background = styled.SafeAreaView`
-      backgroundColor:'#000',
-    `
-  
-export const Top = styled.View`
-      height:60,
-      backgroundColor:'#000',
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      paddingHorizontal: '15px',
-      alignItems: 'center'
-   ` 
-  
-export const LogoContainer = styled.View`
-      height:'50px',
-      width:'170px',
-      justifyContent: 'center'
-   `
-  
-export const Logo = styled.Image`
-      width:'60%',
-      height: '30px'
-   `
+      Scroll = styled.FlatList`
+        flexDirection: 'row',
+        marginVertical: '15px'
+      `
+
+      background = styled.SafeAreaView`
+        backgroundColor:'#000',
+      `
+    
+      top = styled.View`
+        height:60,
+        backgroundColor:'#000',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: '15px',
+        alignItems: 'center'
+      ` 
+    
+      logoContainer = styled.View`
+        height:'50px',
+        width:'170px',
+        justifyContent: 'center'
+      `
+    
+      logo = styled.Image`
+        width:'60%',
+        height: '30px'
+      `
+    
+      headerIcon = styled.Image`
+        width:'25px',
+        height: '25px'
+      `
