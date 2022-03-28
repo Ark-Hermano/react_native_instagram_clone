@@ -59,7 +59,6 @@ function Comments({navigation}){
         </View>
 
         <View style={styles.postBody}>
-        
           <Text style={styles.postText}>
             <Text style={styles.postAuthor}>
               hermano_sama
