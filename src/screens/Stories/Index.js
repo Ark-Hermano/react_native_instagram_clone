@@ -117,14 +117,14 @@ const Storie = ({item, index, carousel, stories}) => {
                             <input
                               style={{
                                 backgroundColor: 'transparent',
-                                borderRadius: '15px',
-                                borderWidth:'1px',
+                                borderRadius: 15,
+                                borderWidth:1,
                                 borderColor:'#fff',
                                 outline:'none',
                                 borderStyle: 'solid',
                                 color: '#fff',  
                                 width: '75%',
-                                padding: '10px',
+                                padding: 10,
                               }}
                               placeholder="Enviar mensagem"
                             />
@@ -673,8 +673,8 @@ const styles = StyleSheet.create({
         elevation: 9,
     },
     userHeader:{
-        marginTop: '15px',
-        alignSelf: 'start',
+        marginTop: 15,
+        alignSelf: 'flex-start', 
         display: 'flex',
         flexDirection: 'row',
         paddingLeft: '15px',
@@ -687,7 +687,7 @@ const styles = StyleSheet.create({
         height:35,
         width:35,
         zIndex: 12, 
-        borderRadius: '100%',
+        borderRadius: 10000,
     },
     moreIcon:{
       zIndex: 13, 
@@ -702,7 +702,7 @@ const styles = StyleSheet.create({
       zIndex: 15,
     },
     userName:{
-      fontWeight: 'bolder',
+      fontWeight: 'bold',
       color: '#fff',
       zIndex: 16,
     },
@@ -723,7 +723,7 @@ const styles = StyleSheet.create({
       marginBottom: '15px',
       flexDirection: 'row',
       justifyContent: 'space-around',
-      top: innerHeight - 105,
+      top: window.innerHeight - 105,
       width: '95%',
     },
     inputBottom:{
@@ -732,11 +732,11 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
-      top: innerHeight - 125,
+      top: window.innerHeight - 125,
       width: '95%',
       marginHorizontal:'auto',
-      padding: '10px',
-      borderRadius: '15px',
+      padding: 10,
+      borderRadius: 15,
     },
     storieVisualiztionsContainer:{
       marginLeft: '15px',
@@ -765,8 +765,8 @@ const styles = StyleSheet.create({
     },
     actionIcon:{
       zIndex: 24,
-      height: '20px',
-      width: '20px',
+      height: 20,
+      width: 20,
     },
     actionText:{
       zIndex: 25,
@@ -776,16 +776,16 @@ const styles = StyleSheet.create({
     visualizations:{
       flexDirection: 'row',
       zIndex: 26,
-      height: '20px',
+      height: 20,
     },
     postLikeContainer:{
       
     },
     postLikeProfile:{
-      height: '20px',
-      width: '20px',
-      borderRadius: '100%',
-      borderWidth: '1px',
+      height: 20,
+      width: 20,
+      borderRadius: 10000,
+      borderWidth: 1,
       borderColor: '#000',
     }
 });

@@ -49,7 +49,7 @@ let width = Dimensions.get('window').width;
 
   userHeader = styled.View`
       marginTop: '15px',
-      alignSelf: 'start',
+      alignSelf: 'flex-start',
       display: 'flex',
       flexDirection: 'row',
       paddingLeft: '15px',
@@ -79,7 +79,7 @@ let width = Dimensions.get('window').width;
   `
 
   userName = styled.Text`
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
     color: '#fff',
     zIndex: 16,
   `

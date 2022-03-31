@@ -37,22 +37,22 @@ const listStyles = StyleSheet.create({
       alignItems: 'center'
     },
     profilePic: {
-      height:45,
-      width:45,
-      borderRadius:'100%',
+      height: 45,
+      width: 45,
+      borderRadius: 1000,
       margin: '1px',
-      border:'1px solid #000' ,
+      //border:'1px solid #000' ,
     },
     information: {
         width: '72%',
         fontFamily: 'sans-serif',
-        fontSize: '13px',
+        fontSize: 13,
         fontWeight: 'bold'
     },
     profilePicContainer:{
         backgroundColor: '#676767',
-        borderRadius: '100%',
-        padding: '0px',
+        borderRadius: 1000,
+        padding: 0,
     },
     title:{
 

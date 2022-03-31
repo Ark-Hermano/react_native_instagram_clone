@@ -34,17 +34,17 @@ const modalFollowerStyles = StyleSheet.create({
 
   },
   followerPic:{
-    height: '35px',
-    width: '35px',
-    borderRadius: '100%',
+    height: 35,
+    width: 35,
+    borderRadius: 1000,
   },
   followerName:{
     color: '#fff',
-    fontSize: '12'
+    fontSize: 12
   },
   followerSurname:{
     color: '#ddd',
-    fontSize: '11'
+    fontSize: 11
   },
   information:{
     width: 'fit-content',
@@ -52,18 +52,18 @@ const modalFollowerStyles = StyleSheet.create({
     marginRight: 'auto',
   },
   sengButton:{
-    height: '25px',
+    height: 25,
     width: 'fit-content',
     paddingHorizontal: 35,
     backgroundColor: '#0095f6',
-    borderRadius: '3px',
+    borderRadius: 3,
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
   },
   sendText:{
     color: '#fff',
-    fontSize: '13px',
+    fontSize: 13,
     fontWeight: 'bold'
   }
 })

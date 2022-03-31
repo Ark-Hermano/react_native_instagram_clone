@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#000',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal: '15px',
+        paddingHorizontal: 15,
         alignItems: 'center'
     }, 
     listsIcon:{

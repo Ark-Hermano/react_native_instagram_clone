@@ -219,53 +219,53 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     messageContainer: {
-        height: `${window.innerHeight - 128}px`,
-        paddingHorizontal:'10px',
+        height: window.innerHeight - 128,
+        paddingHorizontal: 10,
         paddingVertical: '10px'
     },
     message:{
         backgroundColor: '#494949',
         width: 'fit-content',
-        marginVertical: '1px',
-        borderTopRightRadius: '15px',
-        borderBottomRightRadius: '15px',
+        marginVertical: 1,
+        borderTopRightRadius: 15,
+        borderBottomRightRadius: 15,
         paddingVertical: '5px',
-        paddingHorizontal: '10px'
+        paddingHorizontal: 10
     },
     messageSend:{
         backgroundColor: '#494949',
         width: 'fit-content',
         marginLeft: 'auto',
-        marginVertical: '1px',
-        borderTopLeftRadius: '15px',
-        borderBottomLeftRadius: '15px',
+        marginVertical: 1,
+        borderTopLeftRadius: 15,
+        borderBottomLeftRadius: 15,
         paddingVertical: '5px',
-        paddingHorizontal: '10px'
+        paddingHorizontal: 10
     },
     messageSendNormal:{
-        borderTopRightRadius: '5px',
-        borderBottomRightRadius: '5px',
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 5,
     },
     messageSendFirst:{
-        borderTopRightRadius: '15px',
-        borderBottomRightRadius: '5px',
+        borderTopRightRadius: 15,
+        borderBottomRightRadius: 5,
     },
     messageSendLast:{
-        borderTopRightRadius: '5px',
-        borderBottomRightRadius: '15px',
+        borderTopRightRadius: 5,
+        borderBottomRightRadius: 15,
     },
 
     messageNormal:{
-        borderTopLeftRadius: '5px',
-        borderBottomLeftRadius: '5px',
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 5,
     },
     messageFirst:{
-        borderTopLeftRadius: '15px',
-        borderBottomLeftRadius: '5px',
+        borderTopLeftRadius: 15,
+        borderBottomLeftRadius: 5,
     },
     messageLast:{
-        borderTopLeftRadius: '5px',
-        borderBottomLeftRadius: '15px',
+        borderTopLeftRadius: 5,
+        borderBottomLeftRadius: 15,
     },
     inputContainer:{
         backgroundColor: '#000',
@@ -273,29 +273,30 @@ const styles = StyleSheet.create({
         top: '100%',
         position: 'absolute',
         width: '100%',
-        height: '65px',
+        height: 65,
     
     },
     inputActived: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        paddingHorizontal: '15px',
-        border: '1px solid #434343',
-        borderRadius: '25px',
+        paddingHorizontal: 15,
+        borderWidth: 1,
+        borderColor: '#434343',
+        borderRadius: 25,
         width:'90%',
         margin: 'auto',
-        padding: '5px',
+        padding: 5,
         color: '#fff',
         paddingVertical: '10px' ,
         backgroundColor: '#494949'
     },
     input: {
-
-        border: '1px solid #434343',
-        borderRadius: '25px',
+        borderWidth: 1,
+        borderColor: '#434343',
+        borderRadius: 25,
         width:'90%',
         margin: 'auto',
-        padding: '5px',
+        padding: 5,
         color: '#fff',
         paddingVertical: '10px' ,
         backgroundColor: '#494949'

@@ -17,9 +17,9 @@ const modalSendStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderTopLeftRadius: '10px',
-    borderTopRightRadius: '10px',
-    height: '25px',
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    height: 25,
   },
   inputContainer:{
     marginLeft: '10px',
@@ -28,26 +28,26 @@ const modalSendStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   sendPostPic:{
-    width: '35px',
-    height: '35px',
-    borderRadius: '5px',
+    width: 35,
+    height: 35,
+    borderRadius: 5,
   },
   searchContainer: {
-    borderRadius: '10px',
+    borderRadius: 10,
     backgroundColor: '#000',
   },
   search:{
-    width: '15px',
-    height: '15px',
+    width: 15,
+    height: 15,
     marginLeft: '10px',
     marginRight: '15px',
 
   },
   headerButton:{
     backgroundColor:'#ddd',
-    width: '35px',
-    height: '6px',
-    borderRadius: '25px',
+    width: 35,
+    height: 6,
+    borderRadius: 25,
   }, 
   createGroupContainer:{
     flexDirection: 'row',
@@ -56,9 +56,9 @@ const modalSendStyles = StyleSheet.create({
     marginBottom: '10px'
   },
   createGroupIcon:{
-    height: '35px',
-    width: '35px',
-    borderRadius: '100%',
+    height: 35,
+    width: 35,
+    borderRadius: 10000,
   },
   createGroupText:{
     color: '#fff',
@@ -75,9 +75,9 @@ const modalSendStyles = StyleSheet.create({
     marginBottom: 10
   },
   profilePic:{
-    height: '35px',
-    width: '35px',
-    borderRadius: '100%',
+    height: 35,
+    width: 35,
+    borderRadius: 10000,
   },
   sendStoryTextContainer:{
     paddingLeft: '10px',
@@ -89,7 +89,7 @@ const modalSendStyles = StyleSheet.create({
   searchContainer:{
     flexDirection: 'row',
     marginBottom: 10,
-    borderRadius: '5px',
+    borderRadius: 5,
     backgroundColor: '#494949',
     paddingTop: '5px',
     paddingBottom: '5px',

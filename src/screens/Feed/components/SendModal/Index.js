@@ -45,11 +45,11 @@ const Index = () => {
             <Modalize 
                 handleStyle={{ width: 35, backgroundColor: '#75777a' }}
                 withHandle={false}
-                modalStyle={{marginTop: '0px'}}
+                modalStyle={{marginTop: 0}}
                 HeaderComponent={renderHeader}  
                 snapPoint={window.innerHeight - 100} ref={modalizeRef}>
 
-                <ScrollView style={{height:'100%' ,backgroundColor: '#272727', padding: '10px'}} >
+                <ScrollView style={modalSendStyles.modalContainer} >
 
                     <View style={modalSendStyles.sendWithTextContainer} >
 
@@ -80,7 +80,7 @@ const Index = () => {
                             style={{
                                 width: '65%',
                                 background: 'none',
-                                borderRadius: '0px',
+                                borderRadius: 0,
                                 border: '0px',
                                 outline: 'none',
                                 color: 'rgb(255, 255, 255)',
@@ -139,9 +139,9 @@ const modalSendStyles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      borderTopLeftRadius: '10px',
-      borderTopRightRadius: '10px',
-      height: '25px',
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      height: 25,
     },
     inputContainer:{
       marginLeft: '10px',
@@ -150,26 +150,26 @@ const modalSendStyles = StyleSheet.create({
       justifyContent: 'center',
     },
     sendPostPic:{
-      width: '35px',
-      height: '35px',
-      borderRadius: '5px',
+      width: 35,
+      height: 35,
+      borderRadius: 5,
     },
     searchContainer: {
-      borderRadius: '10px',
+      borderRadius: 10,
       backgroundColor: '#000',
     },
     search:{
-      width: '15px',
-      height: '15px',
+      width: 15,
+      height: 15,
       marginLeft: '10px',
       marginRight: '15px',
   
     },
     headerButton:{
       backgroundColor:'#ddd',
-      width: '35px',
-      height: '6px',
-      borderRadius: '25px',
+      width: 35,
+      height: 6,
+      borderRadius: 25,
     }, 
     createGroupContainer:{
       flexDirection: 'row',
@@ -178,9 +178,9 @@ const modalSendStyles = StyleSheet.create({
       marginBottom: '10px'
     },
     createGroupIcon:{
-      height: '35px',
-      width: '35px',
-      borderRadius: '100%',
+      height: 35,
+      width: 35,
+      borderRadius: 10000,
     },
     createGroupText:{
       color: '#fff',
@@ -197,9 +197,9 @@ const modalSendStyles = StyleSheet.create({
       marginBottom: 10
     },
     profilePic:{
-      height: '35px',
-      width: '35px',
-      borderRadius: '100%',
+      height: 35,
+      width: 35,
+      borderRadius: 10000,
     },
     sendStoryTextContainer:{
       paddingLeft: '10px',
@@ -211,15 +211,21 @@ const modalSendStyles = StyleSheet.create({
     searchContainer:{
       flexDirection: 'row',
       marginBottom: 10,
-      borderRadius: '5px',
+      borderRadius: 5,
       backgroundColor: '#494949',
       paddingTop: '5px',
       paddingBottom: '5px',
     },
+    
     sendWithTextContainer:{
       flexDirection: 'row',
       marginBottom: 20
+    },
+
+    modalContainer:{
+      height:'100%',
+      backgroundColor: '#272727', 
+      padding: 10
     }
-  
-  
+    
   })

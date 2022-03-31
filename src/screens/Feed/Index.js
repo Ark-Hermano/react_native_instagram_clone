@@ -214,7 +214,7 @@ function Feed({navigation}) {
 const storieStyles = StyleSheet.create({
   scroll:{
     flexDirection: 'row',
-    marginVertical: '15px'
+    marginVertical: 15
   }
 })
 
@@ -229,24 +229,24 @@ const styles = StyleSheet.create({
     backgroundColor:'#000',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: '15px',
+    paddingHorizontal: 15,
     alignItems: 'center'
   }, 
 
   logoContainer:{
-    height:'50px',
-    width:'170px',
+    height: 50,
+    width: 170,
     justifyContent: 'center'
   },
 
   logo:{
     width:'60%',
-    height: '30px'
+    height: 30
   },
 
   headerIcon:{
-    width:'25px',
-    height: '25px'
+    width: 25,
+    height: 25
   },
 
 });

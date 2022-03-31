@@ -51,6 +51,6 @@ let width = Dimensions.get('window').width;
 
       sendText = styled.Text`
         color: '#fff';
-        fontSize: '13px';
+        fontSize: '13';
         fontWeight: 'bold';
       `

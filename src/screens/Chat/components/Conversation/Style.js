@@ -26,7 +26,7 @@ let width = Dimensions.get('window').width;
   Information = styled.View`
       width: '72%',
       fontFamily: 'sans-serif',
-      fontSize: '13px',
+      font-size: 13,
       fontWeight: 'bold'
   `
 

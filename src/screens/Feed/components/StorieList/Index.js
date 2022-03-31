@@ -59,7 +59,7 @@ export default Index
 const storieStyles = StyleSheet.create({
 
     storieContainer:{
-      marginHorizontal: '5px',
+      marginHorizontal: 5,
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -67,27 +67,27 @@ const storieStyles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 100,
-      height: '54px',
-      width: '54px',
+      height: 54,
+      width: 54,
       backgroundColor:'#1d9b21',
-      padding: '2px',
+      padding: 2,
     },
     visualized:{
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 100,
-      height: '54px',
-      width: '54px',
+      height: 54,
+      width: 54,
       backgroundColor:'#ddd',
-      padding: '1px',
+      padding: 1,
     },
     noVisualizedContainer:{
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '2px',
+      padding: 2,
       borderRadius: 100,
-      height: '55px',
-      width: '55px',
+      height: 55,
+      width: 55,
     
     },  
   
@@ -103,7 +103,7 @@ const storieStyles = StyleSheet.create({
     },
     text: {
       fontSize: 13,
-      marginTop: '5px',
+      marginTop: 5,
       color: '#FFFFFF',
       textAlign: 'center',
     }

@@ -24,18 +24,18 @@ const stylesPost = StyleSheet.create({
   },
   likes:{
     color: '#fff',
-    whiteSpace: 'nowrap',
+    //whiteSpace: 'nowrap',
     height: 'fit-content'
   },
   postLikeContainer:{
-    padding: '2px',
+    padding: 2,
     backgroundColor:'#000',
-    borderRadius: '100%',
+    borderRadius: 1000,
   },
   postLikeProfile:{
-    height: '18px',
-    width: '18px',
-    borderRadius: '100%'
+    height: 18,
+    width:  18,
+    borderRadius: 1000,
   },
   comments:{
     color: '#666',
@@ -48,7 +48,7 @@ const stylesPost = StyleSheet.create({
   profilePicComment:{
     width: 25,
     height: 25,
-    borderRadius:'100%',
+    borderRadius:1000,
     marginRight: 5
   }
   

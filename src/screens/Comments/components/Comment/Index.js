@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     },
     like:{
        zIndex:8,
-       width: '15px',
-       height: '15px',
+       width: 15,
+       height: 15,
        flexDirection: 'row',
     },  
   })

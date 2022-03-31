@@ -121,7 +121,7 @@ const Index = ({post}) => {
                               style={{
                                   width: '65%',
                                   background: 'none',
-                                  borderRadius: '0px',
+                                  borderRadius: 0,
                                   border: '0px',
                                   outline: 'none',
                                   color: 'rgb(255, 255, 255)',
@@ -159,18 +159,17 @@ const stylesPost = StyleSheet.create({
     },
     likes:{
       color: '#fff',
-      whiteSpace: 'nowrap',
       height: 'fit-content'
     },
     postLikeContainer:{
-      padding: '2px',
+      padding: 2,
       backgroundColor:'#000',
-      borderRadius: '100%',
+      borderRadius: 10000,
     },
     postLikeProfile:{
-      height: '18px',
-      width: '18px',
-      borderRadius: '100%'
+      height: 18,
+      width: 18,
+      borderRadius: 10000,
     },
     comments:{
       color: '#666',
@@ -183,7 +182,7 @@ const stylesPost = StyleSheet.create({
     profilePicComment:{
       width: 25,
       height: 25,
-      borderRadius:'100%',
+      borderRadius:1000,
       marginRight: 5
     }
     
@@ -191,24 +190,24 @@ const stylesPost = StyleSheet.create({
 
   const styles = StyleSheet.create({
     logoContainer:{
-      height:'50px',
-      width:'170px',
+      height: 50,
+      width: 170,
       justifyContent: 'center'
     },
     logo:{
       width:'60%',
-      height: '30px'
+      height: 30
     },
     headerIcon:{
-      width:'25px',
-      height: '25px'
+      width: 25,
+      height: 25
     },
     top: {
       height:60,
       backgroundColor:'#000',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingHorizontal: '15px',
+      paddingHorizontal: 15,
       alignItems: 'center'
     }, 
     background:{

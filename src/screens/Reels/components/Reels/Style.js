@@ -19,7 +19,7 @@ let width = Dimensions.get('window').width;
     width: '100%',
     top: 0,
     height: window.innerHeight - 60,
-    alignItems: 'initial',
+    alignItems: 'flex-start',
   `
 
   touchScreen = styled.TouchableOpacity`

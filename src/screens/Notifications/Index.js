@@ -41,7 +41,7 @@ function Comments({navigation}){
         <View style={stylesTop.sectionName}>
             <Text style={{
               color: "#fff",
-              fontSize: '22px',
+              fontSize: 22,
               fontWeight: 'bold',
             }}>Atividade</Text>
         </View>
@@ -124,9 +124,8 @@ export default Comments
 
 const stylesTop = StyleSheet.create({
   top:{
-    height: '60px',
     flexDirection: 'row',
-    height: '60px',
+    height: 60,
     justifyContent: 'space-around',
     alignItems: 'center',
   },
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#000',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: '15px',
+    paddingHorizontal: 15,
     alignItems: 'center'
   }, 
   listsIcon:{
@@ -172,7 +171,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    marginVertical: '10px',
+    marginVertical: 10,
     paddingRight: '15px',
     paddingLeft: '15px',
 
@@ -206,8 +205,8 @@ const styles = StyleSheet.create({
   },
   like:{
      zIndex:8,
-     width: '15px',
-     height: '15px',
+     width: 15,
+     height: 15,
      flexDirection: 'row',
   },
   top:{
@@ -220,54 +219,54 @@ const styles = StyleSheet.create({
      zIndex:11,
   },
   postBodyContainer:{
-    padding: '20px',
-    zIndex:12,
+    padding: 20,
+    zIndex: 12,
     flexDirection: 'row',
-    borderBottomWidth: '1px',
+    borderBottomWidth: 1,
     borderColor: '#515151',
   },
   profilePicContainer:{
-    height: '35px',
-    width: '35px',
+    height: 35,
+    width: 35,
     zIndex:13,
   },
   profilePic:{
-    borderRadius: '100%',
-    height: '35px',
-    width: '35px',
+    borderRadius: 1000,
+    height: 35,
+    width: 35,
     zIndex:14,
     flexDirection: 'row',
   },
   postBody:{
-    zIndex:15,
+    zIndex: 15,
     width: '80%',
     marginLeft: '20px',
   },
   postAuthor:{
-    zIndex:16,
+    zIndex: 16,
     fontWeight: 'bold',
     color: '#fff',
   },
   post:{
-    zIndex:17,
+    zIndex: 17,
   },
   commentsSection:{
-    zIndex:18,
-    padding: '20px',
+    zIndex: 18,
+    padding: 20,
   },
   postText:{
     zIndex:19,
     color: '#fff',
   },
   postImage:{
-    height: '40px',
-    zIndex: '20',
-    width: '40px',
-    borderRadius: '0px',
+    height: 40,
+    zIndex: 20,
+    width: 40,
+    borderRadius: 0,
 
   },
   postContainer:{
-    width: '60px',
+    width: 60,
     zIndex:21,
     alignItems: 'center',
   },
@@ -278,13 +277,13 @@ const styles = StyleSheet.create({
   followButton:{
     backgroundColor: '#0095f6',
     paddingVertical: '5px',
-    paddingHorizontal: '10px',
-    borderRadius: '5px',
+    paddingHorizontal: 10,
+    borderRadius: 5,
     zIndex:23,
   },
   notificationTime:{
     marginLeft: '5px',
-    fontSize: '12px',
+    fontSize: 12,
     color: '#7d7d7d',
     zIndex:24,
   },
@@ -302,13 +301,13 @@ const styles = StyleSheet.create({
   sectionHeader:{
     width: '91%',
     alignSelf: 'center',
-    marginTop: '15px',
+    marginTop: 15,
     marginBottom: '10px',
     zIndex:28,
   },
   sectionTitleText:{
     color: '#fff',
-    fontSize: '18px',
+    fontSize: 18,
     fontWeight: 'bold',
     zIndex:29,
   },

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
       width: '100%',
       top: 0,
       height: window.innerHeight - 60,
-      alignItems: 'initial',
+      alignItems: 'flex-start',
     },
     touchScreen:{
       top: 0,
