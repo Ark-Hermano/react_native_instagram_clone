@@ -24,7 +24,7 @@ const Index = () => {
               </Text>
           </View>
 
-          <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
+          <AntDesign name="heart" style={styles.actionImg} size={24} color="#fff" />
         </View>
     </View>
   )

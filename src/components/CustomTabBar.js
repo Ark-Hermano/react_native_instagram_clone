@@ -40,19 +40,19 @@ export default ({state, navigation}) => {
     return (
         <TabArea>
             <TabItem onPress={() => {goTo('Feed')}}> 
-                <Feather name="home" size={24} color="black" />
+                <Feather name="home" size={24} color="#fff" />
             </TabItem>
             <TabItem onPress={() => {goTo('Search')}}>
-                <AntDesign name="search1" size={24} color="black" />
+                <AntDesign name="search1" size={24} color="#fff" />
             </TabItem>
             <TabItem onPress={() => {goTo('Reels')}}>
-                <Entypo name="folder-video" size={24} color="black" />
+                <Entypo name="folder-video" size={24} color="#fff" />
             </TabItem>
             <TabItem onPress={() => {goTo('Shop')}}>
-                <Entypo name="shop" size={24} color="black" />
+                <Entypo name="shop" size={24} color="#fff" />
             </TabItem>
             <TabItem onPress={() => {goTo('Account')}}>
-                <MaterialCommunityIcons name="account-circle-outline" size={24} color="black" />
+                <MaterialCommunityIcons name="account-circle-outline" size={24} color="#fff" />
             </TabItem>
         </TabArea>
     )

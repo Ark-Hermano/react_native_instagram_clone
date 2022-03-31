@@ -183,11 +183,11 @@ function Feed({navigation}) {
             <Image style={styles.logo} source={instaLogo}/>
           </View>
 
-          <AntDesign name="pluscircleo"  onClick={() => { navigation.navigate('Create') }} style={styles.headerIcon} size={24} color="black" />
+          <AntDesign name="pluscircleo"  onClick={() => { navigation.navigate('Create') }} style={styles.headerIcon} size={24} color="#fff" />
 
-          <AntDesign name="hearto" onClick={() => { navigation.navigate('Notifications') }} style={styles.headerIcon}  size={24} color="black" />
+          <AntDesign name="hearto" onClick={() => { navigation.navigate('Notifications') }} style={styles.headerIcon}  size={24} color="#fff" />
 
-          <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="black" />
+          <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="#fff" />
       </View>
 
       <ScrollView style={{ height: innerHeight - 120 }}>

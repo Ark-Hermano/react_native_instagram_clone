@@ -73,7 +73,7 @@ const Index = () => {
 
                     <View style={modalSendStyles.searchContainer}  >
 
-                        <AntDesign tyle={modalSendStyles.search} name="search1" size={24} color="black" />
+                        <AntDesign tyle={modalSendStyles.search} name="search1" size={24} color="#fff" />
 
                         <TextInput 
                             placeholder="Messagem..."
@@ -104,7 +104,7 @@ const Index = () => {
                     <TouchableOpacity style={modalSendStyles.createGroupContainer}>
 
                       <View >
-                        <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="black" />
+                        <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="#fff" />
                       </View>
 
                       <View style={modalSendStyles.createGroupTextContainer} >

@@ -38,7 +38,7 @@ function Comments({navigation}){
     <ScrollView style={{backgroundColor: '#000'}}>
 
       <View style={stylesTop.top}>
-        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="#fff" />
         
         <View style={stylesTop.sectionName}>
             <Text style={{
@@ -48,7 +48,7 @@ function Comments({navigation}){
             }}>Comentários</Text>
         </View>
         
-        <Feather name="send" size={24} style={stylesTop.sendIcon}  color="black" />
+        <Feather name="send" size={24} style={stylesTop.sendIcon}  color="#fff" />
 
       </View>
 

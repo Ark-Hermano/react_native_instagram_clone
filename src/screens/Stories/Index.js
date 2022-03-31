@@ -85,17 +85,17 @@ const Storie = ({item, index, carousel, stories}) => {
                         </View>
 
                         <View style={styles.bottomActionSecond} >
-                          <Feather  style={styles.actionIcon} name="camera" size={24} color="black" />  
+                          <Feather  style={styles.actionIcon} name="camera" size={24} color="#fff" />  
                           <Text style={styles.actionText} >Compartilhar</Text>
                         </View>
 
                         <View style={styles.bottomActionThird} >
-                          <Feather  style={styles.actionIcon} name="camera" size={24} color="black" /> 
+                          <Feather  style={styles.actionIcon} name="camera" size={24} color="#fff" /> 
                           <Text style={styles.actionText}  >Destacar</Text>
                         </View>
 
                         <View style={styles.bottomActionLast} >
-                          <Entypo name="dots-three-vertical" style={styles.actionIcon}  size={24} color="black" />
+                          <Entypo name="dots-three-vertical" style={styles.actionIcon}  size={24} color="#fff" />
                           <Text style={styles.actionText}  >Mais</Text>
                         </View>
                     </View>
@@ -133,7 +133,7 @@ const Storie = ({item, index, carousel, stories}) => {
                         placeholder="Enviar mensagem"
                       />
               
-                      <Feather name="send" size={24} style={styles.actionIcon}  color="black" />
+                      <Feather name="send" size={24} style={styles.actionIcon}  color="#fff" />
                         
                     </View>
                 </View> 

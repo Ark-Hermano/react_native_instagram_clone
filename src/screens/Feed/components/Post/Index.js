@@ -43,7 +43,7 @@ const Index = ({post}) => {
 
             <View style={styles.postOptions}>
                 <TouchableOpacity>
-                    <Entypo name="dots-three-vertical" size={24} color="black" />
+                    <Entypo name="dots-three-vertical" size={24} color="#fff" />
                 </TouchableOpacity>
             </View>
             </View>
@@ -61,22 +61,22 @@ const Index = ({post}) => {
 
                   {liked ? (
                       <TouchableOpacity onPress={() => {setLiked(false)}} style={styles.action}>
-                          <AntDesign name="heart" style={styles.actionImg} size={24} color="black" />
+                          <AntDesign name="heart" style={styles.actionImg} size={24} color="#fff" />
                       </TouchableOpacity>
                       
                   ):(
                       <TouchableOpacity onPress={() => {setLiked(true)}} style={styles.action}>
-                          <AntDesign name="hearto" style={styles.actionImg}  size={24} color="black" />
+                          <AntDesign name="hearto" style={styles.actionImg}  size={24} color="#fff" />
                       </TouchableOpacity>
                   )}
 
                     <TouchableOpacity style={styles.action}>
-                        <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="black" />
+                        <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="#fff" />
 
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => {onOpen()}}>
-                        <Feather style={styles.actionImg} source name="send" size={24} color="black" />
+                        <Feather style={styles.actionImg} source name="send" size={24} color="#fff" />
 
                         <SendToFollowers />
                     </TouchableOpacity>
@@ -86,11 +86,11 @@ const Index = ({post}) => {
                   <View>
                   {saved ? (
                       <TouchableOpacity onPress={() => {setSaved(false)}}>
-                          <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
+                          <Feather name="bookmark" size={24} color="#fff" style={styles.actionImg} />
                       </TouchableOpacity>   
                   ):(
                       <TouchableOpacity onPress={() => {setSaved(true)}}>
-                          <Feather name="bookmark" size={24} color="black" style={styles.actionImg} />
+                          <Feather name="bookmark" size={24} color="#fff" style={styles.actionImg} />
                       </TouchableOpacity>
                   )}
                   </View>

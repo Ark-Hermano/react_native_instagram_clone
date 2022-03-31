@@ -60,20 +60,20 @@ function Feed({ navigation }) {
     return(
         <View>
             <View style={styles.top}>
-                <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+                <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="#fff" />
 
                 <View style={styles.activeUser}>
                     <View  >hermano_sama</View>
                 </View>
-                <FontAwesome name="list-ul" style={styles.listsIcon} size={24} color="black" />
+                <FontAwesome name="list-ul" style={styles.listsIcon} size={24} color="#fff" />
 
-                <Foundation name="pencil" style={styles.newMessageIcon} size={24} color="black" />
+                <Foundation name="pencil" style={styles.newMessageIcon} size={24} color="#fff" />
             </View>
 
             <View style={styles.searchContainer}>
                 <View style={styles.searchBar}>
 
-                    <AntDesign name="search1" style={styles.searchIcon} size={24} color="black" />
+                    <AntDesign name="search1" style={styles.searchIcon} size={24} color="#fff" />
                    
                     <TextInput 
                         placeholder="Pesquisar" 
@@ -87,7 +87,7 @@ function Feed({ navigation }) {
                         }} 
                     />
 
-                    <MaterialCommunityIcons style={styles.settingsIcon}  name="tune-vertical" size={24} color="black" />
+                    <MaterialCommunityIcons style={styles.settingsIcon}  name="tune-vertical" size={24} color="#fff" />
 
                 </View>
             </View>

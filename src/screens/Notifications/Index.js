@@ -36,7 +36,7 @@ function Comments({navigation}){
     <ScrollView style={{backgroundColor: '#000'}}>
 
       <View style={stylesTop.top}>
-        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="black" />
+        <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="#fff" />
 
         <View style={stylesTop.sectionName}>
             <Text style={{
