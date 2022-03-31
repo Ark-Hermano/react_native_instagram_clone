@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   textContainer:{
     width: '85%',
     justifyContent: 'space-between',
-    marginLeft: '15px',
+    marginLeft: 15,
     flexDirection: 'row',
   },
   commentBody:{
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   postBody:{
     zIndex: 15,
     width: '80%',
-    marginLeft: '20px',
+    marginLeft: 20,
   },
   postAuthor:{
     zIndex: 16,
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     zIndex:23,
   },
   notificationTime:{
-    marginLeft: '5px',
+    marginLeft: 5,
     fontSize: 12,
     color: '#7d7d7d',
     zIndex:24,

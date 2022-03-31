@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native'
 import React, {useState} from 'react'
  import example from '../../../../../assets/example.mp4' 
 
 import { Video, AVPlaybackStatus } from 'expo-av';
+
+const innerHeight = Dimensions.get('window').height;
 
 const Index = () => {
 
@@ -18,7 +20,7 @@ const Index = () => {
             style={styles.video}
             source={example}
             useNativeControls={false}
-            height={window.innerHeight}
+            height={innerHeight}
             usePoster={true}
             isLooping
             resizeMode="stretch"
@@ -28,13 +30,12 @@ const Index = () => {
             <TouchableOpacity
                 style={styles.touchScreen}
                 title={status.isPlaying ? 'Pause' : 'Play'}
-                onPressIn={() =>
+                onPressIn={() => {
                     video.current.pauseAsync()
-                    //status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-                }
-                onPressOut={() =>
+                }}
+                onPressOut={() => {
                     video.current.playAsync()
-                }
+                }}
             >
             </TouchableOpacity>
     </View>
@@ -46,7 +47,7 @@ export default Index
 const styles = StyleSheet.create({
     backgroundVideo: {
       position: 'absolute',
-      height: window.innerHeight,
+      height: innerHeight,
       top: 0,
       left: 0,
       bottom: 0,
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     container:{
       top: 0,
       zIndex: 1,
-      height: window.innerHeight,
+      height: innerHeight,
       justifyContent:'center'
     },
     video:{
@@ -65,13 +66,13 @@ const styles = StyleSheet.create({
       position: 'absolute',
       width: '100%',
       top: 0,
-      height: window.innerHeight - 60,
+      height: innerHeight - 60,
       alignItems: 'flex-start',
     },
     touchScreen:{
       top: 0,
       zIndex: 3,
-      height: window.innerHeight,
+      height: innerHeight,
     },
   });
   

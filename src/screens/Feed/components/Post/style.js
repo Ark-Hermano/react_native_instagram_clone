@@ -7,13 +7,13 @@ let width = Dimensions.get('window').width;
 
 
   firstLikesContainer = styled.FlatList`
-    width: 'fit-content'
+    width: 'auto'
   `
 
   likesContainer = styled.View`
     color: '#fff';
     flexDirection: 'row';
-    width: 'fit-content';
+    width: 'auto';
     marginTop:0;
     alignItems: 'center'
   `
@@ -21,7 +21,7 @@ let width = Dimensions.get('window').width;
   likes = styled.FlatList`
     color: '#fff';
     whiteSpace: 'nowrap';
-    height: 'fit-content'
+    height: 'auto'
   `
 
   comments = styled.Text`

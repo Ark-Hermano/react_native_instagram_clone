@@ -22,7 +22,7 @@ const modalSendStyles = StyleSheet.create({
     height: 25,
   },
   inputContainer:{
-    marginLeft: '10px',
+    marginLeft: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -39,7 +39,7 @@ const modalSendStyles = StyleSheet.create({
   search:{
     width: 15,
     height: 15,
-    marginLeft: '10px',
+    marginLeft: 10,
     marginRight: '15px',
 
   },

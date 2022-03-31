@@ -33,14 +33,14 @@ let width = Dimensions.get('window').width;
       `
 
       information = styled.View`
-        width: 'fit-content';
+        width: 'auto';
         paddingLeft: '10px';
         marginRight: 'auto';
       `
 
       sengButton = styled.TouchableOpacity`
         height: '25px';
-        width: 'fit-content';
+        width: 'auto';
         paddingHorizontal: 35;
         backgroundColor: '#0095f6';
         borderRadius: '3px';

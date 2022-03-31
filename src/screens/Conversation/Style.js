@@ -24,7 +24,7 @@ let width = Dimensions.get(window).width;
   
   Message = styled.View`
       backgroundColor:  #494949 ;
-      width:  fit-content ;
+      width:  auto ;
       marginVertical:  1px ;
       borderTopRightRadius:  15px ;
       borderBottomRightRadius:  15px ;
@@ -34,7 +34,7 @@ let width = Dimensions.get(window).width;
   
   MessageSend = styled.View`
       backgroundColor:  #494949 ;
-      width:  fit-content ;
+      width:  auto ;
       marginLeft:  auto ;
       marginVertical:  1px ;
       borderTopLeftRadius:  15px ;

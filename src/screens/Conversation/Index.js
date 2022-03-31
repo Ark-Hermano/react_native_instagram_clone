@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef, useLayoutEffect} from 'react';
-import {View, FlatList, StyleSheet, TouchableHighlight, Image, Text, ScrollView, Button, TouchableOpacity } from 'react-native';
+import {View, TextInput, StyleSheet, TouchableHighlight, Image, Text, ScrollView, Button, TouchableOpacity } from 'react-native';
 import api from '../../service/api'
 
 function Conversation({ navigation }) {
@@ -174,8 +174,12 @@ function Conversation({ navigation }) {
             </ScrollView>
             <View style={styles.inputContainer}>
                 <View style={text === '' ? styles.input : styles.inputActived }>
-                    <input 
+                    <TextInput 
                         placeholder="Messagem..."
+                        value={text} 
+                        onChange={(e) => {
+                            setText(e.target.value)
+                        }} 
                         style={{
                             width: '65%',
                             background: 'none',
@@ -183,12 +187,8 @@ function Conversation({ navigation }) {
                             border: '0px',
                             outline: 'none',
                             color: 'rgb(255, 255, 255)',
-                            marginLeft: '0px',
+                            marginLeft: 0,
                         }}
-                        value={text} onChange={(e) => {
-                            setText(e.target.value)
-                    
-                        }} 
                     />
                     {text !== '' ? (
                         <TouchableHighlight  onPress={() => {sendMessage()}}>
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
     },
     message:{
         backgroundColor: '#494949',
-        width: 'fit-content',
+        width: 'auto',
         marginVertical: 1,
         borderTopRightRadius: 15,
         borderBottomRightRadius: 15,
@@ -234,7 +234,7 @@ const styles = StyleSheet.create({
     },
     messageSend:{
         backgroundColor: '#494949',
-        width: 'fit-content',
+        width: 'auto',
         marginLeft: 'auto',
         marginVertical: 1,
         borderTopLeftRadius: 15,

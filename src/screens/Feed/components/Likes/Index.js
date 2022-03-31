@@ -13,19 +13,18 @@ export default Index
 
 const stylesPost = StyleSheet.create({
   firstLikesContainer:{
-    width: 'fit-content'
+    width: 'auto'
   },
   likesContainer:{
     color: '#fff',
     flexDirection: 'row',
-    width: 'fit-content',
+    width: 'auto',
     marginTop:0,
     alignItems: 'center'
   },
   likes:{
     color: '#fff',
-    //whiteSpace: 'nowrap',
-    height: 'fit-content'
+    height: 'auto'
   },
   postLikeContainer:{
     padding: 2,

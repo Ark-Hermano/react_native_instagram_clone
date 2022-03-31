@@ -47,13 +47,13 @@ const modalFollowerStyles = StyleSheet.create({
     fontSize: 11
   },
   information:{
-    width: 'fit-content',
+    width: 'auto',
     paddingLeft: '10px',
     marginRight: 'auto',
   },
   sengButton:{
     height: 25,
-    width: 'fit-content',
+    width: 'auto',
     paddingHorizontal: 35,
     backgroundColor: '#0095f6',
     borderRadius: 3,

@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {
   View,
-  SafeAreaView,
+  TextInput,
   FlatList,
   Image,
   StyleSheet,
@@ -10,19 +10,23 @@ import {
 } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
+import {Dimensions} from "react-native";
 import { Entypo } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
 
+const innerWidth = Dimensions.get('window').width;
+const innerHeight = Dimensions.get('window').height;
+
 const Storie = ({item, index, carousel, stories}) => {
 
+
     const [storieItem, setStorieItem] = useState(0)
-  
 
     function renderLikes({item: likes, index}) {
       
 
         return (
-            <View style={[styles.postLikeContainer, {right: index * 7}]}>
+            <View style={[ styles.postLikeContainer, {right: (index * 7)} ]}>
                 <Image style={styles.postLikeProfile} source={likes?.user?.profilePic} />
             </View>
         )
@@ -73,7 +77,7 @@ const Storie = ({item, index, carousel, stories}) => {
                                 horizontal
                                 data={item.likes}
                                 keyExtractor={item => item.id}
-                                renderItem={renderLikes}
+                                renderItem={({item, index}) => renderLikes(item, index)}
                             />
                                 
                             
@@ -114,23 +118,22 @@ const Storie = ({item, index, carousel, stories}) => {
 
                     <View style={styles.inputBottom} >
                      
-                            <input
-                              style={{
-                                backgroundColor: 'transparent',
-                                borderRadius: 15,
-                                borderWidth:1,
-                                borderColor:'#fff',
-                                outline:'none',
-                                borderStyle: 'solid',
-                                color: '#fff',  
-                                width: '75%',
-                                padding: 10,
-                              }}
-                              placeholder="Enviar mensagem"
-                            />
-                   
-
-                          <Feather name="send" size={24} style={styles.actionIcon}  color="black" />
+                      <TextInput
+                        style={{
+                          backgroundColor: 'transparent',
+                          borderRadius: 15,
+                          borderWidth:1,
+                          borderColor:'#fff',
+                          outline:'none',
+                          borderStyle: 'solid',
+                          color: '#fff',  
+                          width: '75%',
+                          padding: 10,
+                        }}
+                        placeholder="Enviar mensagem"
+                      />
+              
+                      <Feather name="send" size={24} style={styles.actionIcon}  color="black" />
                         
                     </View>
                 </View> 
@@ -146,6 +149,8 @@ const Storie = ({item, index, carousel, stories}) => {
 
 
 const Stories = () => {
+
+  
 
     const carousel = useRef(null)
 
@@ -604,20 +609,13 @@ const Stories = () => {
         }
     ])
 
-    // useEffect(() =>{
-
-    // },[carousel])
-
-
     function renderItem({item, index, carousel}){
-
         return(
             <Storie item={item} index={index} carousel={carousel} />
         )
     }
 
     return (
-
         <Carousel
           ref={(c) => {carousel.current = c }}
           data={stories}
@@ -629,45 +627,42 @@ const Stories = () => {
                 )
               } 
           }} 
-          sliderWidth={window.innerWidth}
-          itemWidth={window.innerWidth}
-        
-        
+          sliderWidth={innerWidth}
+          itemWidth={innerWidth}
         />
-      
     )
 }
 
 
 const styles = StyleSheet.create({
     storieContainer:{
-        top: -window.innerHeight + 192 , 
-        height: window.innerHeight ,
-        width: window.innerWidth ,
+        top: -innerHeight + 192 , 
+        height: innerHeight ,
+        width: innerWidth ,
     },
     image:{
         zIndex: 9,
         top: 0,
         position: 'absolute',
-        height: window.innerHeight ,
-        width: window.innerWidth ,
+        height:  innerHeight ,
+        width:  innerWidth ,
     },
     storieItemNext:{
         position:'relative',
-        height: window.innerHeight * 0.7 ,
+        height:  innerHeight * 0.7 ,
         justifyContent:'center',
-        width: window.innerWidth/2 ,
-        top:window.innerHeight * 0.1, 
-        left: window.innerWidth/2,
+        width:  innerWidth/2 ,
+        top: innerHeight * 0.1, 
+        left:  innerWidth/2,
         zIndex: 9,
         elevation: 9,
     },
     storieItemPrev:{
         position:'absolute',
-        height: window.innerHeight * 0.7 ,
+        height:  innerHeight * 0.7 ,
         justifyContent:'center',
-        width: window.innerWidth/2 ,
-        top:window.innerHeight * 0.1, 
+        width:  innerWidth/2 ,
+        top: innerHeight * 0.1, 
         left:  0,
         zIndex: 9,
         elevation: 9,
@@ -695,7 +690,7 @@ const styles = StyleSheet.create({
     userHeaderBody:{
       justifyContent: 'center', 
       flexDirection: 'column',
-      marginLeft: '15px',
+      marginLeft: 15,
       zIndex: 14,
     },
     userNameContainer:{
@@ -723,7 +718,7 @@ const styles = StyleSheet.create({
       marginBottom: '15px',
       flexDirection: 'row',
       justifyContent: 'space-around',
-      top: window.innerHeight - 105,
+      top: innerHeight - 105,
       width: '95%',
     },
     inputBottom:{
@@ -732,14 +727,14 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
-      top: window.innerHeight - 125,
+      top: innerHeight - 125,
       width: '95%',
       marginHorizontal:'auto',
       padding: 10,
       borderRadius: 15,
     },
     storieVisualiztionsContainer:{
-      marginLeft: '15px',
+      marginLeft: 15,
       zIndex: 21,
     },
     storieVisualizations:{
@@ -753,13 +748,13 @@ const styles = StyleSheet.create({
     },
     bottomActionThird:{
       alignItems: 'center',
-      marginLeft: '15px',
+      marginLeft: 15,
       alignItems: 'center',
       zIndex: 23,
     },
     bottomActionLast:{
       alignItems: 'center',
-      marginLeft: '15px',
+      marginLeft: 15,
       alignItems: 'center',
       zIndex: 23,
     },

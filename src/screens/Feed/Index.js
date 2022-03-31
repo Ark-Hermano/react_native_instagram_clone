@@ -6,7 +6,8 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  Animated
+  Animated,
+  Dimensions
 } from 'react-native';
 
 import Post from './components/Post/Index'
@@ -15,6 +16,8 @@ import StorieList from './components/StorieList/Index'
 import instaLogo from '../../../assets/invertedColors/instagramName.png'
 import { AntDesign } from '@expo/vector-icons'; 
 import { Fontisto } from '@expo/vector-icons'; 
+
+const innerHeight = Dimensions.get('window').height;
 
 function Feed({navigation}) {
 
@@ -187,7 +190,7 @@ function Feed({navigation}) {
           <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="black" />
       </View>
 
-      <ScrollView style={{ height: window.innerHeight - 120 }}>
+      <ScrollView style={{ height: innerHeight - 120 }}>
         <View  > 
           <FlatList
             horizontal

@@ -33,11 +33,9 @@ export default function App() {
 
   return (
     <View >
-      <TouchableOpacity   onPress={openImagePickerAsync} >
+      <TouchableOpacity onPress={() => {openImagePickerAsync}}>
         <Text style={{color:'#000'}}>galeria</Text>
       </TouchableOpacity>
-
-
     </View>
   );
 }

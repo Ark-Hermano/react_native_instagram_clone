@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, FlatList, Image} from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput, FlatList, Image} from 'react-native'
 import React, {useRef} from 'react'
 
 import Header from '../Header/Index'
@@ -58,14 +58,14 @@ const Index = () => {
                       </View>
 
                       <View style={modalSendStyles.inputContainer}>
-                          <input
-                          style={{
-                              color: '#fff',
-                              outline:'none',
-                              backgroundColor:'transparent',
-                              border:'none'
-                          }}
-                          placeholder="Escreva uma messagem..."
+                          <TextInput
+                            style={{
+                                color: '#fff',
+                                outline:'none',
+                                backgroundColor:'transparent',
+                                border:'none'
+                            }}
+                            placeholder="Escreva uma messagem..."
                           />
                       </View>
 
@@ -75,7 +75,7 @@ const Index = () => {
 
                         <AntDesign tyle={modalSendStyles.search} name="search1" size={24} color="black" />
 
-                        <input 
+                        <TextInput 
                             placeholder="Messagem..."
                             style={{
                                 width: '65%',
@@ -84,9 +84,8 @@ const Index = () => {
                                 border: '0px',
                                 outline: 'none',
                                 color: 'rgb(255, 255, 255)',
-                                marginLeft: '0px',
+                                marginLeft: 0,
                             }}
-                        
                         />
                     </View>
 
@@ -144,7 +143,7 @@ const modalSendStyles = StyleSheet.create({
       height: 25,
     },
     inputContainer:{
-      marginLeft: '10px',
+      marginLeft: 10,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -161,7 +160,7 @@ const modalSendStyles = StyleSheet.create({
     search:{
       width: 15,
       height: 15,
-      marginLeft: '10px',
+      marginLeft: 10,
       marginRight: '15px',
   
     },

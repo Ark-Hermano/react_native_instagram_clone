@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, FlatList, StyleSheet, Image,Text, Button, TouchableOpacity } from 'react-native';
+import {View, FlatList, StyleSheet, TextInput, Text, Button, TouchableOpacity } from 'react-native';
 
 
 import Conversation from './components/Conversation/Index'
@@ -75,16 +75,17 @@ function Feed({ navigation }) {
 
                     <AntDesign name="search1" style={styles.searchIcon} size={24} color="black" />
                    
-                    <input style={
-                        {
+                    <TextInput 
+                        placeholder="Pesquisar" 
+                        style={{
                             color:'#fff',
                             background:'inherit',
                             border:'0px',
                             outline: 'none',
                             fontSize: 15,
                             width: '82%',
-                        }
-                    } placeholder="Pesquisar" />
+                        }} 
+                    />
 
                     <MaterialCommunityIcons style={styles.settingsIcon}  name="tune-vertical" size={24} color="black" />
 

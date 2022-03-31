@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, TextInput} from 'react-native'
 import React, {useRef, useState} from 'react'
 
 import Likes from '../Likes/Index'
@@ -21,7 +21,7 @@ const Index = ({post}) => {
     function renderLikes({item: likes, index}) {
 
         return (
-          <Likes />
+          <Likes item={likes} index={index} />
         )
     }
 
@@ -34,7 +34,9 @@ const Index = ({post}) => {
         <View style={styles.post}>
             <View style={styles.postHeader}>
             <View style={styles.userInfo}>
-                <TouchableOpacity onPress={() => {navigation.navigate('User')}} style={styles.author}>{post.author}</TouchableOpacity>
+                <TouchableOpacity onPress={() => {navigation.navigate('User')}} style={styles.author}>
+                  <Text>{post.author}</Text>
+                </TouchableOpacity>
 
                 <Text style={styles.place}>{post.place}</Text>
             </View>
@@ -115,9 +117,11 @@ const Index = ({post}) => {
                   <View >
                       <TouchableOpacity style={stylesPost.inputContainer} onPress={() => { navigation.navigate('Comments') }} >
                           <Image style={stylesPost.profilePicComment} source={'https://picsum.photos/720'} />
-                          <input 
-                              
+                          <TextInput 
                               placeholder="Messagem..."
+                              value={text} onChange={(e) => {
+                                setText(e.target.value)
+                              }} 
                               style={{
                                   width: '65%',
                                   background: 'none',
@@ -125,15 +129,9 @@ const Index = ({post}) => {
                                   border: '0px',
                                   outline: 'none',
                                   color: 'rgb(255, 255, 255)',
-                                  marginLeft: '0px',
+                                  marginLeft: 0,
                               }}
-                              value={text} onChange={(e) => {
-                                  setText(e.target.value)
-                          
-                              }} 
                           />
-
-                          
                       </TouchableOpacity>
                   </View>
 
@@ -148,18 +146,18 @@ export default Index
 
 const stylesPost = StyleSheet.create({
     firstLikesContainer:{
-      width: 'fit-content'
+      width: 'auto'
     },
     likesContainer:{
       color: '#fff',
       flexDirection: 'row',
-      width: 'fit-content',
+      width: 'auto',
       marginTop:0,
       alignItems: 'center'
     },
     likes:{
       color: '#fff',
-      height: 'fit-content'
+      height: 'auto'
     },
     postLikeContainer:{
       padding: 2,

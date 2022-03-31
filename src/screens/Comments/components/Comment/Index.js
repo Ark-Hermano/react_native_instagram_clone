@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     textContainer:{
       width: '85%',
       justifyContent: 'space-between',
-      marginLeft: '15px',
+      marginLeft: 15,
       flexDirection: 'row',
     },
     commentBody:{
