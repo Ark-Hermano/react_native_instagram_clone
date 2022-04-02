@@ -113,14 +113,15 @@ const Index = () => {
 
                     </TouchableOpacity>
 
-                        
-                    <FlatList
-                        style={[modalSendStyles.followers, {}]}
-                        vertical
-                        data={followers}
-                        keyExtractor={item => item.id}
-                        renderItem={renderSendFollowers}
-                    />
+                    <View>  
+                      <FlatList
+                          style={[modalSendStyles.followers, {}]}
+                          vertical
+                          data={followers}
+                          keyExtractor={item => item.id}
+                          renderItem={renderSendFollowers}
+                      />
+                    </View>  
 
                 </ScrollView>
                 

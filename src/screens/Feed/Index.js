@@ -190,7 +190,7 @@ function Feed({navigation}) {
           <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="#fff" />
       </View>
 
-      <ScrollView style={{ height: innerHeight - 120 }}>
+      <SafeAreaView style={{ height: innerHeight - 120 }}>
         <View  > 
           <FlatList
             horizontal
@@ -208,7 +208,7 @@ function Feed({navigation}) {
           keyExtractor={item => item.id}
           renderItem={renderItem}
         />
-      </ScrollView>
+      </SafeAreaView>
 
     </SafeAreaView>
   );
