@@ -69,7 +69,7 @@ function EditProfile(){
         <View style={styles.inputsContainer} >
           <View>
             <Text style={styles.label} >Nome</Text>
-            <TextInput changeProfile
+            <TextInput
               style={styles.input}
               value={name}
               onChange={(e) => {setName(e.target.value)}}

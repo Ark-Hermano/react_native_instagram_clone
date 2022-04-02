@@ -107,7 +107,7 @@ function HomeStack() {
   return (
         <Tab.Navigator 
           tabBar={props=><CustomTabBar {...props} />}
-          //initialRouteName="EditProfile" 
+          initialRouteName="Search" 
         >
               <Tab.Screen 
                 name="Feed" 
@@ -128,6 +128,7 @@ function HomeStack() {
               <Tab.Screen 
                 name="Search" 
                 component={Search} 
+                options={{ headerShown: false  }} 
               />
 
               <Tab.Screen 
