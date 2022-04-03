@@ -10,6 +10,8 @@ import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 import { Foundation } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Octicons } from '@expo/vector-icons'; 
 
 import Create from '../screens/Create/Index'
 import Search from '../screens/Search/Index'
@@ -47,6 +49,25 @@ function HomeStack() {
       <Feather name="check" size={24} color="#458eff" />
     </TouchableOpacity>
   )
+
+  const SavedPosts = ({navigation}) => (
+    <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+      <MaterialCommunityIcons name="calendar-account-outline" size={30} color="#fff" />
+    </TouchableOpacity>
+  )
+
+  const OpenStoreSettings = () => {
+
+    modalizeRefChangeRef.current?.open();
+  };
+
+  const StoreSettings = ({navigation}) => (
+    <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+      <Octicons name="settings" size={30} color="#fff" />
+    </TouchableOpacity>
+  )
+
+ 
 
   const renderHeader = () => (
     <View style={modalSendStyles.header} >
@@ -103,11 +124,23 @@ function HomeStack() {
     </View>
   )
 
+  const ShopHeader = ({navigation}) => (
+    <View style={styles.headerType}>
+        <View style={styles.headerTitle}>
+          <Text style={styles.headerTitleText}>Loja</Text>
+        </View>
+
+        <SavedPosts navigation={navigation} />
+        
+        <StoreSettings navigation={navigation} />
+    </View>
+  )
+
  
   return (
         <Tab.Navigator 
           tabBar={props=><CustomTabBar {...props} />}
-          initialRouteName="Search" 
+          initialRouteName="Shop" 
         >
               <Tab.Screen 
                 name="Feed" 
@@ -139,7 +172,24 @@ function HomeStack() {
               <Tab.Screen 
                 name="Shop" 
                 component={Shop} 
+                options={{
+                  headerMode: 'screen',
+                  headerStyle: {
+                    paddingHorizontal:30,
+                    height: 80,
+                    flexDirection: 'row',
+                    alignItems:'center',
+                    justifyContent:'space-between',
+                    backgroundColor: "#000"
+                  },
+                  header:({ scene, previous, navigation }) => {
+                    return (
+                      <ShopHeader navigation={navigation} />
+                    );
+                  } 
+                }}
               />
+              
 
               <Tab.Screen 
                 name="EditProfile" 
@@ -218,6 +268,15 @@ const styles = StyleSheet.create({
       alignContent:'center',
       height: 70,
       padding: 15
+    },
+
+    headerType:{
+      justifyContent:'space-between',
+      flexDirection: 'row',
+      backgroundColor: '#000',
+      alignContent:'center',
+      height: 70,
+      padding: 20
     },
 
     accountHeaderButton:{

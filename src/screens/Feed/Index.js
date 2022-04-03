@@ -194,8 +194,8 @@ function Feed({navigation}) {
         <View  > 
           <FlatList
             horizontal
-            style={storieStyles.scroll}
             showsHorizontalScrollIndicator={false}
+            style={storieStyles.scroll}
             data={stories}
             keyExtractor={item => item.id}
             renderItem={renderStories}
