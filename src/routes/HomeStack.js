@@ -12,12 +12,14 @@ import { Foundation } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Octicons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
 
-import Create from '../screens/Create/Index'
+import CreateStack from './CreateStack'
 import Search from '../screens/Search/Index'
 import Reels from '../screens/Reels/Index'
 import Shop from '../screens/Shop/Index'
 import Account from '../screens/Account/Index'
+import Insights from '../screens/Insights/Index'
 import Notifications from '../screens/Notifications/Index'
 import EditProfile from '../screens/EditProfile/Index'
 import Feed from '../screens/Feed/Index';
@@ -44,9 +46,21 @@ function HomeStack() {
     </TouchableOpacity>
   )
 
+  const ReturnButton = ({navigation}) => (
+    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {navigation.goBack()}}>
+      <Ionicons name="arrow-back" size={24} color="#fff" />
+    </TouchableOpacity>
+  )
+
   const AcceptButton = ({navigationTitle, navigation}) => (
     <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {handleUploadPhoto()}}>
       <Feather name="check" size={24} color="#458eff" />
+    </TouchableOpacity>
+  )
+
+  const InfoButton = ({navigationTitle, navigation}) => (
+    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {handleUploadPhoto()}}>
+      <AntDesign name="infocirlceo" size={24} color="#fff" />
     </TouchableOpacity>
   )
 
@@ -124,6 +138,18 @@ function HomeStack() {
     </View>
   )
 
+  const InsightsHeader = ({navigation}) => (
+    <View style={styles.accountHeader}>
+        <ReturnButton navigation={navigation} />
+
+        <View style={styles.headerTitle}>
+          <Text style={styles.headerTitleText} >Insights</Text>
+        </View>
+        
+        <InfoButton  navigation={navigation}  />
+    </View>
+  )
+
   const ShopHeader = ({navigation}) => (
     <View style={styles.headerType}>
         <View style={styles.headerTitle}>
@@ -140,7 +166,7 @@ function HomeStack() {
   return (
         <Tab.Navigator 
           tabBar={props=><CustomTabBar {...props} />}
-          initialRouteName="Shop" 
+          initialRouteName="Insights"
         >
               <Tab.Screen 
                 name="Feed" 
@@ -151,11 +177,6 @@ function HomeStack() {
               <Tab.Screen 
                 name="Me" 
                 component={Feed} 
-              />
-
-              <Tab.Screen 
-                name="Create" 
-                component={Create} 
               />
 
               <Tab.Screen 
@@ -234,6 +255,28 @@ function HomeStack() {
               />
 
               <Tab.Screen 
+                name="Insights" 
+                component={Insights} 
+                options={{
+                  headerMode: 'screen',
+                  headerStyle: {
+                    paddingHorizontal:30,
+                    height: 80,
+                    flexDirection: 'row',
+                    alignItems:'center',
+                    justifyContent:'space-between',
+                    backgroundColor: "#000"
+                  },
+                  header:({ scene, previous, navigation }) => {
+                    return (
+                      <InsightsHeader navigation={navigation} />
+
+                    );
+                  } 
+                }}
+              />
+
+              <Tab.Screen 
                 name="Notifications" 
                 component={Notifications} 
               />
@@ -300,13 +343,14 @@ const styles = StyleSheet.create({
     },
 
     headerTitle:{
-      width:'75%'
+      width:'75%', 
+      justifyContent: 'center'
     },
     
     headerTitleText:{
       color: '#fff',
       fontWeight: 'bold',
-      fontSize: 25
+      fontSize: 22
     }
     
 });

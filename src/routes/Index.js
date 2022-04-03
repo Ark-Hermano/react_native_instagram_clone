@@ -13,7 +13,7 @@ import Storie from '../screens/Storie/Index';
 import Stories from '../screens/Stories/Index';
 import Upload from '../screens/Upload/Index'
 
-import ChatStack from './ChatStack'
+import CreateStack from './CreateStack'
 import HomeStack from './HomeStack'
 
 
@@ -27,13 +27,15 @@ function MainNavigator() {
     <NavigationContainer>
       <Host>
         <Stack.Navigator  
-          //initialRouteName="Upload"
+          initialRouteName="Create"
         >
+          
             <Stack.Screen name="Home" component={HomeStack}   options={{ headerShown: false  }}   /> 
             <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false  }}  />
             <Stack.Screen name="Comments" component={Comments} options={{ headerShown: false  }}  />
             <Stack.Screen name="Conversation" component={Conversation} options={{ headerShown: false  }}/>
 
+            {/* <Stack.Screen name="Create" component={CreateStack} options={{ headerShown: false  }}  /> */}
             <Stack.Screen name="Upload" component={Upload} options={{ headerShown: false  }}  />
             <Stack.Screen name="Storie" component={Storie} options={{ headerShown: false  }}  />
             <Stack.Screen name="Stories" component={Stories} options={{ headerShown: false  }} />

@@ -6,6 +6,7 @@ import Conversation from './components/Conversation/Index'
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
 import { FontAwesome } from '@expo/vector-icons'; 
+import { Foundation } from '@expo/vector-icons'; 
 
 
 function Feed({ navigation }) {
