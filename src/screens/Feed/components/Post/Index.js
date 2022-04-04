@@ -1,15 +1,17 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, TextInput} from 'react-native'
 import React, {useRef, useState} from 'react'
+import { LinearGradient } from 'expo-linear-gradient';
+
 
 import Likes from '../Likes/Index'
 import SendToFollowers from '../SendModal/Index'
 
 import { Entypo } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome5 } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
 
-const Index = ({post}) => {
+const Index = ({post, navigation}) => {
 
 
     const modalizeRef = useRef(null);
@@ -33,19 +35,42 @@ const Index = ({post}) => {
     return (
         <View style={styles.post}>
             <View style={styles.postHeader}>
-            <View style={styles.userInfo}>
-                <TouchableOpacity onPress={() => {navigation.navigate('User')}} style={styles.author}>
-                  <Text>{post.author}</Text>
-                </TouchableOpacity>
 
-                <Text style={styles.place}>{post.place}</Text>
-            </View>
+              <View>
+                <TouchableOpacity onPress={() => {navigation.navigate('Stories')}} style={storieStyles.storieContainer}>
+                  
+                  <LinearGradient 
+                    colors={['#f09433', '#e6683c', '#dc2743', '#cc2366', '#bc1888']}
+                    style={[
+                        storieStyles.noVisualizedContainer,
+                        storieStyles.visualized
+                    ]}
+                  >
+                    <Image 
+                        style={storieStyles.profilePic} 
+                        source={'https://picsum.photos/720'}
+                    />
+                
+                  </LinearGradient>
 
-            <View style={styles.postOptions}>
-                <TouchableOpacity>
-                    <Entypo name="dots-three-vertical" size={24} color="#fff" />
+       
                 </TouchableOpacity>
-            </View>
+              </View>
+
+              <View style={styles.userInfo}>
+                  <TouchableOpacity onPress={() => {navigation.navigate('Account')}} style={styles.author}>
+                    <Text style={styles.authorTitle}>{post.author}</Text>
+                  </TouchableOpacity>
+                  
+
+                  <Text style={styles.place}>{post.place}</Text>
+              </View>
+
+              <View style={styles.postOptions}>
+                  <TouchableOpacity>
+                      <Entypo name="dots-three-vertical" size={24} color="#fff" />
+                  </TouchableOpacity>
+              </View>
             </View>
 
             <View>
@@ -71,8 +96,7 @@ const Index = ({post}) => {
                   )}
 
                     <TouchableOpacity style={styles.action}>
-                        <FontAwesome name="comment-o" style={styles.actionImg} size={24} color="#fff" />
-
+                        <FontAwesome5 name="comment"  style={styles.actionImg} size={24} color="#fff" />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() => {onOpen()}}>
@@ -148,6 +172,16 @@ const stylesPost = StyleSheet.create({
     firstLikesContainer:{
       width: 'auto'
     },
+
+    authorTitle:{
+      color: '#fff'
+    },
+
+    authorImage:{
+      height: 30,
+      width: '100%'
+    },
+
     likesContainer:{
       color: '#fff',
       flexDirection: 'row',
@@ -184,9 +218,63 @@ const stylesPost = StyleSheet.create({
       marginRight: 5
     }
     
-  })
+})
 
-  const styles = StyleSheet.create({
+
+const storieStyles = StyleSheet.create({
+
+  storieContainer:{
+    marginHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  closeFriend:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 100,
+    height: 50,
+    width: 50,
+    backgroundColor:'#1d9b21',
+    padding: 1,
+  },
+  visualized:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 100,
+    height: 50,
+    width: 50,
+    backgroundColor:'#ddd',
+    padding: 1,
+  },
+  noVisualizedContainer:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 2,
+    borderRadius: 100,
+    height: 55,
+    width: 55,
+  
+  },  
+
+  profilePic:{
+    height: '100%',
+    width: '100%',
+    borderWidth: 4,
+    borderColor: '#000',
+    borderRadius: 100,
+  },
+  textContainer:{
+
+  },
+  text: {
+    fontSize: 13,
+    marginTop: 5,
+    color: '#FFFFFF',
+    textAlign: 'center',
+  }
+})
+
+const styles = StyleSheet.create({
     logoContainer:{
       height: 50,
       width: 170,
@@ -236,10 +324,10 @@ const stylesPost = StyleSheet.create({
       marginBottom: 15
     },
     postOptions: {},
-    userInfo: {},
+    userInfo: {
+      width: '73%'
+    },
     author: {
-      fontSize: 14,
-      color: '#fff',
       fontFamily:'sans-serif',
       fontWeight: 'bold'
     },
@@ -280,5 +368,11 @@ const stylesPost = StyleSheet.create({
     description: {
       color: '#fff',
       lineHeight: 18
+    },
+
+    authorTitle:{
+      color: '#fff',
+      fontSize: 18,
+      fontWeight: 'bold'
     }
   });
