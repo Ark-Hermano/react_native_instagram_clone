@@ -13,7 +13,7 @@ import Storie from '../screens/Storie/Index';
 import Stories from '../screens/Stories/Index';
 import Upload from '../screens/Upload/Index'
 
-import CreateStack from './CreateStack'
+import CreateTabs from './CreateTabs'
 import HomeStack from './HomeStack'
 
 
@@ -35,7 +35,7 @@ function MainNavigator() {
             <Stack.Screen name="Comments" component={Comments} options={{ headerShown: false  }}  />
             <Stack.Screen name="Conversation" component={Conversation} options={{ headerShown: false  }}/>
 
-            {/* <Stack.Screen name="Create" component={CreateStack} options={{ headerShown: false  }}  /> */}
+            <Stack.Screen name="Create" component={CreateTabs} options={{ headerShown: false  }}  />
             <Stack.Screen name="Upload" component={Upload} options={{ headerShown: false  }}  />
             <Stack.Screen name="Storie" component={Storie} options={{ headerShown: false  }}  />
             <Stack.Screen name="Stories" component={Stories} options={{ headerShown: false  }} />
