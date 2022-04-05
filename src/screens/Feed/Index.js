@@ -16,150 +16,34 @@ import StorieList from './components/StorieList/Index'
 import instaLogo from '../../../assets/invertedColors/instagramName.png'
 import { AntDesign } from '@expo/vector-icons'; 
 import { Fontisto } from '@expo/vector-icons'; 
+import api from '../../service/api';
 
 const innerHeight = Dimensions.get('window').height;
 
 function Feed({navigation}) {
 
-  const[text, setText] = useState('')
+  const [text, setText] = useState('')
+  const [posts, setPosts] = useState([])
+  const [stories, setStories] = useState([])
+
   let picText = ''
   const pan = useRef(new Animated.ValueXY()).current;
 
   useEffect(() => {
-  
-  },[])
-
-  const posts = [
-    {
-      id: '1',
-      author: 'Hermano.dev',
-      picture_url:
-        'https://observatoriodocinema.bol.uol.com.br/wp-content/uploads/2019/08/69047060_359538678332469_1243013082205126656_n.png',
-      likes: 1272,
-      description: 'Saiu o filme do coringa!!!',
-      hashtags: '#cinema #joker',
-      place: 'Cinema do Shopping',
-      likes:[
-        {
-          id:'2',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        }
-      ],
-      comments:[
-        {},{},{},{},{},{},{},{},{},{},
-      ],
-    },
-    {
-      id: '2',
-      author: 'Hermano.dev',
-      picture_url:
-        'https://s2.glbimg.com/VUgvvuWb7QZ_q0Rfqg_EHLIV32U=/top/e.glbimg.com/og/ed/f/original/2019/08/05/angelina1.png',
-      likes: 784,
-      description: 'Saiu o filme malevola!!!',
-      hashtags: '#cinema #malevola',
-      place: 'Cinema do Shopping',
-      likes:[
-        {
-          id:'5',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        },
-        {
-          id:'3',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        }
-      ],
-      comments:[
-        {},{},{},{},{},{},{},{},{},{},
-      ],
-    },
-    {
-      id: '3',
-      author: 'Hermano.dev',
-      picture_url:
-        'http://br.web.img3.acsta.net/pictures/19/05/07/20/54/2901026.jpg',
-      likes: 397,
-      description: 'Saiu o filme rei leão!!!',
-      hashtags: '#cinema #reileao',
-      place: 'Cinema do Shopping',
-      likes:[
-        {
-          id:'3',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        },
-        {
-          id:'3',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        },
-        {
-          id:'3',
-          user:{
-            profilePic: 'https://picsum.photos/720'
-          }
-        }
-      ],
-      comments:[
-        {},{},{},{},{},{},{},{},{},{},
-      ],
-    }
-  ];
-
-  const stories = [
-      {
-           id: '1',
-        closeFriend:true,
-        visualized:false,
     
-      },
-        {
-             id: '1',
-        closeFriend:false,
-        visualized:false
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },
-      {
-        id: '1',
-        closeFriend:true,
-        visualized:true
-      },]
+    api.get('/posts').then(response => {
+
+      setPosts(response.data)
+
+    })
+
+    api.get(`/user/${1}/following/stories`).then(response => {
+
+      setStories(response.data)
+
+    })
+
+  },[])
 
   function renderItem({ item: post, id,}) {
 
@@ -171,7 +55,7 @@ function Feed({navigation}) {
   function renderStories({item: storie, i}){
 
     return (
-      <StorieList key={i} storie={storie} />
+      <StorieList key={i} storie={storie} navigation={navigation} />
     )
   }
 

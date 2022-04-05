@@ -4,7 +4,7 @@ import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 
 
-const Index = ({storie, key}) => {
+const Index = ({storie, key, navigation}) => {
   return (
     <View key={key} >
         {storie.closeFriend ? (
@@ -17,7 +17,7 @@ const Index = ({storie, key}) => {
                 ]} >
                   <Image 
                       style={storieStyles.profilePic} 
-                      source={'https://picsum.photos/720'}
+                      source={{uri: `https://insta-clone-hermano.herokuapp.com/profile/${storie.user.profile_path}`}}
                   />
                
                 </View>
@@ -39,7 +39,7 @@ const Index = ({storie, key}) => {
                 >
                 <Image 
                     style={storieStyles.profilePic} 
-                    source={'https://picsum.photos/720'}
+                    source={{uri: `https://insta-clone-hermano.herokuapp.com/profile/${storie.user.profile_path}`}}
                 />
               
                 </LinearGradient>

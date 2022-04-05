@@ -6,11 +6,10 @@ import { Portal } from 'react-native-portalize';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CustomTabBar from '../components/CustomTabBar'
 
-import { Feather } from '@expo/vector-icons'; 
+import { Feather, MaterialCommunityIcons} from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons'; 
 import { Foundation } from '@expo/vector-icons'; 
 import { AntDesign } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Octicons } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons'; 
 
@@ -23,6 +22,7 @@ import Insights from '../screens/Insights/Index'
 import Notifications from '../screens/Notifications/Index'
 import EditProfile from '../screens/EditProfile/Index'
 import Feed from '../screens/Feed/Index';
+import Tools from '../screens/Tools/Index'
 
 
 const Tab = createBottomTabNavigator();
@@ -162,6 +162,17 @@ function HomeStack() {
     </View>
   )
 
+  const ToolsHeader = ({navigation}) => (
+    <View style={styles.toolsHeader}>
+        <ReturnButton navigation={navigation} />
+
+        <View style={styles.headerTitle}>
+          <Text style={styles.headerTitleText}>Ferraments para anúncios</Text>
+        </View>
+        
+    </View>
+  )
+
  
   return (
         <Tab.Navigator 
@@ -277,6 +288,28 @@ function HomeStack() {
               />
 
               <Tab.Screen 
+                name="Tools" 
+                component={Tools} 
+                options={{
+                  headerMode: 'screen',
+                  headerStyle: {
+                    paddingHorizontal:30,
+                    height: 80,
+                    flexDirection: 'row',
+                    alignItems:'center',
+                    justifyContent:'space-between',
+                    backgroundColor: "#000"
+                  },
+                  header:({ scene, previous, navigation }) => {
+                    return (
+                      <ToolsHeader navigation={navigation} />
+
+                    );
+                  } 
+                }}
+              />
+
+              <Tab.Screen 
                 name="Notifications" 
                 component={Notifications} 
               />
@@ -306,6 +339,15 @@ const styles = StyleSheet.create({
 
     accountHeader:{
       justifyContent:'space-between',
+      flexDirection: 'row',
+      backgroundColor: '#000',
+      alignContent:'center',
+      height: 70,
+      padding: 15
+    },
+
+    toolsHeader:{
+      justifyContent:'flex-start',
       flexDirection: 'row',
       backgroundColor: '#000',
       alignContent:'center',

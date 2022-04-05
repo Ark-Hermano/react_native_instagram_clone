@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-nati
 import React, {useState} from 'react'
  import example from '../../../../../assets/example.mp4' 
 
-import { Video, AVPlaybackStatus } from 'expo-av';
+import { Video } from 'expo-av';
 
 const innerHeight = Dimensions.get('window').height;
 

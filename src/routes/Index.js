@@ -27,7 +27,7 @@ function MainNavigator() {
     <NavigationContainer>
       <Host>
         <Stack.Navigator  
-          initialRouteName="Home"
+          initialRouteName="Stories"
         >
           
             <Stack.Screen name="Home" component={HomeStack}   options={{ headerShown: false  }}   /> 

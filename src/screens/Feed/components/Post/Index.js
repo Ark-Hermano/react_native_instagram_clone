@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Image, TextInput} from 'react-native'
 import React, {useRef, useState} from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
-
+import { Video } from 'expo-av';
 
 import Likes from '../Likes/Index'
 import SendToFollowers from '../SendModal/Index'
@@ -48,7 +48,7 @@ const Index = ({post, navigation}) => {
                   >
                     <Image 
                         style={storieStyles.profilePic} 
-                        source={'https://picsum.photos/720'}
+                        source={{uri: `https://insta-clone-hermano.herokuapp.com/profile/${post.user.profile_path}`}}
                     />
                 
                   </LinearGradient>
@@ -59,11 +59,11 @@ const Index = ({post, navigation}) => {
 
               <View style={styles.userInfo}>
                   <TouchableOpacity onPress={() => {navigation.navigate('Account')}} style={styles.author}>
-                    <Text style={styles.authorTitle}>{post.author}</Text>
+                    <Text style={styles.authorTitle}>{post.user.name}</Text>
                   </TouchableOpacity>
                   
 
-                  <Text style={styles.place}>{post.place}</Text>
+                  <Text style={styles.place}>{post.location} </Text>
               </View>
 
               <View style={styles.postOptions}>
@@ -74,10 +74,25 @@ const Index = ({post, navigation}) => {
             </View>
 
             <View>
-              <Image
-                style={styles.picture_url}
-                source={{ uri: post.picture_url }}
-              />
+              {post.type === "image" ? (
+                <Image
+                  style={styles.picture_url}
+                  source={{ uri:`https://insta-clone-hermano.herokuapp.com/posts/${post.type}/${post.path}`}} 
+                />
+              ):(
+                <Video
+                  isMuted
+                  //ref={video}
+                  shouldPlay
+                  style={styles.picture_url}
+                  source={{ uri:`https://insta-clone-hermano.herokuapp.com/posts/${post.type}/${post.path}`}} 
+                  useNativeControls={true}
+                  usePoster={true}
+                  isLooping
+                  resizeMode="contain"
+           
+                />
+              )}
             </View>
 
             <View style={styles.footer}>

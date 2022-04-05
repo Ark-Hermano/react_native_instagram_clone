@@ -8,11 +8,15 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import Carousel from 'react-native-snap-carousel';
 
-import {Dimensions} from "react-native";
+import Carousel from 'react-native-snap-carousel';
+import { Video } from 'expo-av';
+import { Dimensions } from "react-native";
 import { Entypo } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
+
+import api from '../../service/api';
+
 
 const innerWidth = Dimensions.get('window').width;
 const innerHeight = Dimensions.get('window').height;
@@ -26,7 +30,7 @@ const Storie = ({item, index, carousel, stories}) => {
       
 
         return (
-            <View style={[ styles.postLikeContainer, {right: (index * 7)} ]}>
+            <View style={[ styles.postLikeContainer, {right: (1 * 7)} ]}>
                 <Image style={styles.postLikeProfile} source={likes?.user?.profilePic} />
             </View>
         )
@@ -53,7 +57,18 @@ const Storie = ({item, index, carousel, stories}) => {
                 <View style={styles.storieContainer}> 
                     <View  style={styles.userHeader}>
                         <View  style={styles.profilePicContainer}>
-                            <Image style={styles.profilePic} source={'https://picsum.photos/720'} />
+                           
+                            {item?.type === 'image' ? (
+                              <Image 
+                                style={styles.profilePic} 
+                                source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.type}/${item?.path}`}} 
+                              />
+                            ):(
+                              <Video 
+                                source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.type}/${item?.path}`}} 
+         
+                              />
+                            )}
                         </View>
                      
                        
@@ -68,7 +83,25 @@ const Storie = ({item, index, carousel, stories}) => {
                         </View>
                     </View>
 
-                    <Image style={styles.image}  source={item.stories[storieItem]?.media} />
+      
+                    {item?.user.stories[0].type === 'image' ? (
+                      <Image 
+                        style={styles.image}  
+                        source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
+                      />
+                    ):(
+                      <Video 
+                        isMuted
+                        //ref={video}
+                        shouldPlay
+                        useNativeControls={false}
+                        usePoster={true}
+                        isLooping
+                        resizeMode="contain"
+                        style={styles.image}  
+                        source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
+                      />
+                    )}
 
                     <View  style={styles.userBottom}  > 
                         <View  style={styles.storieVisualiztionsContainer} >
@@ -113,8 +146,25 @@ const Storie = ({item, index, carousel, stories}) => {
                           </View>
                         </View>
                     </View>
-
-                    <Image style={styles.image}  source={item.stories[storieItem]?.media} />
+                    
+                    {item?.user.stories[0].type === 'image' ? (
+                      <Image 
+                        style={styles.image}  
+                        source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
+                      />
+                    ):(
+                      <Video 
+                        isMuted
+                        //ref={video}
+                        shouldPlay
+                        useNativeControls={false}
+                        usePoster={true}
+                        isLooping
+                        resizeMode="contain"
+                        style={styles.image}  
+                        source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
+                      />
+                    )}
 
                     <View style={styles.inputBottom} >
                      
@@ -130,7 +180,8 @@ const Storie = ({item, index, carousel, stories}) => {
                           width: '75%',
                           padding: 10,
                         }}
-                        placeholder="Enviar mensagem"
+                        //placeholder="Enviar mensagem"
+                        placeholder={`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}
                       />
               
                       <Feather name="send" size={24} style={styles.actionIcon}  color="#fff" />
@@ -150,464 +201,17 @@ const Storie = ({item, index, carousel, stories}) => {
 
 const Stories = () => {
 
-  
-
     const carousel = useRef(null)
+    const [stories, setStories] = useState([])
 
-    const [stories, setStories] = useState([
-        {
-            user:{
-                id:1
-            
-            },
-            id:1,
-            stories:[
-                {media: 'https://picsum.photos/420'},
-                 {media: 'https://picsum.photos/421'},
-                 {media: 'https://picsum.photos/423'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/424'},
-                 {media: 'https://picsum.photos/425'},
-                 {media: 'https://picsum.photos/426'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/721'},
-                 {media: 'https://picsum.photos/722'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        },  
-        {
-            id:1,
-            stories:[
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-                 {media: 'https://picsum.photos/720'},
-            ],
-            likes:[
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                },
-                {
-                  id:'3',
-                  user:{
-                    profilePic: 'https://picsum.photos/720'
-                  }
-                }
-              ],
-        }
-    ])
+    useEffect(() => {
+
+      api.get(`/user/${1}/following/stories`).then(response => {
+
+        setStories(response.data)
+  
+      })
+    },[])
 
     function renderItem({item, index, carousel}){
         return(
@@ -672,7 +276,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start', 
         display: 'flex',
         flexDirection: 'row',
-        paddingLeft: '15px',
+        paddingLeft: 15,
         zIndex: 10, 
     },
     profilePicContainer:{
@@ -715,7 +319,7 @@ const styles = StyleSheet.create({
 
     userBottom:{
       zIndex: 20,
-      marginBottom: '15px',
+      marginBottom: 15,
       flexDirection: 'row',
       justifyContent: 'space-around',
       top: innerHeight - 105,
@@ -723,7 +327,7 @@ const styles = StyleSheet.create({
     },
     inputBottom:{
       zIndex: 20,
-      marginBottom: '15px',
+      marginBottom: 15,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
