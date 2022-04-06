@@ -11,6 +11,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
 
+import { Post } from './style'
+
 const Index = ({post, navigation}) => {
 
 
@@ -33,11 +35,10 @@ const Index = ({post, navigation}) => {
     };
 
     return (
-        <View style={styles.post}>
-            <View style={styles.postHeader}>
-
+        <Post>
+            <PostHeader>
               <View>
-                <TouchableOpacity onPress={() => {navigation.navigate('Stories')}} style={storieStyles.storieContainer}>
+                <StorieContainer onPress={() => {navigation.navigate('Stories')}}>
                   
                   <LinearGradient 
                     colors={['#f09433', '#e6683c', '#dc2743', '#cc2366', '#bc1888']}
@@ -46,43 +47,37 @@ const Index = ({post, navigation}) => {
                         storieStyles.visualized
                     ]}
                   >
-                    <Image 
-                        style={storieStyles.profilePic} 
+                    <ProfilePic 
                         source={{uri: `https://insta-clone-hermano.herokuapp.com/profile/${post.user.profile_path}`}}
                     />
-                
                   </LinearGradient>
-
        
-                </TouchableOpacity>
+                </StorieContainer>
               </View>
 
-              <View style={styles.userInfo}>
-                  <TouchableOpacity onPress={() => {navigation.navigate('Account')}} style={styles.author}>
-                    <Text style={styles.authorTitle}>{post.user.name}</Text>
-                  </TouchableOpacity>
+              <UserInfo>
+                  <Author onPress={() => {navigation.navigate('Account')}}>
+                    <AuthorTitle>{post.user.name}</AuthorTitle>
+                  </Author>
                   
+                  <Place>{post.location}</Place>
+              </UserInfo>
 
-                  <Text style={styles.place}>{post.location} </Text>
-              </View>
-
-              <View style={styles.postOptions}>
+              <PostOptions>
                   <TouchableOpacity>
                       <Entypo name="dots-three-vertical" size={24} color="#fff" />
                   </TouchableOpacity>
-              </View>
-            </View>
+              </PostOptions>
+            </PostHeader>
 
             <View>
               {post.type === "image" ? (
-                <Image
-                  style={styles.picture_url}
+                <Picture_url
                   source={{ uri:`https://insta-clone-hermano.herokuapp.com/posts/${post.type}/${post.path}`}} 
                 />
               ):(
                 <Video
                   isMuted
-                  //ref={video}
                   shouldPlay
                   style={styles.picture_url}
                   source={{ uri:`https://insta-clone-hermano.herokuapp.com/posts/${post.type}/${post.path}`}} 
@@ -90,75 +85,73 @@ const Index = ({post, navigation}) => {
                   usePoster={true}
                   isLooping
                   resizeMode="contain"
-           
                 />
               )}
             </View>
 
-            <View style={styles.footer}>
-              <View style={styles.actions}>
-                  <View style={styles.leftActions}>
+            <Footer>
+              <Actions>
+                  <LeftActions>
 
-                  {liked ? (
-                      <TouchableOpacity onPress={() => {setLiked(false)}} style={styles.action}>
-                          <AntDesign name="heart" style={styles.actionImg} size={24} color="#fff" />
-                      </TouchableOpacity>
-                      
-                  ):(
-                      <TouchableOpacity onPress={() => {setLiked(true)}} style={styles.action}>
-                          <AntDesign name="hearto" style={styles.actionImg}  size={24} color="#fff" />
-                      </TouchableOpacity>
-                  )}
+                    {liked ? (
+                      <Action onPress={() => {setLiked(false)}}>
+                          <AntDesign name="heart" size={24} color="#fff" />
+                      </Action>  
+                    ):(
+                      <Action onPress={() => {setLiked(true)}}>
+                          <AntDesign name="hearto"  size={24} color="#fff" />
+                      </Action>
+                    )}
 
-                    <TouchableOpacity style={styles.action}>
-                        <FontAwesome5 name="comment"  style={styles.actionImg} size={24} color="#fff" />
-                    </TouchableOpacity>
+                    <Action>
+                        <FontAwesome5 name="comment"  size={24} color="#fff" />
+                    </Action>
 
                     <TouchableOpacity onPress={() => {onOpen()}}>
-                        <Feather style={styles.actionImg} source name="send" size={24} color="#fff" />
+                        <Feather source name="send" size={24} color="#fff" />
 
                         <SendToFollowers />
                     </TouchableOpacity>
 
-                  </View>
+                  </LeftActions>
 
                   <View>
-                  {saved ? (
+                    {saved ? (
                       <TouchableOpacity onPress={() => {setSaved(false)}}>
-                          <Feather name="bookmark" size={24} color="#fff" style={styles.actionImg} />
+                          <Feather name="bookmark" size={24} color="#fff" />
                       </TouchableOpacity>   
-                  ):(
+                    ):(
                       <TouchableOpacity onPress={() => {setSaved(true)}}>
-                          <Feather name="bookmark" size={24} color="#fff" style={styles.actionImg} />
+                          <Feather name="bookmark" size={24} color="#fff" />
                       </TouchableOpacity>
-                  )}
+                    )}
                   </View>
-              </View>
+              </Actions>
 
               <View>
-                  <View style={stylesPost.likesContainer}>
-                      <FlatList
-                          style={[stylesPost.firstLikesContainer, {}]}
+                  <LikesContainer>
+                      <FirstLikesContainer
                           horizontal
                           data={post.likes}
                           keyExtractor={item => item.id}
                           renderItem={renderLikes}
                       />
-                      <Text style={stylesPost.likes} >{post.likes.length + ' likes'} </Text>
-                  </View>
+                      <Likes>{post.likes.length + ' likes'} </Likes>
+                  </LikesContainer>
               
-                  <Text style={styles.description}>{post.description}</Text>
+                  <Description>{post.description}</Description>
 
                   <TouchableOpacity onPress={() => { navigation.navigate('Comments') }} >
-                      <Text style={stylesPost.comments}>Ver todos os {post.comments.length} comentários</Text>
+                      <Comments>Ver todos os {post.comments.length} comentários</Comments>
                   </TouchableOpacity>
 
                   <View >
-                      <TouchableOpacity style={stylesPost.inputContainer} onPress={() => { navigation.navigate('Comments') }} >
-                          <Image style={stylesPost.profilePicComment} source={'https://picsum.photos/720'} />
+                      <InputContainer onPress={() => { navigation.navigate('Comments') }} >
+                          <ProfilePicComment source={'https://picsum.photos/720'} />
                           <TextInput 
                               placeholder="Messagem..."
-                              value={text} onChange={(e) => {
+                              value={text} 
+                              onChange={(e) => {
                                 setText(e.target.value)
                               }} 
                               style={{
@@ -171,12 +164,12 @@ const Index = ({post, navigation}) => {
                                   marginLeft: 0,
                               }}
                           />
-                      </TouchableOpacity>
+                      </InputContainer>
                   </View>
 
               </View>
-            </View>
-        </View>
+            </Footer>
+        </Post>
     )
 }
 
