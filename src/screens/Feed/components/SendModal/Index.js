@@ -9,6 +9,8 @@ import { Host, Portal } from 'react-native-portalize';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';  
 
+import { ModalContainer, SendPostPic } from './style'
+
 const Index = () => {
 
   const modalizeRef = useRef(null);
@@ -47,17 +49,16 @@ const Index = () => {
                 withHandle={false}
                 modalStyle={{marginTop: 0}}
                 HeaderComponent={renderHeader}  
-                snapPoint={window.innerHeight - 100} ref={modalizeRef}>
+                snapPoint={window.innerHeight - 100} 
+                ref={modalizeRef}
+              >
+                <ModalContainer>
 
-                <ScrollView style={modalSendStyles.modalContainer} >
-
-                    <View style={modalSendStyles.sendWithTextContainer} >
-
+                    <SendWithTextContainer >
                       <View>
-                          <Image style={modalSendStyles.sendPostPic}  source={'https://picsum.photos/720'} />
+                          <SendPostPic source={'https://picsum.photos/720'} />
                       </View>
-
-                      <View style={modalSendStyles.inputContainer}>
+                      <InputContainer>
                           <TextInput
                             style={{
                                 color: '#fff',
@@ -67,14 +68,11 @@ const Index = () => {
                             }}
                             placeholder="Escreva uma messagem..."
                           />
-                      </View>
+                      </InputContainer>
+                    </SendWithTextContainer>
 
-                    </View>
-
-                    <View style={modalSendStyles.searchContainer}  >
-
-                        <AntDesign tyle={modalSendStyles.search} name="search1" size={24} color="#fff" />
-
+                    <SearchContainer>
+                        <AntDesign name="search1" size={24} color="#fff" />
                         <TextInput 
                             placeholder="Messagem..."
                             style={{
@@ -87,43 +85,38 @@ const Index = () => {
                                 marginLeft: 0,
                             }}
                         />
-                    </View>
+                    </SearchContainer>
 
-                    <View style={modalSendStyles.sendStoryContainer}>
-
+                    <SendStoryContainer>
                       <View>
-                          <Image style={modalSendStyles.profilePic} source={'https://picsum.photos/720'} />
+                          <ProfilePic source={'https://picsum.photos/720'} />
                       </View>
 
-                      <TouchableOpacity  style={modalSendStyles.sendStoryTextContainer}  >
-                          <Text style={modalSendStyles.sendStoryText} >Adicionar publicação ao seu story</Text>
-                      </TouchableOpacity>
+                      <SendStoryTextContainer>
+                          <SendStoryText>Adicionar publicação ao seu story</SendStoryText>
+                      </SendStoryTextContainer>
+                    </SendStoryContainer>
 
-                    </View>
-
-                    <TouchableOpacity style={modalSendStyles.createGroupContainer}>
-
-                      <View >
-                        <MaterialIcons style={modalSendStyles.createGroupIcon} name="groups" size={24} color="#fff" />
+                    <CreateGroupContainer>
+                      <View>
+                        <MaterialIcons name="groups" size={24} color="#fff" />
                       </View>
 
-                      <View style={modalSendStyles.createGroupTextContainer} >
-                          <Text style={modalSendStyles.createGroupText}>Criar grupo</Text>
-                      </View>
-
-                    </TouchableOpacity>
+                      <CreateGroupTextContainer>
+                          <CreateGroupText>Criar grupo</CreateGroupText>
+                      </CreateGroupTextContainer>
+                    </CreateGroupContainer>
 
                     <View>  
-                      <FlatList
-                          style={[modalSendStyles.followers, {}]}
-                          vertical
-                          data={followers}
-                          keyExtractor={item => item.id}
-                          renderItem={renderSendFollowers}
+                      <ModalSendStyles
+                        vertical
+                        data={followers}
+                        keyExtractor={item => item.id}
+                        renderItem={renderSendFollowers}
                       />
                     </View>  
 
-                </ScrollView>
+                </ModalContainer>
                 
             </Modalize>
         </Portal>
