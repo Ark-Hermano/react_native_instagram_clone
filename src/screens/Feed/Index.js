@@ -18,6 +18,8 @@ import { AntDesign } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons'; 
 import api from '../../service/api';
 
+import {Background, HeaderIcon, Top, Scroll, LogoContainer, Logo} from './style'
+
 const innerHeight = Dimensions.get('window').height;
 
 function Feed({navigation}) {
@@ -60,26 +62,25 @@ function Feed({navigation}) {
   }
 
   return (
-    <SafeAreaView style={styles.background}>
-      <View style={styles.top}>
+    <Background>
+      <Top>
        
-          <View style={styles.logoContainer}>
-            <Image style={styles.logo} source={instaLogo}/>
-          </View>
+          <LogoContainer>
+            <Logo source={instaLogo}/>
+          </LogoContainer>
 
-          <AntDesign name="pluscircleo"  onClick={() => { navigation.navigate('Create') }} style={styles.headerIcon} size={24} color="#fff" />
+          <AntDesign name="pluscircleo"  onClick={() => { navigation.navigate('Create') }} size={24} color="#fff" />
 
-          <AntDesign name="hearto" onClick={() => { navigation.navigate('Notifications') }} style={styles.headerIcon}  size={24} color="#fff" />
+          <AntDesign name="hearto" onClick={() => { navigation.navigate('Notifications') }}  size={24} color="#fff" />
 
-          <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} style={styles.headerIcon} size={24} color="#fff" />
-      </View>
+          <Fontisto name="messenger" onClick={() => { navigation.navigate('Chat') }} size={24} color="#fff" />
+      </Top>
 
       <SafeAreaView style={{ height: innerHeight - 120 }}>
         <View  > 
-          <FlatList
+          <Scroll
             horizontal
             showsHorizontalScrollIndicator={false}
-            style={storieStyles.scroll}
             data={stories}
             keyExtractor={item => item.id}
             renderItem={renderStories}
@@ -93,50 +94,9 @@ function Feed({navigation}) {
           renderItem={renderItem}
         />
       </SafeAreaView>
-
-    </SafeAreaView>
+    </Background>
   );
 }
-
-const storieStyles = StyleSheet.create({
-  scroll:{
-    flexDirection: 'row',
-    marginVertical: 15
-  }
-})
-
-
-const styles = StyleSheet.create({
-  background:{
-    backgroundColor:'#000',
-  },
-
-  top: {
-    height:60,
-    backgroundColor:'#000',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 15,
-    alignItems: 'center'
-  }, 
-
-  logoContainer:{
-    height: 50,
-    width: 170,
-    justifyContent: 'center'
-  },
-
-  logo:{
-    width:'60%',
-    height: 30
-  },
-
-  headerIcon:{
-    width: 25,
-    height: 25
-  },
-
-});
 
 export default Feed;
 
