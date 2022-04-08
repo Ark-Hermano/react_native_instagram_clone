@@ -9,14 +9,10 @@ import axios from 'axios';
 
 import { View, Text, Button, Image, ScrollView, SafeAreaView, TouchableHighlight } from 'react-native';
 
-import Main from '../screens/CreateStackScreens/MainScreen';
-import Gallery from '../screens/CreateStackScreens/Gallery';
-import SelectedImages from '../screens/CreateStackScreens/EditSelectedImages';
-//import Upload from '../screens/CreateStackScreens/UploadPhoto'; 
+
 import Chat from '../screens/Account/Index'
 
-import ImageBrowser from '../screens/CreateStackScreens/ImageBrowserScreen';
-import { Host, Portal } from 'react-native-portalize';
+
 const Stack = createStackNavigator();
 
 export default CreateStack = () => {
@@ -103,219 +99,12 @@ export default CreateStack = () => {
   
   }
   
-  const customHeaderOptions = {
-    title: 'screen',
-    headerStyle: {
-      paddingHorizontal:30,
-      height: 80,
-      flexDirection: 'row',
-      alignItems:'center',
-      justifyContent:'space-between',
-      backgroundColor: "#000"
-    }
-  }
 
   return (
         <Stack.Navigator
           //initialRouteName="Upload" 
         >
           <Stack.Screen name="ChatList" component={Chat}  options={{  headerShown: false  }} />
-
-          {/* <Stack.Screen 
-            name='Nova publicação' 
-            component={Main}
-
-            options={{
-                headerMode: 'screen',
-                headerStyle: {
-                  paddingHorizontal:30,
-                  height: 80,
-                  flexDirection: 'row',
-                  alignItems:'center',
-                  justifyContent:'space-between',
-                  backgroundColor: "#000"
-                },
-                header:({ scene, previous, navigation }) => {
-                  
-                  // const title =
-                  //  customHeaderOptions.headerTitle !== undefined
-                  //     ?customHeaderOptions.headerTitle
-                  //     :customHeaderOptions.title !== undefined
-                  //     ?customHeaderOptions.title
-                  //     : scene.route.name;
-
-                  return (
-                    <MyHeader
-                      title={customHeaderOptions.title}
-                      leftButton={
-                        <CancelButton navigation={navigation} /> 
-                      }
-                      rightButton={
-                        <NextButton navigation={navigation} navigationTitle={'Gallery'}/>
-                      }
-                      style={customHeaderOptions.headerStyle}
-                    />
-                  );
-                } 
-            }}
-          />
-
-          <Stack.Screen 
-            name='Gallery' 
-            component={Gallery}
-
-            options={{
-                headerMode: 'screen',
-                headerStyle: {
-                  paddingHorizontal:24,
-                  height: 80,
-                  flexDirection: 'row',
-                  alignItems:'center',
-                  justifyContent:'space-between',
-                  backgroundColor: "#000"
-                },
-                header:({ scene, previous, navigation }) => {
-                  
-                  // const title =
-                  //  customHeaderOptions.headerTitle !== undefined
-                  //     ?customHeaderOptions.headerTitle
-                  //     :customHeaderOptions.title !== undefined
-                  //     ?customHeaderOptions.title
-                  //     : scene.route.name;
-
-                  return (
-                    <MyHeader
-                      title={customHeaderOptions.title}
-                      leftButton={
-                        <CancelButton navigation={navigation} /> 
-                      }
-                      rightButton={
-                        <NextButton navigation={navigation} navigationTitle={'SelectedImages'}/>
-                      }
-                      style={customHeaderOptions.headerStyle}
-                    />
-                  );
-                } 
-            }} 
-          />
-
-          <Stack.Screen 
-            name='SelectedImages' 
-            component={SelectedImages}
-
-            options={{
-                headerMode: 'screen',
-                headerStyle: {
-                  paddingHorizontal:30,
-                  height: 80,
-                  flexDirection: 'row',
-                  alignItems:'center',
-                  justifyContent:'space-between',
-                  backgroundColor: "#000"
-                },
-                header:({ scene, previous, navigation }) => {
-                  
-                  // const title =
-                  //  customHeaderOptions.headerTitle !== undefined
-                  //     ?customHeaderOptions.headerTitle
-                  //     :customHeaderOptions.title !== undefined
-                  //     ?customHeaderOptions.title
-                  //     : scene.route.name;
-
-                  return (
-                    <MyHeader
-                      title={customHeaderOptions.title}
-                      leftButton={
-                        <ReturnButton navigation={navigation} /> 
-                      }
-                      rightButton={
-                        <NextButton navigation={navigation} navigationTitle={'Upload'}/>
-                      }
-                      style={customHeaderOptions.headerStyle}
-                    />
-                  );
-                } 
-            }}
-          />
-
-          <Stack.Screen 
-            name='Upload' 
-            component={Upload}   
-            
-            options={{
-                headerMode: 'screen',
-                headerStyle: {
-                  paddingHorizontal:30,
-                  height: 80,
-                  flexDirection: 'row',
-                  alignItems:'center',
-                  justifyContent:'space-between',
-                  backgroundColor: "#000"
-                },
-                header:({ scene, previous, navigation }) => {
-                  
-                  // const title =
-                  //  customHeaderOptions.headerTitle !== undefined
-                  //     ?customHeaderOptions.headerTitle
-                  //     :customHeaderOptions.title !== undefined
-                  //     ?customHeaderOptions.title
-                  //     : scene.route.name;
-
-                  return (
-                    <MyHeader
-                      title={customHeaderOptions.title}
-                      leftButton={
-                        <ReturnButton navigation={navigation} /> 
-                      }
-                      rightButton={
-                        <AcceptButton navigation={navigation} navigationTitle={'ImageBrowser'}/>
-                      }
-                      style={customHeaderOptions.headerStyle}
-                    />
-                  );
-                } 
-            }} 
-          /> */}
-{/* 
-          <Stack.Screen
-            name='ImageBrowser'
-            component={ImageBrowser}
-
-            options={{
-                headerMode: 'screen',
-                headerStyle: {
-                  paddingHorizontal:30,
-                  height: 80,
-                  flexDirection: 'row',
-                  alignItems:'center',
-                  justifyContent:'space-between',
-                  backgroundColor: "#000"
-                },
-                header:({ scene, previous, navigation }) => {
-                  
-                  // const title =
-                  //  customHeaderOptions.headerTitle !== undefined
-                  //     ?customHeaderOptions.headerTitle
-                  //     :customHeaderOptions.title !== undefined
-                  //     ?customHeaderOptions.title
-                  //     : scene.route.name;
-
-                  return (
-                    <MyHeader
-                      title={customHeaderOptions.title}
-                      leftButton={
-                        <ReturnButton navigation={navigation} /> 
-                      }
-                      rightButton={
-                        <AcceptButton navigation={navigation}  navigationTitle={'Home'}/>
-                      }
-                      style={customHeaderOptions.headerStyle}
-                    />
-                  );
-                } 
-            }}
-          /> */}
-          
         </Stack.Navigator>
   );
 }

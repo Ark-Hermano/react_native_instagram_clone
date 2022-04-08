@@ -110,7 +110,7 @@ export default function ImageBrowserScreen({setPhotos, navigation, setDone}) {
 const midleBarStyle = StyleSheet.create({
   midCell:{
     width:'65%',
-    flexDirection:"row",
+    flexDirection: 'row',
     justifyContent:'flex-end'
   },
 

@@ -64,7 +64,6 @@ function Feed({navigation}) {
   return (
     <Background>
       <Top>
-       
           <LogoContainer>
             <Logo source={instaLogo}/>
           </LogoContainer>
@@ -78,13 +77,13 @@ function Feed({navigation}) {
 
       <SafeAreaView style={{ height: innerHeight - 120 }}>
         <View  > 
-          <Scroll
+          {/* <Scroll
             horizontal
             showsHorizontalScrollIndicator={false}
             data={stories}
             keyExtractor={item => item.id}
             renderItem={renderStories}
-          />
+          /> */}
         </View>
 
      
@@ -92,7 +91,7 @@ function Feed({navigation}) {
           data={posts}
           keyExtractor={item => item.id}
           renderItem={renderItem}
-        />
+        /> 
       </SafeAreaView>
     </Background>
   );

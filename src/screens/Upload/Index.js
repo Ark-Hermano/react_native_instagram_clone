@@ -39,12 +39,11 @@ export default function MainScreen({route, navigation}) {
 
             axios.post('http://localhost:8000/api/upload', formData)
                 .then(function (response) {
-                    // handle success
+              
                     alert(JSON.stringify(response.data));
                 })
                 .catch(function (error) {
-                    // handle error
-                    //alert(error.message);
+           
                 });
         
         })
@@ -55,29 +54,16 @@ export default function MainScreen({route, navigation}) {
       <SafeAreaView style={{ flex: 1 }}>     
             <View style={{height:windowHeight, width:windowWidth, backgroundColor:'#000', justifyContent:'center', alignItems:'center'}}>
               <View>
-                <Button
-                  style={styles.button}
+                <StyledButton
                   title="Open image browser"
                   onPress={() => { handleUploadPhoto() }}
                 />
               </View>
 
-                <Image  resizeMode="contain" style={styles.image} source={Photo} />           
+                <StyledImage resizeMode="contain" source={Photo} />           
             </View>
       </SafeAreaView>
     );
   }
 
-const styles = StyleSheet.create({
-  button:{
-    position:"absolute",
-    top: 20,
-    zIndex: 200
-  },
-  image:{
-    height: 75,
-    width: 75
-  }
-
-})
 

@@ -77,16 +77,15 @@ function Conversation({ navigation }) {
     }
 
     return (
-        <View style={styles.container}>
+        <Container>
             <View style={{height:60, width:100}}>
 
             </View>
 
-            <ScrollView   
+            <MessageContainer   
                 onScroll={(e) => handleScroll(e)}
                 ref={scrollViewRef}
                 onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
-                style={styles.messageContainer}
             >
                 <View style={{height: '100%'}} >
                 {conversation?.messages?.map((message,i) => {
@@ -143,17 +142,15 @@ function Conversation({ navigation }) {
                                         {backgroundColor:colors[messagePosition]}
                                     ]}> 
     
-                                    <Text style={styles.text}>{message.body}</Text>
+                                    <StyledText>{message.body}</StyledText>
                                 </View>
                             ):(
-                                <View 
-                                   
+                                <View
                                     style={[
                                         message.user_id === 1 
                                         ? styles.messageSend 
                                         : styles.message,  
     
-                                        
                                         nextFromOther && message.user_id !== 1 
                                         && styles.messageNormal,
                                         !nextFromOther && message.user_id !== 1 
@@ -162,7 +159,7 @@ function Conversation({ navigation }) {
                                         && styles.messageFirst,
                                     ]}> 
 
-                                    <Text style={styles.text}>{message.body}</Text>
+                                    <StyledText>{message.body}</StyledText>
                                 </View>
                             )}
                            
@@ -171,8 +168,8 @@ function Conversation({ navigation }) {
 
                 })}
                 </View>
-            </ScrollView>
-            <View style={styles.inputContainer}>
+            </MessageContainer>
+            <InputContainer>
                 <View style={text === '' ? styles.input : styles.inputActived }>
                     <TextInput 
                         placeholder="Messagem..."
@@ -192,17 +189,17 @@ function Conversation({ navigation }) {
                     />
                     {text !== '' ? (
                         <TouchableHighlight  onPress={() => {sendMessage()}}>
-                            <Text style={styles.sendText}>
+                            <SendText>
                                 Enviar
-                            </Text>
+                            </SendText>
                         </TouchableHighlight>
                     ):(
                         <></>
                     )}
                     
                 </View>
-            </View>
-        </View>
+            </InputContainer>
+        </Container>
     )
 
 }

@@ -8,15 +8,17 @@ import { FontAwesome } from '@expo/vector-icons';
 function headerTab(navigation){
 
     return(
-        <View style={styles.top}>
-            <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="#fff" />
-            <View style={styles.activeUser}>
-                <View  >hermano_sama</View>
-            </View>
-            <FontAwesome style={styles.listsIcon} name="list-ul" size={24} color="#fff" />
+        <Top>
+            <AntDesign onClick={() => {  navigation.goBack()}} name="arrowleft" size={24} color="#fff" />
 
-            <Foundation style={styles.newMessageIcon} name="pencil" size={24} color="#fff" />
-        </View>
+            <ActiveUser>
+                <Text>hermano_sama</Text>
+            </ActiveUser>
+
+            <FontAwesome name="list-ul" size={24} color="#fff" />
+
+            <Foundation name="pencil" size={24} color="#fff" />
+        </Top>
     )
 }
 

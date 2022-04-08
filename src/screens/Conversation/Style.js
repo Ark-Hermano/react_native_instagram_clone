@@ -7,7 +7,7 @@ let width = Dimensions.get(window).width;
       backgroundColor:  #000 ;
   `
   
-  text = styled.Text`
+  StyledText = styled.Text`
       color: #fff  ;
   `
   

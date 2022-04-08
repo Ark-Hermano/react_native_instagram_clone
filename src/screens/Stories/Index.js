@@ -28,10 +28,9 @@ const Storie = ({item, index, carousel, stories}) => {
 
     function renderLikes({item: likes, index}) {
       
-
         return (
             <View style={[ styles.postLikeContainer, {right: (1 * 7)} ]}>
-                <Image style={styles.postLikeProfile} source={likes?.user?.profilePic} />
+                <PostLikeProfile source={likes?.user?.profilePic} />
             </View>
         )
 
@@ -39,60 +38,49 @@ const Storie = ({item, index, carousel, stories}) => {
 
     return (
         <View >
-            <TouchableOpacity  
-                style={styles.storieItemNext}   
+            <StorieItemNext 
                 onPress={() => { 
-
-                    if(storieItem !== item.stories.length - 1){
-                        setStorieItem(storieItem + 1)
-                    }else {
-                        carousel.current.snapToNext()
-                    }
-
+                  if(storieItem !== item.stories.length - 1){
+                      setStorieItem(storieItem + 1)
+                  }else {
+                      carousel.current.snapToNext()
+                  }
                 }}> 
-            
-            </TouchableOpacity>
+            </StorieItemNext>
 
             {index === 1 ? (
-                <View style={styles.storieContainer}> 
-                    <View  style={styles.userHeader}>
-                        <View  style={styles.profilePicContainer}>
-                           
+                <StorieContainer> 
+                    <UserHeader>
+                        <ProfilePicContainer>
                             {item?.type === 'image' ? (
-                              <Image 
-                                style={styles.profilePic} 
+                              <ProfilePic 
                                 source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.type}/${item?.path}`}} 
                               />
                             ):(
                               <Video 
                                 source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.type}/${item?.path}`}} 
-         
                               />
                             )}
-                        </View>
+                        </ProfilePicContainer>
                      
-                       
-                        <View style={styles.userHeaderBody} >
-                            <View  style={styles.userNameContainer} >
-                                <Text  style={styles.userName} >hermano 17h</Text>
-                            </View>
-                            <View  style={styles.storieInformation} >
-                                {/* <Image  style={styles.storieIndicator} /> */}
-                                <Text  style={styles.storieInformatioText}  >Assistur ao vídeo do Reels completo</Text>
-                            </View>
-                        </View>
-                    </View>
+                        <UserHeaderBody>
+                            <UserNameContainer>
+                                <UserName>hermano 17h</UserName>
+                            </UserNameContainer>
+                            <StorieInformation>
+                                <StorieInformatioText>Assistur ao vídeo do Reels completo</StorieInformatioText>
+                            </StorieInformation>
+                        </UserHeaderBody>
+                    </UserHeader>
 
       
                     {item?.user.stories[0].type === 'image' ? (
-                      <Image 
-                        style={styles.image}  
+                      <StyledImage
                         source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
                       />
                     ):(
                       <Video 
                         isMuted
-                        //ref={video}
                         shouldPlay
                         useNativeControls={false}
                         usePoster={true}
@@ -103,59 +91,55 @@ const Storie = ({item, index, carousel, stories}) => {
                       />
                     )}
 
-                    <View  style={styles.userBottom}  > 
-                        <View  style={styles.storieVisualiztionsContainer} >
-                            <FlatList
-                                style={[styles.visualizations, {}]}
+                    <UserBottom> 
+                        <StorieVisualiztionsContainer >
+                            <Visualizations
                                 horizontal
                                 data={item.likes}
                                 keyExtractor={item => item.id}
                                 renderItem={({item, index}) => renderLikes(item, index)}
                             />
                                 
-                            
-                            <Text style={styles.actionText} >Visto por </Text>
-                        </View>
+                            <ActionText>Visto por </ActionText>
+                        </StorieVisualiztionsContainer>
 
-                        <View style={styles.bottomActionSecond} >
-                          <Feather  style={styles.actionIcon} name="camera" size={24} color="#fff" />  
-                          <Text style={styles.actionText} >Compartilhar</Text>
-                        </View>
+                        <BottomActionSecond>
+                          <Feather name="camera" size={24} color="#fff" />  
+                          <ActionText>Compartilhar</ActionText>
+                        </BottomActionSecond>
 
-                        <View style={styles.bottomActionThird} >
-                          <Feather  style={styles.actionIcon} name="camera" size={24} color="#fff" /> 
-                          <Text style={styles.actionText}  >Destacar</Text>
-                        </View>
+                        <BottomActionThird>
+                          <Feather name="camera" size={24} color="#fff" /> 
+                          <ActionText>Destacar</ActionText>
+                        </BottomActionThird>
 
-                        <View style={styles.bottomActionLast} >
-                          <Entypo name="dots-three-vertical" style={styles.actionIcon}  size={24} color="#fff" />
-                          <Text style={styles.actionText}  >Mais</Text>
-                        </View>
-                    </View>
-                </View> 
+                        <BottomActionLast>
+                          <Entypo name="dots-three-vertical" size={24} color="#fff" />
+                          <ActionText>Mais</ActionText>
+                        </BottomActionLast>
+                    </UserBottom>
+                </StorieContainer> 
             ):(
-                <View style={styles.storieContainer}> 
-                    <View style={styles.userHeader} >
-                        <View style={styles.profilePicContainer} >
-                          <Image style={styles.profilePic} source={'https://picsum.photos/720'} />
-                        </View>
+                <StorieContainer> 
+                    <UserHeader >
+                        <ProfilePicContainer >
+                          <ProfilePic source={'https://picsum.photos/720'} />
+                        </ProfilePicContainer>
 
-                        <View style={styles.userHeaderBody} >
-                          <View  style={styles.userNameContainer} >
-                              <Text  style={styles.userName} >hermano 17h</Text>
-                          </View>
-                        </View>
-                    </View>
+                        <UserHeaderBody >
+                          <UserNameContainer >
+                              <UserName>hermano 17h</UserName>
+                          </UserNameContainer>
+                        </UserHeaderBody>
+                    </UserHeader>
                     
                     {item?.user.stories[0].type === 'image' ? (
-                      <Image 
-                        style={styles.image}  
+                      <StyledImage  
                         source={{ uri:`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}} 
                       />
                     ):(
                       <Video 
                         isMuted
-                        //ref={video}
                         shouldPlay
                         useNativeControls={false}
                         usePoster={true}
@@ -166,8 +150,7 @@ const Storie = ({item, index, carousel, stories}) => {
                       />
                     )}
 
-                    <View style={styles.inputBottom} >
-                     
+                    <InputBottom>
                       <TextInput
                         style={{
                           backgroundColor: 'transparent',
@@ -180,20 +163,19 @@ const Storie = ({item, index, carousel, stories}) => {
                           width: '75%',
                           padding: 10,
                         }}
-                        //placeholder="Enviar mensagem"
+
                         placeholder={`https://insta-clone-hermano.herokuapp.com/stories/${item?.user.stories[0].type}/${item?.user.stories[0].path}`}
                       />
               
-                      <Feather name="send" size={24} style={styles.actionIcon}  color="#fff" />
-                        
-                    </View>
-                </View> 
+                      <Feather name="send" size={24} color="#fff" />
+                    </InputBottom>
+                </StorieContainer> 
             )}
             
 
-            <TouchableOpacity  style={styles.storieItemPrev}  onPress={() => { if(storieItem !== 0){setStorieItem(storieItem - 1)} }}> 
+            <StorieItemPrev onPress={() => { if(storieItem !== 0){setStorieItem(storieItem - 1)} }}> 
               
-            </TouchableOpacity>
+            </StorieItemPrev>
         </View>
     );
 }

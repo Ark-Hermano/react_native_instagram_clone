@@ -5,10 +5,6 @@ import {
   FlatList,
   Image,
   StyleSheet,
-  Text,
-  TouchableOpacity,
-  HorizontalScrollView,
-  ScrollView,
   Dimensions
 } from 'react-native';
 
@@ -16,9 +12,31 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons'; 
 import { Feather } from '@expo/vector-icons'; 
 
-import { Video, AVPlaybackStatus } from 'expo-av';
 const innerWidth = Dimensions.get('window').width;
 
+import {
+  ScrollPostSections, 
+  ScreenContainer,
+  Topbar,
+  TextWhite,
+  SubTitle,
+  ProfileData,
+  ProfileResume,
+  ProfileImage,
+  InfoContainerTextData,
+  InfoContainerLabel,
+  BioContainer,
+  ButtonActionsContainer,
+  ButtonActionButton,
+  ButtonText,
+  StoriesHighlightsContainer,
+  StorieTopBar,
+  PostsContainer,
+  TabsHeader,
+  TabsButton,
+  PostSection,
+  StorieHighlightCreate
+} from './Style'
 
 function Account({navigation}){
 
@@ -81,141 +99,132 @@ function Account({navigation}){
 
   return (
     <SafeAreaView>
-      <ScrollView style={styles.screenContainer}>
-        <View style={styles.topbar}>
+      <ScreenContainer>
+        <Topbar>
           <View>
-            <Text style={styles.textWhite}>Painel profissional</Text>
-            <Text style={styles.subTitle}>Ferramentas e recursos só para criadores de conteúdo.</Text>
+            <TextWhite>Painel profissional</TextWhite>
+            <SubTitle>Ferramentas e recursos só para criadores de conteúdo.</SubTitle>
           </View>
           
           <View>
             <MaterialIcons name="keyboard-arrow-right" size={20} color="#404040" />
           </View>
-        </View>
+        </Topbar>
 
-        <View style={styles.profileData}>
-          <View style={styles.profileResume}>
-
-            <View style={styles.profileImage}>
-              <Image esizeMode="cover" style={styles.image} source={require('./../../../assets/profile.jpg')} />
-            </View>
-            
-    
+        <ProfileData>
+          <ProfileResume>
+            <ProfileImage>
+              <Image resizeMode="cover" source={require('./../../../assets/profile.jpg')} />
+            </ProfileImage>
+          
             <View>
-              <Text style={styles.infoContainerTextData}>6</Text>
-              <Text style={styles.infoContainerLabel} numberOfLines={1} ellipsizeMode='tail'>Publicação</Text>
+              <InfoContainerTextData>6</InfoContainerTextData>
+              <InfoContainerLabel numberOfLines={1} ellipsizeMode='tail'>Publicação</InfoContainerLabel>
             </View>
 
             <View>
-              <Text style={styles.infoContainerTextData}>288</Text>
-              <Text style={styles.infoContainerLabel} numberOfLines={1} ellipsizeMode='tail'>Seguidores</Text>
+              <InfoContainerTextData>288</InfoContainerTextData>
+              <InfoContainerLabel numberOfLines={1} ellipsizeMode='tail'>Seguidores</InfoContainerLabel>
             </View>
 
             <View>
-              <Text style={styles.infoContainerTextData}>257</Text>
-              <Text style={styles.infoContainerLabel} numberOfLines={1} ellipsizeMode='tail'>Seguindo</Text>
+              <InfoContainerTextData>257</InfoContainerTextData>
+              <InfoContainerLabel numberOfLines={1} ellipsizeMode='tail'>Seguindo</InfoContainerLabel>
             </View>
-          </View>
+          </ProfileResume>
 
-          <View style={styles.bioContainer}>
+          <BioContainer>
             <View>
-              <Text style={styles.textWhite}>Hermano Fernandes</Text>
+              <TextWhite>Hermano Fernandes</TextWhite>
             </View>
 
             <View>
-              <Text style={styles.textWhite}>Programador</Text>
-              <Text style={styles.textWhite}>Calistênico</Text>
-              <Text style={styles.textWhite}>Bboy</Text>
+              <TextWhite>Programador</TextWhite>
+              <TextWhite>Calistênico</TextWhite>
+              <TextWhite>Bboy</TextWhite>
             </View>
-          </View>
+          </BioContainer>
 
-          <View style={styles.buttonActionsContainer}>
-            <TouchableOpacity onPress={() => {navigation.navigate('EditProfile')}} style={styles.buttonActionButton}>
-              <Text style={styles.buttonText} >Editar perfil</Text> 
-            </TouchableOpacity>
+          <ButtonActionsContainer>
+            <ButtonActionButton onPress={() => {navigation.navigate('EditProfile')}} >
+              <ButtonText >Editar perfil</ButtonText> 
+            </ButtonActionButton>
 
-            <TouchableOpacity onPress={() => {}} style={styles.buttonActionButton}>
-              <Text style={styles.buttonText} >Ferramentas</Text> 
-            </TouchableOpacity>
+            <ButtonActionButton onPress={() => {}} >
+              <ButtonText>Ferramentas</ButtonText> 
+            </ButtonActionButton>
 
-            <TouchableOpacity onPress={() => {}} style={styles.buttonActionButton}>
-              <Text style={styles.buttonText} >Insights</Text> 
-            </TouchableOpacity>
-          </View>
+            <ButtonActionButton onPress={() => {}} >
+              <ButtonText>Insights</ButtonText> 
+            </ButtonActionButton>
+          </ButtonActionsContainer>
 
-          <View style={styles.storiesHighlightsContainer}>
-            <View style={styles.storieTopBar}>
+          <StoriesHighlightsContainer>
+            <StorieTopBar>
               <View>
-                <Text style={styles.textWhite}>Destaques dos stories</Text>
-                <Text style={styles.textWhite}>Mantenha seus stories favoritos no seu perfil</Text>
+                <TextWhite>Destaques dos stories</TextWhite>
+                <TextWhite>Mantenha seus stories favoritos no seu perfil</TextWhite>
               </View>
 
               <View>
                 <MaterialIcons name="keyboard-arrow-up" size={24} color="#fff" />
               </View>
-            </View>
+            </StorieTopBar>
 
             <View>
                 <FlatList
                     data={highlights}
                     keyExtractor={item => item.id}
-                    //horizontal={true} 
                     numColumns={4}
                     columnWrapperStyle={{justifyContent: 'space-between'}}
                     renderItem={({ item, index }) => {
                       if(index === 0){
                         return (
-                          <View style={styles.storieHighlightCreate}>
+                          <StorieHighlightCreate>
                             <Feather name="plus" size={30} color="#fff" />
-                          </View>
+                          </StorieHighlightCreate>
                         )
                       }
 
                       return (
-                        <View style={styles.storieHighlight}>
-                          
-                
-                        </View>
+                        <StorieHighlight>
+                        </StorieHighlight>
                       );
                     }}
                 />
             </View>
-          </View>
+          </StoriesHighlightsContainer>
 
-          <View style={styles.postsContainer}>
-
-           
-            <View style={styles.tabsHeader}>
-              <TouchableOpacity  style={styles.tabsButton} onPress={() => {setTabIndex(0)}} >
+          <PostsContainer>
+            <TabsHeader>
+              <TabsButton onPress={() => {setTabIndex(0)}} >
                 {tabIndex === 0 ? (
                   <MaterialIcons name="grid-on" size={24} color="#ffffff" />
                 ):(
                   <MaterialIcons name="grid-on" size={24} color="#404040" />
                 )}
-              </TouchableOpacity>
-              <TouchableOpacity  style={styles.tabsButton} onPress={() => {setTabIndex(1)}} >
+              </TabsButton>
+              <TabsButton onPress={() => {setTabIndex(1)}} >
                 {tabIndex === 1 ? (
                   <Entypo name="folder-video" size={24} color="#ffffff" />
                 ):(
                   <Entypo name="folder-video" size={24} color="#404040" />
                 )}
-              </TouchableOpacity> 
-              <TouchableOpacity  style={styles.tabsButton} onPress={() => {setTabIndex(2)}} >
+              </TabsButton> 
+              <TabsButton onPress={() => {setTabIndex(2)}} >
                 {tabIndex === 2 ? (
                   <MaterialIcons name="portrait" size={28} color="#ffffff" />
                 ):(
                   <MaterialIcons name="portrait" size={28} color="#404040" />
                 )}
-              </TouchableOpacity> 
-            </View>
-            
-           
-            <ScrollView 
+              </TabsButton> 
+            </TabsHeader>
+                
+            <ScrollPostSections 
               horizontal={true} 
-              style={styles.scrollPostSections}
               stickyHeaderIndices={[2]}
             >
-              <SafeAreaView style={styles.postSection}>
+              <PostSection>
                 <FlatList
                   data={createRows(posts, 3)}
                   keyExtractor={item => item.id}
@@ -225,17 +234,15 @@ function Account({navigation}){
                       return <View style={[styles.post, styles.postEmpty]} />;
                     }
                     return (
-                      <View style={styles.post}>
-                    
-                        <Image esizeMode="cover" style={styles.postImage} source={require('./../../../assets/profile.jpg')} />
-                         
+                      <View Post>
+                        <PostImage resizeMode="cover"  source={require('./../../../assets/profile.jpg')} />
                       </View>
                     );
                   }}
                 />
-              </SafeAreaView>
+              </PostSection>
 
-              <SafeAreaView style={styles.postSection}>
+              <SafeAreaView PostSection>
                 <FlatList
                   data={createRows(posts, 3)}
                   keyExtractor={item => item.id}
@@ -245,17 +252,15 @@ function Account({navigation}){
                       return <View style={[styles.post, styles.postEmpty]} />;
                     }
                     return (
-                      <View style={styles.post}>
-                    
-                        <Image esizeMode="cover" style={styles.postImage} source={require('./../../../assets/profile.jpg')} />
-                         
+                      <View Post>
+                        <PostImage esizeMode="cover" source={require('./../../../assets/profile.jpg')} />
                       </View>
                     );
                   }}
                 />
               </SafeAreaView>
 
-              <SafeAreaView style={styles.postSection}>
+              <PostSection>
                 <FlatList
                   data={createRows(posts, 3)}
                   keyExtractor={item => item.id}
@@ -265,19 +270,18 @@ function Account({navigation}){
                       return <View key={index} style={[styles.post, styles.postEmpty]} />;
                     }
                     return (
-                      <View key={index} style={styles.post}>
-                        <Image esizeMode="cover" style={styles.postImage} source={require('./../../../assets/profile.jpg')} />
+                      <View key={index} Post>
+                        <PostImage esizeMode="cover" source={require('./../../../assets/profile.jpg')} />
                       </View>
                     );
                   }}
                 />
-              </SafeAreaView>
-            </ScrollView>
+              </PostSection>
+            </ScrollPostSections>
        
-
-          </View>
-        </View>
-      </ScrollView>
+          </PostsContainer>
+        </ProfileData>
+      </ScreenContainer>
     </SafeAreaView>
   )
 
@@ -286,201 +290,12 @@ function Account({navigation}){
 
 
 const styles = StyleSheet.create({
-  screenContainer:{
-    backgroundColor: '#000',
-  },
-
-  textWhite:{
-    color:'#FFF',
-    fontWeight: 'bold',
-  },
-
-  subTitle:{
-    color:'#404040',
-    fontWeight: 'bold',
-
-  },
-
-  //////0
-
-  profileData:{
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-
-  },
-
-  ////1
-  topbar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    borderTopColor: '#404040',
-    borderTopWidth  : 1,
-    borderBottomColor: '#404040',
-    borderBottomWidth: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 15
-  },
-
-  ////2
-  profileResume:{
-    flexDirection: 'row',
-    alignItems:"center",
-    justifyContent: 'space-between',
-    marginBottom: 16
-  },
-
-  profileImage:{
-    height: 100,
-    width: 100,
-    borderRadius: 1000
-  },
-
-  image:{
-    height: 100,
-    width: 100,
-    borderRadius: 1000
-
-  },
-
-  infoContainer:{
-
-  },
-
-  infoContainerTextData:{
-    fontWeight: 'bold',
-    color:"#fff",
-    textAlign:'center',
-    fontSize: 22
-  },
-
-  infoContainerLabel:{
-    color:"#fff",
-    fontSize: 16
-  },
-
-  ///3
-
-  bioContainer:{
-    marginBottom: 16
-
-  },
-
-  bioContainerTitle:{
-
-
-  },
-
-  bioContainerBody:{
-
-  },
-
-  ///4
-
-  buttonActionsContainer:{
-    flexDirection:'row',
-    justifyContent: 'space-between',
-    marginBottom: 16
-  },
-
-  buttonActionButton:{
-    width: '32%',
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: '#404040',
-    borderRadius: 6,
-    alignItems: 'center',
-    paddingVertical: 5
-    //backgroundColor: '#404040',
-  },
-
-  buttonText:{
-    fontSize: 16,
-    color: '#fff',
-    fontWeight: 'bold'
-  },
-
-  ///5
-
-  storiesHighlightsContainer:{
-    marginBottom: 25
-  },
-
-  storieTopBar:{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 10
-  },
-
-  storiesHighlightTopbar:{
-
-  },
-
-  storiesHighlightTopbarTitle:{
-  },
-
-  storiesHighlightTopbarText:{
-
-  },
-
-  storieHighlightCreate:{
-    height: 72,
-    width: 72,
-    borderRadius: 1000,
-    borderWidth: 1,
-    borderColor: '#fff',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  storieHighlight:{
-    backgroundColor: '#404040',
-    height: 76,
-    width: 76,
-    borderRadius: 1000
-  },
-
-  ///6
-
-  postsContainer:{
-
-  },
-
-  postSection:{
-    width: innerWidth,
-    marginRight: 400
-  },
-  
-  scrollPostSections:{
-    flexDirection:'row',
-
-  },
-
-  tabsHeader:{
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-
-  tabsButton:{
-    width: '33%',
-    alignItems: 'center',
-    textAlign: 'center'
-  },
 
   post: {
     alignItems: "center",
     flexGrow: 1,
     margin: 2,
     flexBasis: 0,
-  },
-
-  postImage:{
-    height: 125,
-    width: '100%'
-  },
-
-  text: {
-    color: "#333333"
   },
 
   postEmpty: {

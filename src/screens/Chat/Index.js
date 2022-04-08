@@ -60,21 +60,21 @@ function Feed({ navigation }) {
 
     return(
         <View>
-            <View style={styles.top}>
-                <AntDesign onClick={() => {  navigation.goBack()}} style={styles.backIcon}  name="arrowleft" size={24} color="#fff" />
+            <Top>
+                <AntDesign onClick={() => { navigation.goBack()}} name="arrowleft" size={24} color="#fff" />
 
-                <View style={styles.activeUser}>
-                    <View  >hermano_sama</View>
-                </View>
-                <FontAwesome name="list-ul" style={styles.listsIcon} size={24} color="#fff" />
+                <ActiveUser>
+                    <View>hermano_sama</View>
+                </ActiveUser>
 
-                <Foundation name="pencil" style={styles.newMessageIcon} size={24} color="#fff" />
-            </View>
+                <FontAwesome name="list-ul" size={24} color="#fff" />
 
-            <View style={styles.searchContainer}>
-                <View style={styles.searchBar}>
+                <Foundation name="pencil" size={24} color="#fff" />
+            </Top>
 
-                    <AntDesign name="search1" style={styles.searchIcon} size={24} color="#fff" />
+            <SearchContainer>
+                <SearchBar>
+                    <AntDesign name="search1" size={24} color="#fff" />
                    
                     <TextInput 
                         placeholder="Pesquisar" 
@@ -88,33 +88,29 @@ function Feed({ navigation }) {
                         }} 
                     />
 
-                    <MaterialCommunityIcons style={styles.settingsIcon}  name="tune-vertical" size={24} color="#fff" />
+                    <MaterialCommunityIcons name="tune-vertical" size={24} color="#fff" />
+                </SearchBar>
+            </SearchContainer>
 
-                </View>
-            </View>
-
-            <View style={stylesTab.tabsContainer}>
+            <TabsContainer>
                 <TouchableOpacity onPress={() => {changeTab(0)}} style={tabIndex === 0 ? stylesTab.selectedTabButton : stylesTab.tabButton}>
-                    <Text style={stylesTab.tabText}>Principal</Text>
-               
+                    <TabText>Principal</TabText>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => {changeTab(1)}} style={tabIndex === 1 ? stylesTab.selectedTabButton : stylesTab.tabButton}>
-                    <Text style={stylesTab.tabText}>Geral</Text>
-               
+                    <TabText>Geral</TabText>
                 </TouchableOpacity >
                 <TouchableOpacity onPress={() => {changeTab(2)}} style={tabIndex === 2 ? stylesTab.selectedTabButton : stylesTab.tabButton}>
-                    <Text style={stylesTab.tabText}>Solicitações</Text>
-                   
+                    <TabText>Solicitações</TabText>
                 </TouchableOpacity>
-            </View>
+            </TabsContainer>
             
-            <View style={styles.chatContainer}>
+            <ChatContainer>
                 <FlatList
                     data={returnPosts()}
                     keyExtractor={item => item.id}
                     renderItem={renderItem}
                 />
-            </View>
+            </ChatContainer>
            
         </View>
     )
@@ -150,72 +146,6 @@ const stylesTab = StyleSheet.create({
     }    
 })
 
-const styles = StyleSheet.create({
-    top: {
-        height:60,
-        backgroundColor:'#000',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: 15,
-        alignItems: 'center'
-    }, 
-    listsIcon:{
-        height:20,
-        width:20,
-    },
-    newMessageIcon:{
-        height:20,
-        width:20,
-    },
-    activeUser:{
-        width: '65%',
-        color: '#fff',
-        fontFamily:'sans-serif',
-        fontWeight:'bold',
-    },
-    searchContainer: {
-        height:40,
-        backgroundColor:'#000',
-        justifyContent: 'center'
-
-    },
-    chatContainer:{
-        backgroundColor: '#000',
-        height: '100%'
-    },
- 
-    
-    searchBar: {
-      flexDirection: 'row',
-      backgroundColor:'#000',
-      marginHorizontal: 15,
-      borderRadius:8,
-      paddingVertical: 5,
-      paddingHorizontal: 15,
-      backgroundColor:'rgb(61,61,61)',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-
-    },
-    backIcon:{
-        height:20,
-        width:20,
-    },
-    topBarTitle:{
-        fontSize: 15,
-        color: '#fff',
-    },
-    searchInput:{
-    },
-    searchIcon:{
-        height:20,
-        width:20,
-    },
-    settingsIcon:{
-        height:20,
-        width:20,
-    }
-})
 
 
 export default Feed

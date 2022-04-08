@@ -12,7 +12,7 @@ const Index = () => {
   const [status, setStatus] = React.useState({});
 
   return (
-    <View style={styles.container}>
+    <Container>
         <Video
             isMuted
             ref={video}
@@ -27,8 +27,7 @@ const Index = () => {
             onPlaybackStatusUpdate={status => setStatus(() => status)}
         />
     
-            <TouchableOpacity
-                style={styles.touchScreen}
+            <TouchScreen
                 title={status.isPlaying ? 'Pause' : 'Play'}
                 onPressIn={() => {
                     video.current.pauseAsync()
@@ -37,8 +36,8 @@ const Index = () => {
                     video.current.playAsync()
                 }}
             >
-            </TouchableOpacity>
-    </View>
+            </TouchScreen>
+    </Container>
   )
 }
 

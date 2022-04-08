@@ -13,10 +13,10 @@ import styled from 'styled-components/native';
     borderRadius: 5px;
   `
 
-  export const SearchContainer = styled.View`
-    borderRadius: 10px;
-    backgroundColor: #000;
-  `
+  // export const SearchContainer = styled.View`
+  //   borderRadius: 10px;
+  //   backgroundColor: #000;
+  // `
 
   export const Search = styled.View`
     width: 15px;

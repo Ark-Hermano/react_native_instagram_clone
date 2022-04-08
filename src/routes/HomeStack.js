@@ -24,6 +24,7 @@ import EditProfile from '../screens/EditProfile/Index'
 import Feed from '../screens/Feed/Index';
 import Tools from '../screens/Tools/Index'
 
+import {AccountHeaderButton, AccountHeaderLeft, ChangeUser} from './Style.js'
 
 const Tab = createBottomTabNavigator();
 
@@ -41,33 +42,33 @@ function HomeStack() {
 
 
   const CancelButton = ({navigation}) => (
-    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {navigation.goBack()}}>
+    <AccountHeaderButton onPress={() => {navigation.goBack()}}>
       <AntDesign name="close" size={24} color="#fff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
   const ReturnButton = ({navigation}) => (
-    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {navigation.goBack()}}>
+    <AccountHeaderButton  onPress={() => {navigation.goBack()}}>
       <Ionicons name="arrow-back" size={24} color="#fff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
   const AcceptButton = ({navigationTitle, navigation}) => (
-    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {handleUploadPhoto()}}>
+    <AccountHeaderButton onPress={() => {handleUploadPhoto()}}>
       <Feather name="check" size={24} color="#458eff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
   const InfoButton = ({navigationTitle, navigation}) => (
-    <TouchableOpacity style={styles.accountHeaderButton} onPress={() => {handleUploadPhoto()}}>
+    <AccountHeaderButton onPress={() => {handleUploadPhoto()}}>
       <AntDesign name="infocirlceo" size={24} color="#fff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
   const SavedPosts = ({navigation}) => (
-    <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+    <AccountHeaderButton onPress={() => {}}>
       <MaterialCommunityIcons name="calendar-account-outline" size={30} color="#fff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
   const OpenStoreSettings = () => {
@@ -76,9 +77,9 @@ function HomeStack() {
   };
 
   const StoreSettings = ({navigation}) => (
-    <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+    <AccountHeaderButton onPress={() => {}}>
       <Octicons name="settings" size={30} color="#fff" />
-    </TouchableOpacity>
+    </AccountHeaderButton>
   )
 
  
@@ -91,24 +92,24 @@ function HomeStack() {
   
 
   const AccountHeader = () => (
-    <View style={styles.accountHeader}>
-      <View style={styles.accountHeaderLeft}>
-        <TouchableOpacity onPress={() => {onOpen()}} style={styles.changeUser}>
-          <Text style={styles.accountName}>hermano_sama</Text>
+    <AccountHeader>
+      <AccountHeaderLeft>
+        <ChangeUser onPress={() => {onOpen()}} >
+          <AccountName>hermano_sama</AccountName>
 
           <Entypo name="chevron-small-down" size={24} color="#fff" />
-        </TouchableOpacity>  
-      </View>
+        </ChangeUser>  
+      </AccountHeaderLeft>
 
-      <View style={styles.accountHeaderRight}>
-        <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+      <AccountHeaderRight>
+        <AccountHeaderButton onPress={() => {}}>
           <Feather name="plus-square" size={32} color="#fff" />
-        </TouchableOpacity>
+        </AccountHeaderButton>
         
-        <TouchableOpacity onPress={() => {}} style={styles.accountHeaderButton} >
+        <AccountHeaderButton onPress={() => {}}>
           <Foundation name="list" size={32} color="#fff" />
-        </TouchableOpacity>
-      </View>
+        </AccountHeaderButton>
+      </AccountHeaderRight>
 
       <Portal>
         <Modalize
@@ -123,61 +124,61 @@ function HomeStack() {
         </Modalize>
       </Portal>
 
-    </View>
+    </AccountHeader>
   )
 
   const CustomHeader = ({navigation}) => (
-    <View style={styles.accountHeader}>
+    <AccountHeader>
         <CancelButton navigation={navigation} />
 
-        <View style={styles.headerTitle}>
-          <Text style={styles.headerTitleText} >Editar perfil</Text>
-        </View>
+        <HeaderTitle>
+          <HeaderTitleText >Editar perfil</HeaderTitleText>
+        </HeaderTitle>
         
         <AcceptButton/>
-    </View>
+    </AccountHeader>
   )
 
   const InsightsHeader = ({navigation}) => (
-    <View style={styles.accountHeader}>
+    <AccountHeader>
         <ReturnButton navigation={navigation} />
 
-        <View style={styles.headerTitle}>
-          <Text style={styles.headerTitleText} >Insights</Text>
-        </View>
+        <HeaderTitle>
+          <HeaderTitleText>Insights</HeaderTitleText>
+        </HeaderTitle>
         
         <InfoButton  navigation={navigation}  />
-    </View>
+    </AccountHeader>
   )
 
   const ShopHeader = ({navigation}) => (
-    <View style={styles.headerType}>
-        <View style={styles.headerTitle}>
-          <Text style={styles.headerTitleText}>Loja</Text>
-        </View>
+    <HeaderType>
+        <HeaderTitle>
+          <HeaderTitleText>Loja</HeaderTitleText>
+        </HeaderTitle>
 
         <SavedPosts navigation={navigation} />
         
         <StoreSettings navigation={navigation} />
-    </View>
+    </HeaderType>
   )
 
   const ToolsHeader = ({navigation}) => (
-    <View style={styles.toolsHeader}>
+    <ToolsHeader>
         <ReturnButton navigation={navigation} />
 
-        <View style={styles.headerTitle}>
-          <Text style={styles.headerTitleText}>Ferraments para anúncios</Text>
-        </View>
+        <HeaderTitle>
+          <HeaderTitleText>Ferraments para anúncios</HeaderTitleText>
+        </HeaderTitle>
         
-    </View>
+    </ToolsHeader>
   )
 
  
   return (
         <Tab.Navigator 
           tabBar={props=><CustomTabBar {...props} />}
-          initialRouteName="Feed"
+          initialRouteName="Account"
         >
               <Tab.Screen 
                 name="Feed" 
@@ -317,86 +318,6 @@ function HomeStack() {
         </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-
-    actionImg: {
-      height: 25,
-      width: 25
-    },
-
-    text:{
-      color:'#fff',
-      fontSize: 13
-    },
-
-    accountName:{
-      fontSize: 25,
-      color:'#fff',
-      fontWeight:'bold'
-
-    },
-
-    accountHeader:{
-      justifyContent:'space-between',
-      flexDirection: 'row',
-      backgroundColor: '#000',
-      alignContent:'center',
-      height: 70,
-      padding: 15
-    },
-
-    toolsHeader:{
-      justifyContent:'flex-start',
-      flexDirection: 'row',
-      backgroundColor: '#000',
-      alignContent:'center',
-      height: 70,
-      padding: 15
-    },
-
-    headerType:{
-      justifyContent:'space-between',
-      flexDirection: 'row',
-      backgroundColor: '#000',
-      alignContent:'center',
-      height: 70,
-      padding: 20
-    },
-
-    accountHeaderButton:{
-      alignContent:'center',
-      justifyContent:'center',
-      marginHorizontal: 10
-    },
-
-    accountHeaderLeft:{
-      flexDirection: 'row',
-
-    },
-
-    changeUser:{
-      flexDirection: 'row',
-      alignItems: 'center'
-    },
-
-    accountHeaderRight:{
-      flexDirection: 'row',
-    },
-
-    headerTitle:{
-      width:'75%', 
-      justifyContent: 'center'
-    },
-    
-    headerTitleText:{
-      color: '#fff',
-      fontWeight: 'bold',
-      fontSize: 22
-    }
-    
-});
-
 
 const modalSendStyles = StyleSheet.create({
   header:{

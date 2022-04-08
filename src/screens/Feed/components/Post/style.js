@@ -1,110 +1,123 @@
 import styled from 'styled-components/native';
-import Theme from '../../Theme';
-import {Dimensions} from "react-native";
 
-let width = Dimensions.get('window').width;
-
-
-
-  firstLikesContainer = styled.FlatList`
-    width: 'auto'
+  export const FirstLikesContainer = styled.FlatList`
+    width: auto
   `
 
-  likesContainer = styled.View`
-    color: '#fff';
-    flexDirection: 'row';
-    width: 'auto';
+  export const LikesContainer = styled.View`
+    color: #fff;
+    flexDirection: row;
+    width: auto;
     marginTop:0;
-    alignItems: 'center'
+    alignItems: center
   `
 
-  likes = styled.FlatList`
-    color: '#fff';
-    whiteSpace: 'nowrap';
-    height: 'auto'
+  export const Likes = styled.FlatList`
+   
   `
 
-  comments = styled.Text`
-    color: '#666';
+  export const Comments = styled.Text`
+    color: #666;
     marginTop: 2
   `
 
-  inputContainer = styled.TouchableOpacity`
-    flexDirection: 'row';
-    marginTop: 5
+  export const InputContainer = styled.TouchableOpacity`
+    flexDirection: row;
+    marginTop: 5 
   `
 
-  profilePicComment = styled.Image`
+  export const ProfilePicComment = styled.Image`
+    borderRadius: 10000;
     width: 25;
     height: 25;
-    borderRadius:'100%';
-    marginRight: 5
+    margin-right: 5;
   `
 
-  post = styled.View`
-    marginVertical: 15
+  export const ProfilePic = styled.Image`
+    height: 100%;
+    width: 100%;
+    borderWidth: 4;
+    borderColor: #000;
+    borderRadius: 100;
   `
 
-  postHeader = styled.View`
-    flexDirection: 'row';
-    justifyContent: 'space-between';
+  export const Post = styled.View`
+    margin-vertical: 15
+  `
+
+  export const StorieContainer = styled.TouchableOpacity`
+    marginHorizontal: 5;
+    alignItems: center;
+    justifyContent: center;
+  `
+
+  export const AuthorTitle = styled.Text`
+    color: #fff;
+    fontSize: 18;
+    fontWeight: bold
+  `
+
+  export const PostHeader = styled.View`
+    flexDirection: row;
+    justifyContent: space-between;
     paddingHorizontal: 15;
-    alignItems: 'center';
+    alignItems: center;
     marginBottom: 15;
   `
 
-  postOptions = styled.View``
+  export const PostOptions = styled.View``
 
-  userInfo = styled.View``
+  export const UserInfo = styled.View``
 
-  author = styled.TouchableOpacity`
+  export const Author = styled.TouchableOpacity`
     fontSize: 14;
-    color: '#fff';
-    fontFamily:'sans-serif';
-    fontWeight: 'bold'
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: bold;
   `
 
-  place = styled.Text`
+  export const Place = styled.Text`
     fontSize: 12;
-    color: '#666';
+    color: #666;
   `
 
-  picture_url = styled.Image`
-    width: '100%';
+  export const Picture_url = styled.Image`
+    width: 100%;
     height: 400
   `
 
-  footer = styled.View`
+  export const Footer = styled.View`
     paddingHorizontal: 15
   `
 
-  actions = styled.View`
-    flexDirection: 'row';
-    justifyContent: 'space-between';
+  export const Actions = styled.View`
+    flexDirection: row;
+    justifyContent: space-between;
     paddingVertical: 10;
 
   `
 
-  action = styled.TouchableOpacity`
+  export const Action = styled.TouchableOpacity`
     marginRight: 8
   `
 
-  actionImg = styled.View`
+  export const ActionImg = styled.View`
     height: 25;
     width: 25;
   `
 
-  leftActions = styled.View`
-    flexDirection: 'row'
+  export const LeftActions = styled.View`
+    flexDirection: row
   `
 
-  likes = styled.Text`
-    fontWeight: 'bold';
+  export const LikesNumber = styled.Text`
+    fontWeight: bold;
     fontSize: 12;
   `
 
-  description = styled.Text`
-    color: '#fff';
+  export const Description = styled.Text`
+    color: #fff;
     lineHeight: 18;
+    height: auto
   `
 

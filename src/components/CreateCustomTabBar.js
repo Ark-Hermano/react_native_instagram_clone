@@ -17,15 +17,15 @@ const TabItem = styled.TouchableOpacity`
     color: #000;
 `;
 
-const TabItemCenter = styled.TouchableOpacity`
-    width: 70px;
-    height: 70px;
+const ButtonContainer = styled.View`
+
+`;
+
+const Button = styled.TouchableOpacity`
+    flex: 1;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
-    border-radius: 35px;
-    border: 3px solid #4EADBE;
-    margin-top: -20px;
+    color: #000;
 `;
 
 export default ({state, navigation}) => {
@@ -37,15 +37,14 @@ export default ({state, navigation}) => {
 
     return (
         <TabArea>
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.openGallery}
+          <ButtonContainer>
+            <OpenGallery
               onPress={() => {
 
               }}>
-              <Image style={styles.lastImage} source={require('./../../assets/2.jpeg')} />
-            </TouchableOpacity>
-          </View>
+              <LastImage source={require('./../../assets/2.jpeg')} />
+            </OpenGallery>
+          </ButtonContainer>
 
           <TabItem onPress={() => {goTo('post')}}> 
               <Feather name="home" size={24} color="#fff" />
@@ -63,9 +62,8 @@ export default ({state, navigation}) => {
               <Entypo name="shop" size={24} color="#fff" />
           </TabItem>
 
-          <View style={styles.buttonContainer}>
-            <TouchableOpacity
-              style={styles.button}
+          <ButtonContainer>
+            <Button
               onPress={() => {
                 setType(
                   type === Camera.Constants.Type.back
@@ -74,8 +72,8 @@ export default ({state, navigation}) => {
                 );
               }}>
                 <MaterialCommunityIcons name="camera-party-mode" size={50} color="#fff" />
-            </TouchableOpacity>
-          </View>
+            </Button>
+          </ButtonContainer>
 
         </TabArea>
     )
