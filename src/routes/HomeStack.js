@@ -24,7 +24,7 @@ import EditProfile from '../screens/EditProfile/Index'
 import Feed from '../screens/Feed/Index';
 import Tools from '../screens/Tools/Index'
 
-import {AccountHeaderButton, AccountHeaderLeft, ChangeUser} from './Style.js'
+import {AccountHeaderButton, AccountHeaderLeft, ChangeUser, AccountName, AccountHeaderRight} from './Style.js'
 
 const Tab = createBottomTabNavigator();
 

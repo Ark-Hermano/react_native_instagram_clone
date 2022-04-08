@@ -27,9 +27,8 @@ function MainNavigator() {
     <NavigationContainer>
       <Host>
         <Stack.Navigator  
-          initialRouteName="Home"
+          initialRouteName="Create"
         >
-          
             <Stack.Screen name="Home" component={HomeStack}   options={{ headerShown: false  }}   /> 
             <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false  }}  />
             <Stack.Screen name="Comments" component={Comments} options={{ headerShown: false  }}  />
@@ -39,7 +38,6 @@ function MainNavigator() {
             <Stack.Screen name="Upload" component={Upload} options={{ headerShown: false  }}  />
             <Stack.Screen name="Storie" component={Storie} options={{ headerShown: false  }}  />
             <Stack.Screen name="Stories" component={Stories} options={{ headerShown: false  }} />
-
         </Stack.Navigator>
       </Host>
     </NavigationContainer>
