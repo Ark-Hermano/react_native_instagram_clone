@@ -178,7 +178,7 @@ function HomeStack() {
   return (
         <Tab.Navigator 
           tabBar={props=><CustomTabBar {...props} />}
-          initialRouteName="Account"
+          initialRouteName="Reels"
         >
               <Tab.Screen 
                 name="Feed" 

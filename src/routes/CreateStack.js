@@ -1,27 +1,21 @@
 import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { AntDesign } from '@expo/vector-icons'; 
-import { Feather } from '@expo/vector-icons'; 
 import axios from 'axios';
+import { View, Text, TouchableHighlight, Image } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { MaterialCommunityIcons, Feather, AntDesign} from '@expo/vector-icons'; 
+import { useSelector } from "react-redux";
 
+import Upload from '../screens/CreateStackScreens/UploadPhoto'
+import SelectedImages from '../screens/CreateStackScreens/EditSelectedImages'
+import Gallery from '../screens/CreateStackScreens/Gallery'
 
-import { View, Text, Button, Image, ScrollView, SafeAreaView, TouchableHighlight } from 'react-native';
+import api from '../service/api'
 
-
-import Chat from '../screens/Account/Index'
-
-
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default CreateStack = () => {
 
-
-  const api = axios.create({
-    baseURL: `http://127.0.0.1:8000`
-    //baseURL: `http://192.168.0.186:3004`
-  });
+  let photos = useSelector((state) => state.users);
 
   const MyHeader = ({title, leftButton, rightButton, style}) => (
     <View style={style}>
@@ -48,7 +42,7 @@ export default CreateStack = () => {
   )
 
   const EditIcon = ({navigation}) => (
-    <TouchableHighlight onPress={() => {navigation.goBac()}}>
+    <TouchableHighlight>
       <MaterialCommunityIcons name="pencil-plus" size={24} color="#458eff" />
     </TouchableHighlight>
   )
@@ -73,38 +67,163 @@ export default CreateStack = () => {
   )
 
   const AcceptButton = ({navigationTitle, navigation}) => (
-    <TouchableHighlight onPress={() => {handleUploadPhoto()}}>
+    <TouchableHighlight onPress={() => {handleUploadPhoto(navigation)}}>
       <Feather name="check" size={24} color="#458eff" />
     </TouchableHighlight>
   )
 
+
   async function handleUploadPhoto(){
     const formData = new FormData();
 
-    formData.append('image', require('./../../assets/3.jpg')) 
-    formData.append('post_id', 1) 
+      formData.append('body', 'Descrição')
+      formData.append('type', 'image')
+      formData.append('user_id', 2)
+      formData.append('media', {
+        uri:photos[photos.length - 1].source.uri,
+        type: 'image/jpeg', 
+        name: "imagename.jpg",
+      })
+    
+      api.post("/posts/create",formData, {
+        headers: {
+              Accept: 'application/json',
+          "Content-Type": "multipart/form-data",
+        },
+      }).then(response => {
+        alert('response')
 
-    api.get("/api/posts",{
-      body: formData,
-      method: "post"
+      }).catch(error => {
 
-    }).then(response => {
-      alert('json')
+        alert(JSON.stringify(error.response.data.message))
+      });
 
-    }).catch(error => {
-      alert(error)
-
-    });
-
-  
   }
   
 
   return (
-        <Stack.Navigator
-          //initialRouteName="Upload" 
-        >
-          <Stack.Screen name="ChatList" component={Chat}  options={{  headerShown: false  }} />
+        <Stack.Navigator>
+
+          <Stack.Screen 
+            name='Gallery' 
+            component={Gallery}
+            options={{ headerShown: false  }} 
+            options={{
+                headerMode: 'screen',
+                headerStyle: {
+                  paddingHorizontal:24,
+                  height: 80,
+                  flexDirection: 'row',
+                  alignItems:'center',
+                  justifyContent:'space-between',
+                  backgroundColor: "#000"
+                },
+                header:({ scene, previous, navigation }) => {
+                 const title = "Nova Publicação"
+
+                  return (
+                    <MyHeader
+                      title={title}
+                      leftButton={
+                        <CancelButton navigation={navigation} /> 
+                      }
+                      rightButton={
+                        <NextButton navigation={navigation} navigationTitle={'SelectedImages'}/>
+                      }
+                      style={{
+                          paddingHorizontal:24,
+                          height: 80,
+                          flexDirection: 'row',
+                          alignItems:'center',
+                          justifyContent:'space-between',
+                          backgroundColor: "#000"
+                        }}
+                    />
+                  );
+                } 
+            }} 
+          />
+
+          <Stack.Screen 
+            name='SelectedImages' 
+            component={SelectedImages}
+
+            options={{
+                headerMode: 'screen',
+                headerStyle: {
+                  paddingHorizontal:30,
+                  height: 80,
+                  flexDirection: 'row',
+                  alignItems:'center',
+                  justifyContent:'space-between',
+                  backgroundColor: "#000"
+                },
+                header:({ scene, previous, navigation }) => {
+                 const title = "Editar"
+
+                  return (
+                    <MyHeader
+                      title={<EditIcon/>}
+                      leftButton={
+                        <ReturnButton navigation={navigation} /> 
+                      }
+                      rightButton={
+                        <NextButton navigation={navigation} navigationTitle={'Upload'}/>
+                      }
+                      style={{
+                        paddingHorizontal:30,
+                        height: 80,
+                        flexDirection: 'row',
+                        alignItems:'center',
+                        justifyContent:'space-between',
+                        backgroundColor: "#000"
+                      }}
+                    />
+                  );
+                } 
+            }}
+          />
+
+          <Stack.Screen 
+            name='Upload' 
+            component={Upload}   
+            
+            options={{
+                headerMode: 'screen',
+                headerStyle: {
+                  paddingHorizontal:30,
+                  height: 80,
+                  flexDirection: 'row',
+                  alignItems:'center',
+                  justifyContent:'space-between',
+                  backgroundColor: "#000"
+                },
+                header:({ scene, previous, navigation }) => {
+                 const title = "Publicar"
+
+                  return (
+                    <MyHeader
+                      title={title}
+                      leftButton={
+                        <ReturnButton navigation={navigation} /> 
+                      }
+                      rightButton={
+                        <AcceptButton navigation={navigation} navigationTitle={'ImageBrowser'}/>
+                      }
+                      style={{
+                        paddingHorizontal:30,
+                        height: 80,
+                        flexDirection: 'row',
+                        alignItems:'center',
+                        justifyContent:'space-between',
+                        backgroundColor: "#000"
+                      }}
+                    />
+                  );
+                } 
+            }} 
+          /> 
+
         </Stack.Navigator>
   );
 }

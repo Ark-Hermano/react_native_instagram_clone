@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import CreateCustomTabBar from '../components/CreateCustomTabBar'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { MaterialCommunityIcons, Feather, AntDesign, Entypo } from '@expo/vector-icons'; 
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 import Post from '../screens/Create/Post/Index'
@@ -10,17 +8,16 @@ import Story from '../screens/Create/Story/Index'
 import Reels from '../screens/Create/Reels/Index'
 import Live from '../screens/Create/Live/Index'
 
-import ImageBrowser from '../screens/CreateStackScreens/ImageBrowserScreen'
 
-const Tab = createMaterialBottomTabNavigator();
+import CreateStack from './CreateStack';
+
+const Tab = createNativeStackNavigator();
 
 export default function App() {
   return (
   
       <Tab.Navigator
-        tabBarComponent={props => (<CreateCustomTabBar {...props} />)}
         initialRouteName="Reels"
-
         screenOptions={({ route }) => ({
           tabBarIcon: ({ color, size }) => {
             
@@ -72,14 +69,14 @@ export default function App() {
         }}
 
       >
-        <Tab.Screen name="Gallery" component={ImageBrowser} />
+        <Tab.Screen name="gallery" component={CreateStack}  options={{ headerShown: false  }}  />
         
-        <Tab.Screen name="Post" component={Post} />
-        <Tab.Screen name="Story" component={Story} />
-        <Tab.Screen name="Reels" component={Reels} />
-        <Tab.Screen name="Live" component={Live} />
+        <Tab.Screen name="Post" component={Post}  options={{ headerShown: false  }}  />
+        <Tab.Screen name="Story" component={Story}  options={{ headerShown: false  }}  />
+        <Tab.Screen name="Reels" component={Reels}  options={{ headerShown: false  }}  />
+        <Tab.Screen name="Live" component={Live}  options={{ headerShown: false  }}  />
 
-        <Tab.Screen name="Flip" component={Post} />
+        <Tab.Screen name="Flip" component={Post}  options={{ headerShown: false  }}  />
       </Tab.Navigator>
   
   );
