@@ -1,28 +1,14 @@
 import React, {useRef, useEffect} from 'react';
-import {
-  View,
-  SafeAreaView,
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity
-} from 'react-native';
-
-
 import Reel from './components/Reels/Index'
-
 import Carousel from 'react-native-snap-carousel';
+import { Dimensions } from "react-native";
 
+const innerWidth = Dimensions.get('window').width;
+const innerHeight = Dimensions.get('window').height;
 
 function Reels(){
 
   const stories = [
-    {},
-    {},
-    {},
-    {},
-    {},
     {},
     {},
     {},
@@ -38,7 +24,6 @@ function Reels(){
 
 
   function renderItem({item, index, carousel}){
-
     return(
       <Reel/>
     )
@@ -58,10 +43,10 @@ function Reels(){
             )
           } 
       }} 
-      sliderWidth={window.innerWidth}
-      itemWidth={window.innerWidth}
-      sliderHeight={window.innerHeight}
-      itemHeight={window.innerHeight}
+      sliderWidth={innerWidth}
+      itemWidth={innerWidth}
+      sliderHeight={innerHeight}
+      itemHeight={innerHeight}
     />
   )
 

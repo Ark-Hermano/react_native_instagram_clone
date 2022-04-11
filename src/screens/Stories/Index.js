@@ -1,23 +1,13 @@
 import React, {useRef, useState, useEffect} from 'react';
-import {
-  View,
-  TextInput,
-  FlatList,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity
-} from 'react-native';
-
-import Carousel from 'react-native-snap-carousel';
+import { View, TextInput, StyleSheet} from 'react-native';
 import { Video } from 'expo-av';
 import { Dimensions } from "react-native";
-import { Entypo } from '@expo/vector-icons'; 
-import { Feather } from '@expo/vector-icons'; 
+import { Entypo, Feather} from '@expo/vector-icons'; 
 
+import Carousel from 'react-native-snap-carousel';
 import api from '../../service/api';
 
-
+import { StorieItemNext, StorieContainer, UserHeader, ProfilePicContainer, StorieInformation, ProfilePic, UserHeaderBody, UserNameContainer, UserName, StyledImage, InputBottom, StorieItemPrev } from './style'
 const innerWidth = Dimensions.get('window').width;
 const innerHeight = Dimensions.get('window').height;
 

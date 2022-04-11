@@ -5,19 +5,19 @@ import {Dimensions} from "react-native";
 let width = Dimensions.get('window').width;
 
 
-  button = styled.Image`
+  export const button = styled.Image`
     position: absolute ;
     top: 20;
     zIndex: 200
   `
 
-  storieContainer = styled.View`
+  export const storieContainer = styled.View`
       top: -window.innerHeight + 192 ; 
       height: window.innerHeight ;
       width: window.innerWidth ;
   `
   
-  image = styled.Image`
+  export const image = styled.Image`
       zIndex: 9;
       top: 0;
       position: absolute;
@@ -25,7 +25,7 @@ let width = Dimensions.get('window').width;
       width: window.innerWidth ;
   `
 
-  storieItemNext = styled.TouchableOpacity`
+  export const storieItemNext = styled.TouchableOpacity`
       position:relative;
       height: window.innerHeight * 0.7 ;
       justifyContent:center;
@@ -36,7 +36,7 @@ let width = Dimensions.get('window').width;
       elevation: 9;
   `
 
-  storieItemPrev = styled.TouchableOpacity`
+  export const storieItemPrev = styled.TouchableOpacity`
       position:absolute;
       height: window.innerHeight * 0.7 ;
       justifyContent:center;
@@ -47,7 +47,7 @@ let width = Dimensions.get('window').width;
       elevation: 9;
   `
 
-  userHeader = styled.View`
+  export const userHeader = styled.View`
       marginTop: 15px;
       alignSelf: flex-start;
       display: flex;
@@ -56,45 +56,45 @@ let width = Dimensions.get('window').width;
       zIndex: 10; 
   `
 
-  profilePicContainer = styled.View`
+  export const profilePicContainer = styled.View`
       zIndex: 11; 
   `
 
-  profilePic = styled.Image`
+  export const profilePic = styled.Image`
       height:35;
       width:35;
       zIndex: 12; 
       borderRadius: 100%;
   `
 
-  userHeaderBody = styled.View`
+  export const userHeaderBody = styled.View`
     justifyContent: center; 
     flexDirection: column;
     marginLeft: 15px;
     zIndex: 14;
   `
 
-  userNameContainer = styled.View`
+  export const userNameContainer = styled.View`
     zIndex: 15;
   `
 
-  userName = styled.Text`
+  export const userName = styled.Text`
     fontWeight: bold;
     color: #fff;
     zIndex: 16;
   `
 
-  storieInformation = styled.View`
+  export const storieInformation = styled.View`
     zIndex: 17;
   `
 
-  storieInformatioText = styled.Text`
+  export const storieInformatioText = styled.Text`
     color: #fff;
     fontWeight: bold;
     zIndex: 19;
   `
 
-  userBottom = styled.View`
+  export const userBottom = styled.View`
     zIndex: 20;
     marginBottom: 15px;
     flexDirection: row;
@@ -103,7 +103,7 @@ let width = Dimensions.get('window').width;
     width: 95%;
   `
 
-  inputBottom = styled.View`
+  export const inputBottom = styled.View`
     zIndex: 20;
     marginBottom: 15px;
     flexDirection: row;
@@ -116,55 +116,55 @@ let width = Dimensions.get('window').width;
     borderRadius: 15px;
   `
 
-  storieVisualiztionsContainer = styled.View`
+  export const storieVisualiztionsContainer = styled.View`
     marginLeft: 15px;
     zIndex: 21;
   `
 
-  bottomActionSecond = styled.View`
+  export const bottomActionSecond = styled.View`
     alignItems: center;
     marginLeft: auto;
     alignItems: center;
     zIndex: 23;
   `
 
-  bottomActionThird = styled.View`
+  export const bottomActionThird = styled.View`
     alignItems: center;
     marginLeft: 15px;
     alignItems: center;
     zIndex: 23;
   `
 
-  bottomActionLast = styled.View`
+  export const bottomActionLast = styled.View`
     alignItems: center;
     marginLeft: 15px;
     alignItems: center;
     zIndex: 23;
   `
 
-  actionIcon = styled.View`
+  export const actionIcon = styled.View`
     zIndex: 24;
     height: 20px;
     width: 20px;
   `
 
-  actionText = styled.Text`
+  export const actionText = styled.Text`
     zIndex: 25;
     color: #fff;
     fontWeight: bold;
   `
 
-  visualizations = styled.FlatList`
+  export const visualizations = styled.FlatList`
     flexDirection: row;
     zIndex: 26;
     height: 20px;
   `
 
-  postLikeContainer = styled.View`
+  export const postLikeContainer = styled.View`
     
   `
 
-  postLikeProfile = styled.Image`
+  export const postLikeProfile = styled.Image`
     height: 20px;
     width: 20px;
     borderRadius: 100%;
