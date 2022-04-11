@@ -44,15 +44,7 @@ export default function MainScreen({navigation}) {
     return (
       <SafeAreaView style={{ flex: 1 }}>     
             <View style={{height:windowHeight * 0.4, width:windowWidth, backgroundColor:'#000', justifyContent:'center', alignItems:'center'}}>
-              {photos.length > 0 && (
-                <TouchableHighlight  
-                  onPress={() => { navigation.navigate('SelectedImages',{photos}) }} 
-                  style={{position:'absolute',top:20, left: windowWidth - 40, elevation:10, zIndex:10}} 
-                >
-                  <Text style={{color: '#fff'}}>{photos.length}</Text>
-                </TouchableHighlight>
-              )}
-              <Image resizeMode="contain" style={{height: windowHeight * 0.4}} source={require('./../../../assets/3.jpg')} />         
+              <Image resizeMode="contain" style={{height: windowHeight * 0.4}} source={photos[photos.length - 1]} />         
             </View>
             <ImageBrowser style={{height:windowHeight * 0.6}} setPhotos={setPhotos} setDone={setDone} />
       </SafeAreaView>

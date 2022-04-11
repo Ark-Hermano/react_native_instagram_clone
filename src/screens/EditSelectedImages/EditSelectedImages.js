@@ -5,33 +5,15 @@ import Carousel from 'react-native-snap-carousel';
 import { AntDesign } from '@expo/vector-icons'; 
 import { useSelector } from "react-redux";
 
-//import ImageFilters from 'react-native-gl-image-filters';
-
-
-export default function SelectedImages({route, navigation}) {
+export default function SelectedImages() {
   
   let photos = useSelector((state) => state.users);
 
-  // photos = [
-  //   './../../../assets/3.jpg',
-  //   './../../../assets/3.jpg',
-  //   './../../../assets/3.jpg',
-  //   './../../../assets/3.jpg'
-  // ]
-
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
-  const [done, setDone] = useState(false)
-  const [storieItem, setStorieItem] = useState(0)
   const [tabIndex, setTabIndex] = useState(1)
   const [selectedId, setSelectedId] = useState(null);
- 
-  const modalizeRef = React.createRef();
   const carousel = useRef(null)
-
-  const onOpen = () => {
-    modalizeRef.current?.open();
-  };
 
   let editFuncs = [
     {title: 'Ajuste'},
@@ -75,17 +57,8 @@ export default function SelectedImages({route, navigation}) {
 
   },[])
 
-  function renderImage (item, i) {
-    return (
-      <Image
-        style={{ height: 100, width: 100 }}
-        source={{ uri: item.uri }}
-        key={i}
-      />
-    )
-  }
   
-    const renderItem = ({item, index, carousel, stories}) => {
+    const renderItem = ({index, carousel}) => {
 
         return (
           <View >
@@ -114,7 +87,7 @@ export default function SelectedImages({route, navigation}) {
     }
 
     const Item = ({ item, onPress, index }) => (
-      <TouchableOpacity onPress={onPress} style={[styles.item, {backgroundColor: '#404040'}]}>
+      <TouchableOpacity onPress={onPress} style={styles.item}>
         <Text style={selectedId === index ? styles.adjustSelectedText : styles.adjustItemText}>{item.title}</Text>
 
         <View style={styles.filter}>

@@ -1,19 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 import React, { Component, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, ActivityIndicator, ScrollView,SafeAreaView } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 import * as ImageManipulator from 'expo-image-manipulator';
-// import {ImageBrowser} from 'expo-image-picker-multiple';
+import {ImageBrowser} from 'expo-image-picker-multiple';
 import { Dimensions } from 'react-native';
+import { photoAdded } from "../../reducers/photos/photosSlice";
 
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
-import { Feather } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons, Feather, MaterialIcons } from '@expo/vector-icons'; 
+
 
 export default function ImageBrowserScreen({setPhotos, navigation, setDone}) {
-  const _getHeaderLoader = () => (
-    <ActivityIndicator size='small' color={'#0580FF'}/>
-  );
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
+
+  const dispatch = useDispatch();
+  const photosAmount = useSelector((state) => state.users.length);
   const [countState, setCountState] = useState(0)
 
   const imagesCallback = (callback) => {
@@ -21,46 +20,46 @@ export default function ImageBrowserScreen({setPhotos, navigation, setDone}) {
     callback.then(async (photos) => {
       setPhotos(photos)
       const cPhotos = [];
+
       for(let photo of photos) {
-        const pPhoto = await this._processImageAsync(photo.uri);
+        const pPhoto = await processImageAsync(photo.uri);
         cPhotos.push({
           uri: pPhoto.uri,
           name: photo.filename,
           type: 'image/jpg'
         })
+
+        dispatch(
+          photoAdded({
+            id: photosAmount + 1,
+            source: pPhoto,
+            original: photo
+          })
+        );
+      
       }
       
     })
     .catch((e) => console.log(e));
   };
 
-  async function _processImageAsync(uri) {
+  async function processImageAsync(uri) {
     const file = await ImageManipulator.manipulateAsync(
       uri,
       [{resize: { width: 1000 }}],
-      { compress: 0.8, format: ImageManipulator.SaveFormat.JPEG }
+      { compress: 0.8, format: ImageManipulator.SaveFormat.JPEG, base64: true }
     );
     return file;
   };
 
-  const _renderDoneButton = (count, onSubmit) => {
-    if (!count) return null;
-    return <TouchableOpacity title={'Done'} onPress={onSubmit}>
-      <Text onPress={onSubmit}>Done</Text>
-    </TouchableOpacity>
-  }
 
   const updateHandler = (count, onSubmit) => {
-    //setPhotos
-    setDone(true)
+
     if(count !== countState){
       onSubmit()
-    } 
+    }
+
     setCountState(count)
-    //navigation.setOptions({
-    //  title: `Selected ${count} files`,
-    //  headerRight: () => this._renderDoneButton(count, onSubmit)
-    //});
   };
 
   const renderSelectedComponent = (number) => (
@@ -94,14 +93,14 @@ export default function ImageBrowserScreen({setPhotos, navigation, setDone}) {
             </TouchableOpacity> 
          
           </View> 
-
-          {/* <ImageBrowser
+          
+          <ImageBrowser
             max={10}
-            onChange={this.updateHandler}
-            callback={this.imagesCallback}
-            renderSelectedComponent={this.renderSelectedComponent}
+            onChange={updateHandler}
+            callback={imagesCallback}
+            renderSelectedComponent={renderSelectedComponent}
             emptyStayComponent={emptyStayComponent}
-          /> */}
+          /> 
         </ScrollView>
       </SafeAreaView>
     );
@@ -154,6 +153,7 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     maxHeight: Dimensions.get('window').height,
+    backgroundColor: '#000'
   },
   emptyStay:{
     textAlign: 'center',

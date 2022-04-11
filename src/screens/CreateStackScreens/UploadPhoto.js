@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import { View, Text, FlatList, Image, TouchableOpacity, TextInput, SafeAreaView, StyleSheet, Switch } from 'react-native';
 import { Dimensions } from 'react-native';
-
+import { useSelector } from "react-redux";
 
 export default function MainScreen() {
 
@@ -9,15 +9,7 @@ export default function MainScreen() {
   const windowWidth = Dimensions.get('window').width;
   const windowHeight = Dimensions.get('window').height;
 
-  // let photos = route?.params?.photos;
-
-  let photos = [
-    {id :1, src:'./../../../assets/3.jpg'},
-    {id :2, src:'./../../../assets/3.jpg'},
-    {id :3, src:'./../../../assets/2.jpg'},
-    {id :4, src:'./../../../assets/2.jpg'},
-
-  ]
+  let photos = useSelector((state) => state.users);
 
   const DATA = [
     { id: 1, title:'Hermano - Criar'},
@@ -31,9 +23,13 @@ export default function MainScreen() {
   const [text, setText] = useState('')
   const [selectedId, setSelectedId] = useState(null);
   const [isEnabled, setIsEnabled] = useState(false);
+  const [facebook, setFacebook] = useState(false)
+  const [twitter, setTwitter] = useState(false)
+  const [tiktok, setTiktok] = useState(false)
 
-
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const toggleSwitch = ({setIsEnabled}) => {
+    //setIsEnabled(previousState => !previousState);
+  }
 
   const onOpen = () => {
     modalizeRef.current?.open();
@@ -43,29 +39,6 @@ export default function MainScreen() {
 
   },[])
 
-    async function handleUploadPhoto(){
-      const formData = new FormData();
-
-      formData.append('image', photos[0]) 
-      formData.append('post_id', 1) 
-
-      fetch("",{
-          body: formData,
-          method: "post"
-      }).then(
-        response => setText('json')
-      ).then(
-        success => setText('sucess') 
-      ).catch(
-        error => {
-          setText('error')
-          alert(error)  
-        }
-      );
-
-      photos.map(async (photo) => {})
-    }
-
     const Item = ({ item, onPress, index }) => (
       <TouchableOpacity key={index} onPress={onPress} style={[styles.item, {backgroundColor: '#404040'}]}>
         <Text style={styles.musicItem}>Hermano Criar</Text>
@@ -73,16 +46,14 @@ export default function MainScreen() {
     );
 
     const renderItem = ({ item, index }) => {
-      const backgroundColor = "#5c5c5c";
-      const color = '#5c5c5c';
-  
+
       return (
         <Item
           item={item}
           key={item.key}
           onPress={() => setSelectedId(item.id)}
-          backgroundColor={{ backgroundColor:backgroundColor }}
-          textColor={{ color:color }}
+          backgroundColor={{ backgroundColor:"#5c5c5c" }}
+          textColor={{ color:'#5c5c5c' }}
         />
       );
     };
@@ -90,7 +61,7 @@ export default function MainScreen() {
 
     return (
       <SafeAreaView style={{ flex: 1 }}>     
-            {/* <View style={{height:windowHeight, width:windowWidth, backgroundColor:'#000'}}>
+            <View style={{height:windowHeight, width:windowWidth, backgroundColor:'#000'}}>
 
               <View style={styles.addPostInformationContainer}>
                 <View style={styles.row}>
@@ -103,7 +74,7 @@ export default function MainScreen() {
                   </View>
 
                   <View>
-                      <Image resizeMode="cover" style={styles.imageReview} source={require('./../../../assets/3.jpg')} />           
+                      <Image resizeMode="cover" style={styles.imageReview} source={photos[0].source} />           
                   </View>
                 </View>
 
@@ -126,7 +97,7 @@ export default function MainScreen() {
 
                 <View style={styles.row}>
                
-                    {/* <FlatList
+                    <FlatList
                       data={DATA}
                       showsHorizontalScrollIndicator={false}
                       contentContainerStyle={{flexGrow: 1 , justifyContent: 'space-around'}}
@@ -142,16 +113,6 @@ export default function MainScreen() {
               <View style={styles.publicAlsoContainer}>
                 <View style={styles.rowSeconday}>
                   <Text style={styles.colorWhite}>Publicar também</Text>
-
-                  <View>
-                    <Switch
-                      trackColor={{ false: "#767577", true: "#81b0ff" }}
-                      thumbColor={isEnabled ? "#458eff" : "#f4f3f4"}
-                      ios_backgroundColor="#3e3e3e"
-                      onValueChange={toggleSwitch}
-                      value={isEnabled}
-                    />
-                  </View>
                 </View>
 
                 <View style={styles.rowSeconday}>
@@ -162,8 +123,8 @@ export default function MainScreen() {
                       trackColor={{ false: "#767577", true: "#81b0ff" }}
                       thumbColor={isEnabled ? "#458eff" : "#f4f3f4"}
                       ios_backgroundColor="#3e3e3e"
-                      onValueChange={toggleSwitch}
-                      value={isEnabled}
+                      onValueChange={() => {toggleSwitch(setFacebook) }}
+                      value={facebook}
                     />
                   </View>
                 </View>
@@ -176,22 +137,22 @@ export default function MainScreen() {
                       trackColor={{ false: "#767577", true: "#81b0ff" }}
                       thumbColor={isEnabled ? "#458eff" : "#f4f3f4"}
                       ios_backgroundColor="#3e3e3e"
-                      onValueChange={toggleSwitch}
-                      value={isEnabled}
+                      onValueChange={() => {toggleSwitch(setTwitter) }}
+                      value={twitter}
                     />
                   </View>
                 </View>
 
                 <View style={styles.rowSeconday}>
-                  <Text style={styles.colorWhite}>Twitter</Text>
+                  <Text style={styles.colorWhite}>Tiktok</Text>
 
                   <View>
                     <Switch
                       trackColor={{ false: "#767577", true: "#81b0ff" }}
                       thumbColor={isEnabled ? "#458eff" : "#f4f3f4"}
                       ios_backgroundColor="#3e3e3e"
-                      onValueChange={toggleSwitch}
-                      value={isEnabled}
+                      onValueChange={() => {toggleSwitch(setTiktok) }}
+                      value={tiktok}
                     />
                   </View>
                 </View>
@@ -203,9 +164,9 @@ export default function MainScreen() {
                   <Text style={styles.sectionTitleText}>Configurações avançadas</Text>
                 </View>
 
-              </View>
+              </View>  
 
-            </View>    */}
+            </View>  
       </SafeAreaView>
     );
   }
