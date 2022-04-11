@@ -163,7 +163,7 @@ const Index = ({post, navigation}) => {
                       <LikesNumber>{post?.likes?.length + ' likes'} </LikesNumber>
                   </LikesContainer>
               
-                  <Description>{post?.description}</Description>
+                  <Description>{post?.desc}</Description>
 
                   <TouchableOpacity onPress={() => { navigation.navigate('Comments') }} >
                       <Comments>Ver todos os {post?.comments?.length} comentários</Comments>

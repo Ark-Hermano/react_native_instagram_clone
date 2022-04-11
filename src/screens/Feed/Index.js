@@ -3,10 +3,6 @@ import {
   View,
   SafeAreaView,
   FlatList,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Animated,
   Dimensions
 } from 'react-native';
 
@@ -24,12 +20,8 @@ const innerHeight = Dimensions.get('window').height;
 
 function Feed({navigation}) {
 
-  const [text, setText] = useState('')
   const [posts, setPosts] = useState([])
   const [stories, setStories] = useState([])
-
-  let picText = ''
-  const pan = useRef(new Animated.ValueXY()).current;
 
   useEffect(() => {
     
@@ -77,13 +69,13 @@ function Feed({navigation}) {
 
       <SafeAreaView style={{ height: innerHeight - 120 }}>
         <View  > 
-          {/* <Scroll
+          <Scroll
             horizontal
             showsHorizontalScrollIndicator={false}
             data={stories}
             keyExtractor={item => item.id}
             renderItem={renderStories}
-          /> */}
+          /> 
         </View>
 
      
@@ -91,7 +83,7 @@ function Feed({navigation}) {
           data={posts}
           keyExtractor={item => item.id}
           renderItem={renderItem}
-        /> 
+        />  
       </SafeAreaView>
     </Background>
   );

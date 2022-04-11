@@ -116,7 +116,7 @@ import styled from 'styled-components/native';
   `
 
   export const Description = styled.Text`
-    color: #fff;
+    color: #ffffff;
     lineHeight: 18;
     height: auto
   `
