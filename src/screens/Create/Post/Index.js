@@ -10,7 +10,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons'; 
 
 
-export default function App() {
+export default function App({navigation}) {
   const Tab = createBottomTabNavigator();
 
   const [hasPermission, setHasPermission] = useState(null);
@@ -29,6 +29,7 @@ export default function App() {
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
     <SafeAreaView style={styles.container}>
       <Camera style={styles.camera} type={type}>
@@ -78,7 +79,8 @@ export default function App() {
             <TouchableOpacity
               style={styles.openGallery}
               onPress={() => {
-
+                  navigation.navigate("gallery")
+                  alert('a')
               }}>
               <Image style={styles.lastImage} source={require('./../../../../assets/2.jpeg')} />
             </TouchableOpacity>

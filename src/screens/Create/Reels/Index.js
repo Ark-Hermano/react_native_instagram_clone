@@ -10,7 +10,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons'; 
 
 
-export default function Index() {
+export default function Index({navigation}) {
   const Tab = createBottomTabNavigator();
 
   const [hasPermission, setHasPermission] = useState(null);
@@ -92,7 +92,7 @@ export default function Index() {
             <TouchableOpacity
               style={styles.openGallery}
               onPress={() => {
-
+                navigation.navigate("gallery")
               }}>
               <Image style={styles.lastImage} source={require('./../../../../assets/2.jpeg')} />
             </TouchableOpacity>
