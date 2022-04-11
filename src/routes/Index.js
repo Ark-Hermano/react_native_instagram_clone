@@ -1,9 +1,7 @@
 import React from 'react';
-import { TouchableOpacity, Image,   StyleSheet } from 'react-native';
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Host, Portal } from 'react-native-portalize';
+import { Host } from 'react-native-portalize';
 
 
 import Chat from '../screens/Chat/Index';
@@ -26,9 +24,7 @@ function MainNavigator() {
   return (
     <NavigationContainer>
       <Host>
-        <Stack.Navigator  
-          initialRouteName="Create"
-        >
+        <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeStack}   options={{ headerShown: false  }}   /> 
             <Stack.Screen name="Chat" component={Chat} options={{ headerShown: false  }}  />
             <Stack.Screen name="Comments" component={Comments} options={{ headerShown: false  }}  />
